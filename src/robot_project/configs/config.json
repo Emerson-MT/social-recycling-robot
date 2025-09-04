@@ -1,0 +1,34 @@
+{
+  "llm": {
+    "api_key": "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",
+    "api_base": "https://openrouter.ai/api/v1",
+    "model": "mistralai/mistral-7b-instruct"
+  },
+  "stt": {
+    "model_file": "vosk-model-small-es-0.42"
+  },
+  "tts": {
+    "speech_voice": "es-PE-CamilaNeural"
+  },
+  "cv": {
+    "model_file": "bestfinal_open.pt"
+  },
+  "serial": {
+    "conn1": "/dev/ttyUSB0",
+    "conn2": "/dev/ttyACM0"
+  },
+  "audio": {
+    "device": "plughw:CARD=CODEC,DEV=0"
+  },
+  "database": {
+    "host": "sql10.freesqldatabase.com",
+    "user": "sql10786604",
+    "password": "eSyVsXnvNl",
+    "database": "sql10786604"
+  },
+  "audio_files": {
+    "start_audio_file": "starting_sound-effect.mp3",
+    "win_audio_file": "winning_sound-effect.mp3",
+    "lose_audio_file": "losing_sound-effect.mp3"
+  }
+}

@@ -1,0 +1,13 @@
+pyserial==3.5
+mysql-connector-python==9.3.0
+openai==1.97.0
+word2number_es==1.0.1
+sounddevice==0.5.2
+vosk==0.3.45
+ultralytics==8.3.148
+ultralytics-thop==2.0.14
+opencv-python==4.11.0.86
+gTTS==2.5.4
+edge-tts==7.0.2
+torch==2.5.1
+torchvision==0.20.1
