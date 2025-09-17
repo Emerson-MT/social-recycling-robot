@@ -29,7 +29,7 @@ class TextToSpeech:
             subprocess.run(["ffmpeg", "-y", "-i", mp3_path, wav_path], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
 
             if not self.audio_device:
-                print("❌ No se encontró el dispositivo USB Audio CODEC.")
+                print("❌ No se encontró el dispositivo de audio.")
                 return
 
             print(f"🔊 Reproduciendo en: {self.audio_device}")

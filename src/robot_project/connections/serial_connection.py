@@ -40,7 +40,7 @@ class SerialConnection:
     def wait_for_message(self, prefix, valid_fn):
         while True:
             if self.connection.in_waiting > 0:
-                msg = self.serial.readline().decode('utf-8').strip()
+                msg = self.connection.readline().decode('utf-8').strip()
                 if msg.startswith(prefix):
                     try:
                         value = int(msg.split(":")[1])

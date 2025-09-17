@@ -18,7 +18,7 @@
     "conn2": "/dev/ttyACM0"
   },
   "audio": {
-    "device": "plughw:CARD=CODEC,DEV=0"
+    "device": "plughw:CARD=ArrayUAC10,DEV=0"
   },
   "database": {
     "host": "sql10.freesqldatabase.com",
