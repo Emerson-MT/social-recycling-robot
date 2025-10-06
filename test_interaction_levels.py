@@ -1,11 +1,23 @@
+#!/usr/bin/env python3
+"""
+Script de prueba para el sistema de niveles de interacción.
+Este script te permite probar el flujo completo en modo simulado.
+"""
+
 import os
 import sys
+
+# Forzar modo mock y niveles de interacción
+os.environ['ROBOT_MOCK_MODE'] = 'true'
+# Si quieres probar el modo legacy, descomenta la siguiente línea:
+# os.environ['ROBOT_LEGACY_MODE'] = 'true'
+
 # Add src to the sys.path
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "src")))
-# Imports
-from robot_project import StudentDatabase, LargeLanguageModel, RecyclingRobot
+
+from robot_project import LargeLanguageModel, RecyclingRobot
 from robot_project.configs.config_loader import load_config
-from robot_project.configs.environment import is_mock_mode
+from robot_project.configs.environment import is_mock_mode, use_interaction_levels
 import signal
 
 # Load the json configuration file
@@ -35,7 +47,7 @@ def handle_keyboard_interrupt(signum, frame):
 
 signal.signal(signal.SIGINT, handle_keyboard_interrupt)
 
-# =============== MAIN FUNCTIONS ==================
+# =============== MAIN TEST ==================
 
 def setup_robot() -> RecyclingRobot:
     commands = {
@@ -48,7 +60,7 @@ def setup_robot() -> RecyclingRobot:
         '3': 'residuo_general'
     }
 
-    # Detectar si estamos en modo mock (desarrollo local)
+    # Detectar si estamos en modo mock
     mock_mode = is_mock_mode()
 
     if mock_mode:
@@ -76,38 +88,47 @@ def setup_robot() -> RecyclingRobot:
 
     return RecyclingRobot("Peri", commands, AUDIO_DEVICE, AUDIO_PATHS, stt, llm, tts, cv, ser, db)
 
-def show_test_menu():
-    print('''\n--- Menú de pruebas ---
-    1) Detección de proximidad
-    2) Giro stepper con teclado
-    3) Compuertas (servos)
-    4) Clasificación de residuo (visión)
-    5) Giro automático (stepper)
-    6) Pulsadores (stepper)
-    7) Código y base de datos
-    8) Conversación con Peri
-    9) Programa completo
-    ''')
+def print_test_info():
+    """Imprime información sobre la prueba"""
+    print("\n" + "=" * 60)
+    print("🧪 TEST DE NIVELES DE INTERACCIÓN")
+    print("=" * 60)
+    print(f"Modo Mock: {'✅ Activado' if is_mock_mode() else '❌ Desactivado'}")
+    print(f"Niveles de Interacción: {'✅ Activado' if use_interaction_levels() else '❌ Desactivado (Legacy)'}")
+    print("=" * 60)
 
-def get_test_input() -> int:
-    try:
-        return int(input("Ingrese el número de la prueba a realizar: "))
-    except ValueError:
-        print("Entrada inválida.")
-        return -1
+    if use_interaction_levels():
+        print("\n📋 FLUJO DE PRUEBA ESPERADO:")
+        print("1. Di 'reciclar' para iniciar")
+        print("2. El sensor simulará tiempo de aproximación (selecciona opción 3 para PPI alto)")
+        print("3. Se te pedirá código de estudiante (usa 87654321 para un usuario regular)")
+        print("4. La visión clasificará el residuo (simulado)")
+        print("5. NIVEL 1: Verás feedback educativo")
+        print("6. Si permaneces (di 's'), pasas a NIVEL 2")
+        print("7. NIVEL 2: Responde una pregunta de quiz")
+        print("8. Si estás atento (di 's'), pasas a NIVEL 3")
+        print("9. NIVEL 3: Verás impacto ambiental y logros")
+        print("\n💡 CÓDIGOS DE PRUEBA:")
+        print("   12345678 - Juan Pérez (3 interacciones - Novato)")
+        print("   87654321 - María García (8 interacciones - Regular)")
+        print("   33333333 - Carlos Rodríguez (12 interacciones - Experto)")
+    else:
+        print("\n📋 MODO LEGACY ACTIVADO")
+        print("El sistema usará el flujo antiguo sin niveles de interacción.")
 
-# ========== PROGRAMA PRINCIPAL ========
+    print("\n" + "=" * 60)
+    print("Presiona Ctrl+C para salir en cualquier momento")
+    print("=" * 60 + "\n")
+
 def main():
+    print_test_info()
+
+    input("Presiona ENTER para iniciar el test...")
+
     peri = setup_robot()
 
-    while True:
-        show_test_menu()
-        test = get_test_input()
-        peri.set_test_num(test)
-        if test == 9:
-            peri.run_main_program()
-        else:
-            peri.run_test(test)
+    # Ejecutar programa principal (usará niveles o legacy según configuración)
+    peri.run_main_program()
 
 if __name__ == "__main__":
     main()

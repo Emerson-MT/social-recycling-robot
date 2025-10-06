@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//home/liverlin/social-recycling-robot/src/robot_project/database/**)",
+      "Bash(cat:*)",
+      "Read(//WSL.LOCALHOST/UBUNTU-24.04/home/liverlin/social-recycling-robot/src/robot_project/database/**)",
+      "Read(//WSL.LOCALHOST/UBUNTU-24.04/home/liverlin/social-recycling-robot/src/robot_project/robot/**)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

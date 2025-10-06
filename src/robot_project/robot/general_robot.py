@@ -7,6 +7,7 @@ from robot_project.llm import LargeLanguageModel
 from robot_project.speech import TextToSpeech, SpeechToText
 from robot_project.vision import ComputerVision
 from robot_project.connections import SerialConnection
+from robot_project.configs.environment import is_mock_mode
 
 class Robot:
 
@@ -27,6 +28,12 @@ class Robot:
         self.stop_event = threading.Event()
     
     def play_audio(self, mp3_path):
+        # En modo mock, solo simular la reproducción
+        if is_mock_mode():
+            print(f"🔊 [MOCK] Reproduciendo audio: {os.path.basename(mp3_path)}")
+            time.sleep(0.5)  # Simular duración de reproducción
+            return
+
         wav_path = mp3_path.replace(".mp3", ".wav")
 
         # Convertir MP3 a WAV temporalmente

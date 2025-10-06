@@ -1,0 +1,27 @@
+# Dependencias mínimas para desarrollo local (sin hardware)
+# Estas son las librerías necesarias para probar la lógica del robot en PC
+
+# Comunicación serial (mock en desarrollo, pero necesario para imports)
+pyserial==3.5
+
+# Base de datos
+mysql-connector-python==9.3.0
+
+# LLM / API de OpenAI
+openai==1.97.0
+
+# Conversión de palabras a números en español (para códigos de estudiante)
+word2number_es==1.0.1
+
+# Las siguientes dependencias NO son necesarias en modo desarrollo
+# porque se usan componentes mock:
+#
+# sounddevice==0.5.2          # Mock: MockSpeechToText / MockTextToSpeech
+# vosk==0.3.45                # Mock: MockSpeechToText
+# ultralytics==8.3.148        # Mock: MockComputerVision
+# ultralytics-thop==2.0.14    # Mock: MockComputerVision
+# opencv-python==4.11.0.86    # Mock: MockComputerVision
+# gTTS==2.5.4                 # Mock: MockTextToSpeech
+# edge-tts==7.0.2             # Mock: MockTextToSpeech
+# torch==2.5.1                # Mock: MockComputerVision
+# torchvision==0.20.1         # Mock: MockComputerVision
