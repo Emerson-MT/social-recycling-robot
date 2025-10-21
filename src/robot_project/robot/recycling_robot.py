@@ -5,7 +5,7 @@ import threading
 import time
 from robot_project.llm import LargeLanguageModel
 from robot_project.speech import TextToSpeech, SpeechToText
-from robot_project.vision import ComputerVision
+from robot_project.vision.vision_hailo import ComputerVisionHailo
 from robot_project.connections import SerialConnection
 from robot_project.robot import Robot
 from robot_project.database import StudentDatabase
@@ -16,7 +16,7 @@ from typing import Dict
 
 class RecyclingRobot(Robot):
 
-    def __init__(self, name: str, commands: dict, audio_device: str, audio_paths: Dict[str, str], stt: SpeechToText, llm: LargeLanguageModel, tts: TextToSpeech, cv: ComputerVision, ser: SerialConnection, database: StudentDatabase):
+    def __init__(self, name: str, commands: dict, audio_device: str, audio_paths: Dict[str, str], stt: SpeechToText, llm: LargeLanguageModel, tts: TextToSpeech, cv: ComputerVisionHailo, ser: SerialConnection, database: StudentDatabase):
         super().__init__(name, commands, audio_device, stt, llm, tts, cv, ser)  # Llama al constructor de Robot
         self.student_db = database
         self.audio_paths = audio_paths

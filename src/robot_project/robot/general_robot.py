@@ -5,13 +5,13 @@ import threading
 import time
 from robot_project.llm import LargeLanguageModel
 from robot_project.speech import TextToSpeech, SpeechToText
-from robot_project.vision import ComputerVision
+from robot_project.vision.vision_hailo import ComputerVisionHailo
 from robot_project.connections import SerialConnection
 from robot_project.configs.environment import is_mock_mode
 
 class Robot:
 
-    def __init__(self, name, commands, audio_device, stt: SpeechToText, llm: LargeLanguageModel, tts: TextToSpeech, cv: ComputerVision, ser: SerialConnection):
+    def __init__(self, name, commands, audio_device, stt: SpeechToText, llm: LargeLanguageModel, tts: TextToSpeech, cv: ComputerVisionHailo, ser: SerialConnection):
         self.name = name
         self.audio_device = audio_device   
         self.stt = stt # Speech to text (STT)

@@ -11,7 +11,20 @@
     "speech_voice": "es-PE-CamilaNeural"
   },
   "cv": {
-    "model_file": "bestfinal_open.pt"
+    "model_file": "bestfinal_open.hef",
+    "use_hailo": true,
+    "model_format": "hef",
+    "fallback_model": "bestfinal_open.pt",
+    "class_names": {
+      "0": "cartón",
+      "1": "papel",
+      "2": "plástico",
+      "3": "residuo_general"
+    },
+    "inference": {
+      "tiempo_limite": 3,
+      "confianza_minima": 0.2
+    }
   },
   "serial": {
     "conn1": "/dev/ttyUSB0",

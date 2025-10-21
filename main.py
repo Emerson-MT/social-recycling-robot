@@ -57,7 +57,7 @@ def setup_robot() -> RecyclingRobot:
         print("=" * 60)
         from robot_project.speech.mock_stt import MockSpeechToText as SpeechToText
         from robot_project.speech.mock_tts import MockTextToSpeech as TextToSpeech
-        from robot_project.vision.mock_vision import MockComputerVision as ComputerVision
+        from robot_project.vision.mock_vision import MockComputerVision as ComputerVisionHailo
         from robot_project.connections.mock_serial import MockSerialConnection as SerialConnection
         from robot_project.database.mock_database import MockStudentDatabase as StudentDatabase
         from robot_project.llm.mock_llm import MockLargeLanguageModel as LargeLanguageModel
@@ -65,12 +65,30 @@ def setup_robot() -> RecyclingRobot:
         print("=" * 60)
         print("🤖 MODO PRODUCCIÓN - Usando hardware real")
         print("=" * 60)
-        from robot_project import SerialConnection, SpeechToText, TextToSpeech, ComputerVision, StudentDatabase, LargeLanguageModel
+        from robot_project import SerialConnection, SpeechToText, TextToSpeech, StudentDatabase, LargeLanguageModel
+        from robot_project.vision.vision_hailo import ComputerVisionHailo
 
     stt = SpeechToText(STT_MODEL_PATH)
     llm = LargeLanguageModel(LLM_API_KEY, LLM_API_BASE, LLM_MODEL)
     tts = TextToSpeech(AUDIO_DEVICE, TTS_VOICE, "+0%")
-    cv = ComputerVision(CV_MODEL_PATH)
+
+    # Inicializar Computer Vision
+    if mock_mode:
+        # En modo mock, usar el mock tal cual
+        cv = ComputerVisionHailo(CV_MODEL_PATH)
+    else:
+        # En modo producción, usar Hailo con configuración completa
+        use_hailo = config["cv"].get("use_hailo", True)
+        model_format = config["cv"].get("model_format", None)
+        class_names = {int(k): v for k, v in config["cv"]["class_names"].items()}
+
+        cv = ComputerVisionHailo(
+            model_path=CV_MODEL_PATH,
+            use_hailo=use_hailo,
+            model_format=model_format,
+            class_names=class_names
+        )
+
     ser = SerialConnection(SERIAL_CONN1, 9600, 1)
     db = StudentDatabase(DB_CONFIG)
 
