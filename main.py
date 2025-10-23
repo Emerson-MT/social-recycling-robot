@@ -3,7 +3,7 @@ import sys
 # Add src to the sys.path
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "src")))
 # Imports
-from robot_project import SerialConnection, StudentDatabase, LargeLanguageModel, RecyclingRobot, SpeechToText, TextToSpeech, ComputerVision
+from robot_project import SerialConnection, StudentDatabase, LargeLanguageModel, RecyclingRobot, SpeechToText, TextToSpeech, HailoVision
 from robot_project.configs.config_loader import load_config
 import signal
 
@@ -49,7 +49,7 @@ def setup_robot() -> RecyclingRobot:
     stt = SpeechToText(STT_MODEL_PATH)
     llm = LargeLanguageModel(LLM_API_KEY, LLM_API_BASE, LLM_MODEL)
     tts = TextToSpeech(AUDIO_DEVICE, TTS_VOICE, "+0%")
-    cv = ComputerVision(CV_MODEL_PATH)
+    cv = HailoVision(CV_MODEL_PATH)
     ser = SerialConnection(SERIAL_CONN1, 9600, 1)
     db = StudentDatabase(DB_CONFIG)
 
