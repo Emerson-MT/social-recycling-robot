@@ -10,6 +10,7 @@ from robot_project.connections import SerialConnection
 from robot_project.robot import Robot
 from robot_project.database import StudentDatabase
 from robot_project.configs.config_loader import load_config
+from robot_project.configs.environment import use_interaction_levels
 from word2number_es import w2n
 from typing import Dict
 
@@ -225,10 +226,22 @@ class RecyclingRobot(Robot):
                 self.test_conversacion()
             case _:
                 print("Número de test inválido.")
-    
+
     def run_main_program(self):
-        fsm = RecyclingFSM(self)
-        fsm.run()
+        """Ejecuta el programa principal con el sistema seleccionado (niveles o legacy)"""
+        if use_interaction_levels():
+            print("=" * 60)
+            print("🌟 MODO NIVELES DE INTERACCIÓN ACTIVADO")
+            print("=" * 60)
+            from robot_project.robot.interaction_levels_fsm import InteractionLevelsFSM
+            fsm = InteractionLevelsFSM(self)
+            fsm.run()
+        else:
+            print("=" * 60)
+            print("📋 MODO LEGACY ACTIVADO")
+            print("=" * 60)
+            fsm = RecyclingFSM(self)
+            fsm.run()
 
 class RecyclingFSM:
 
@@ -378,8 +391,3 @@ class RecyclingFSM:
                     break
                 else:
                     self.robot.tts.deliver_message("Lo siento, no encontré ese código de estudiante. Por favor intenta de nuevo.")
-
-    
-    def run_main_program(robot: RecyclingRobot):
-        fsm = RecyclingFSM(robot, robot.db)
-        fsm.run()

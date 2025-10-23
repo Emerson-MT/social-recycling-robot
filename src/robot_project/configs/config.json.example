@@ -1,0 +1,52 @@
+{
+  "llm": {
+    "api_key": "YOUR_API_KEY_HERE",
+    "api_base": "https://openrouter.ai/api/v1",
+    "model": "mistralai/mistral-7b-instruct"
+  },
+  "stt": {
+    "model_file": "vosk-model-small-es-0.42"
+  },
+  "tts": {
+    "speech_voice": "es-PE-CamilaNeural"
+  },
+  "cv": {
+    "model_file": "bestfinal_open.pt"
+  },
+  "serial": {
+    "conn1": "/dev/ttyUSB0",
+    "conn2": "/dev/ttyACM0"
+  },
+  "audio": {
+    "device": "plughw:CARD=CODEC,DEV=0"
+  },
+  "database": {
+    "host": "YOUR_DB_HOST",
+    "user": "YOUR_DB_USER",
+    "password": "YOUR_DB_PASSWORD",
+    "database": "YOUR_DB_NAME"
+  },
+  "audio_files": {
+    "start_audio_file": "starting_sound-effect.mp3",
+    "win_audio_file": "winning_sound-effect.mp3",
+    "lose_audio_file": "losing_sound-effect.mp3"
+  },
+  "interaction_levels": {
+    "enabled": true,
+    "ppi_threshold": 0.6,
+    "level_1": {
+      "duration_seconds": 5
+    },
+    "level_2": {
+      "permanence_threshold_seconds": 2,
+      "quiz_timer_seconds": 10,
+      "points_correct": 10,
+      "points_attempt": 5
+    },
+    "level_3": {
+      "permanence_threshold_seconds": 3,
+      "location": "Lima",
+      "district": "Miraflores"
+    }
+  }
+}
