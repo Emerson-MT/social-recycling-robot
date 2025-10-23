@@ -11,14 +11,14 @@
     "speech_voice": "es-PE-CamilaNeural"
   },
   "cv": {
-    "model_file": "bestfinal_open.pt"
+    "model_file": "peri_hailo--640x640_quant_hailort_multidevice_1"
   },
   "serial": {
     "conn1": "/dev/ttyUSB0",
     "conn2": "/dev/ttyACM0"
   },
   "audio": {
-    "device": "plughw:CARD=CODEC,DEV=0"
+    "device": "plughw:CARD=ArrayUAC10,DEV=0"
   },
   "database": {
     "host": "sql10.freesqldatabase.com",

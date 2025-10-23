@@ -1,0 +1,747 @@
+[2025-10-23 15:46:31.172] [26733] [HailoRT] [info] [device.cpp:51] [Device] OS Version: Linux 6.12.47+rpt-rpi-2712 #1 SMP PREEMPT Debian 1:6.12.47-1+rpt1~bookworm (2025-09-16) aarch64
+[2025-10-23 15:46:31.173] [26733] [HailoRT] [info] [control.cpp:109] [control__parse_identify_results] firmware_version is: 4.19.0
+[2025-10-23 15:46:31.174] [26733] [HailoRT] [info] [control.cpp:109] [control__parse_identify_results] firmware_version is: 4.19.0
+[2025-10-23 15:46:31.234] [26733] [HailoRT] [info] [device.cpp:51] [Device] OS Version: Linux 6.12.47+rpt-rpi-2712 #1 SMP PREEMPT Debian 1:6.12.47-1+rpt1~bookworm (2025-09-16) aarch64
+[2025-10-23 15:46:31.235] [26733] [HailoRT] [info] [control.cpp:109] [control__parse_identify_results] firmware_version is: 4.19.0
+[2025-10-23 15:46:31.236] [26733] [HailoRT] [info] [control.cpp:109] [control__parse_identify_results] firmware_version is: 4.19.0
+[2025-10-23 15:46:31.803] [26745] [HailoRT] [info] [device.cpp:51] [Device] OS Version: Linux 6.12.47+rpt-rpi-2712 #1 SMP PREEMPT Debian 1:6.12.47-1+rpt1~bookworm (2025-09-16) aarch64
+[2025-10-23 15:46:31.804] [26745] [HailoRT] [info] [control.cpp:109] [control__parse_identify_results] firmware_version is: 4.19.0
+[2025-10-23 15:46:31.805] [26745] [HailoRT] [info] [control.cpp:109] [control__parse_identify_results] firmware_version is: 4.19.0
+[2025-10-23 15:46:32.853] [26745] [HailoRT] [info] [device.cpp:51] [Device] OS Version: Linux 6.12.47+rpt-rpi-2712 #1 SMP PREEMPT Debian 1:6.12.47-1+rpt1~bookworm (2025-09-16) aarch64
+[2025-10-23 15:46:32.854] [26745] [HailoRT] [info] [control.cpp:109] [control__parse_identify_results] firmware_version is: 4.19.0
+[2025-10-23 15:46:32.952] [26745] [HailoRT] [info] [hef.cpp:1847] [get_network_group_and_network_name] No name was given. Addressing all networks of default network_group: bestnew_v8
+[2025-10-23 15:46:32.952] [26745] [HailoRT] [info] [hef.cpp:1847] [get_network_group_and_network_name] No name was given. Addressing all networks of default network_group: bestnew_v8
+[2025-10-23 15:46:33.120] [26745] [HailoRT] [info] [multi_io_elements.cpp:783] [create] Created (AsyncHwEl)
+[2025-10-23 15:46:33.120] [26745] [HailoRT] [info] [queue_elements.cpp:427] [create] Created (EntryPushQEl0bestnew_v8/input_layer1 | timeout: 10s)
+[2025-10-23 15:46:33.120] [26745] [HailoRT] [info] [filter_elements.cpp:101] [create] Created (PreInferEl1bestnew_v8/input_layer1 | Reorder - src_order: NHWC, src_shape: (640, 640, 3), dst_order: NHCW, dst_shape: (640, 640, 3))
+[2025-10-23 15:46:33.120] [26745] [HailoRT] [info] [queue_elements.cpp:427] [create] Created (PushQEl1bestnew_v8/input_layer1 | timeout: 10s)
+[2025-10-23 15:46:33.121] [26745] [HailoRT] [info] [multi_io_elements.cpp:162] [create] Created (NmsPPMuxEl0YOLOV8-Post-Process | Op YOLOV8, Name: YOLOV8-Post-Process, Score threshold: 0.300, IoU threshold: 0.60, Classes: 4, Cross classes: false, Max bboxes per class: 100, Image height: 640, Image width: 640)
+[2025-10-23 15:46:33.121] [26745] [HailoRT] [info] [queue_elements.cpp:427] [create] Created (PushQEl_nms3bestnew_v8/conv47_97 | timeout: 10s)
+[2025-10-23 15:46:33.121] [26745] [HailoRT] [info] [queue_elements.cpp:427] [create] Created (PushQEl_nms2bestnew_v8/conv48_97 | timeout: 10s)
+[2025-10-23 15:46:33.121] [26745] [HailoRT] [info] [queue_elements.cpp:427] [create] Created (PushQEl_nms1bestnew_v8/conv59_97 | timeout: 10s)
+[2025-10-23 15:46:33.121] [26745] [HailoRT] [info] [queue_elements.cpp:427] [create] Created (PushQEl_nms0bestnew_v8/conv60_97 | timeout: 10s)
+[2025-10-23 15:46:33.121] [26745] [HailoRT] [info] [queue_elements.cpp:427] [create] Created (PushQEl_nms3bestnew_v8/conv70_97 | timeout: 10s)
+[2025-10-23 15:46:33.121] [26745] [HailoRT] [info] [queue_elements.cpp:427] [create] Created (PushQEl_nms2bestnew_v8/conv71_97 | timeout: 10s)
+[2025-10-23 15:46:33.121] [26745] [HailoRT] [info] [edge_elements.cpp:187] [create] Created (LastAsyncEl0NmsPPMuxEl0YOLOV8-Post-Process)
+[2025-10-23 15:46:33.121] [26745] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] EntryPushQEl0bestnew_v8/input_layer1 | inputs: user | outputs: PreInferEl1bestnew_v8/input_layer1
+[2025-10-23 15:46:33.121] [26745] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] PreInferEl1bestnew_v8/input_layer1 | inputs: EntryPushQEl0bestnew_v8/input_layer1 | outputs: PushQEl1bestnew_v8/input_layer1
+[2025-10-23 15:46:33.121] [26745] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] PushQEl1bestnew_v8/input_layer1 | inputs: PreInferEl1bestnew_v8/input_layer1 | outputs: AsyncHwEl
+[2025-10-23 15:46:33.121] [26745] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] AsyncHwEl | inputs: PushQEl1bestnew_v8/input_layer1 | outputs: PushQEl_nms2bestnew_v8/conv71_97 PushQEl_nms0bestnew_v8/conv60_97 PushQEl_nms3bestnew_v8/conv70_97 PushQEl_nms1bestnew_v8/conv59_97 PushQEl_nms3bestnew_v8/conv47_97 PushQEl_nms2bestnew_v8/conv48_97
+[2025-10-23 15:46:33.121] [26745] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] PushQEl_nms2bestnew_v8/conv71_97 | inputs: AsyncHwEl | outputs: NmsPPMuxEl0YOLOV8-Post-Process
+[2025-10-23 15:46:33.121] [26745] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] NmsPPMuxEl0YOLOV8-Post-Process | inputs: PushQEl_nms3bestnew_v8/conv47_97 PushQEl_nms2bestnew_v8/conv48_97 PushQEl_nms1bestnew_v8/conv59_97 PushQEl_nms0bestnew_v8/conv60_97 PushQEl_nms3bestnew_v8/conv70_97 PushQEl_nms2bestnew_v8/conv71_97 | outputs: LastAsyncEl0NmsPPMuxEl0YOLOV8-Post-Process
+[2025-10-23 15:46:33.121] [26745] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] LastAsyncEl0NmsPPMuxEl0YOLOV8-Post-Process | inputs: NmsPPMuxEl0YOLOV8-Post-Process | outputs: user
+[2025-10-23 15:46:33.121] [26745] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] PushQEl_nms0bestnew_v8/conv60_97 | inputs: AsyncHwEl | outputs: NmsPPMuxEl0YOLOV8-Post-Process
+[2025-10-23 15:46:33.121] [26745] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] PushQEl_nms3bestnew_v8/conv70_97 | inputs: AsyncHwEl | outputs: NmsPPMuxEl0YOLOV8-Post-Process
+[2025-10-23 15:46:33.121] [26745] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] PushQEl_nms1bestnew_v8/conv59_97 | inputs: AsyncHwEl | outputs: NmsPPMuxEl0YOLOV8-Post-Process
+[2025-10-23 15:46:33.121] [26745] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] PushQEl_nms3bestnew_v8/conv47_97 | inputs: AsyncHwEl | outputs: NmsPPMuxEl0YOLOV8-Post-Process
+[2025-10-23 15:46:33.121] [26745] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] PushQEl_nms2bestnew_v8/conv48_97 | inputs: AsyncHwEl | outputs: NmsPPMuxEl0YOLOV8-Post-Process
+[2025-10-23 15:46:33.122] [26745] [HailoRT] [info] [hef.cpp:1847] [get_network_group_and_network_name] No name was given. Addressing all networks of default network_group: bestnew_v8
+[2025-10-23 15:46:33.122] [26745] [HailoRT] [info] [hef.cpp:1847] [get_network_group_and_network_name] No name was given. Addressing all networks of default network_group: bestnew_v8
+[2025-10-23 15:46:34.559] [26733] [HailoRT] [info] [async_infer_runner.cpp:86] [shutdown] Pipeline was aborted. Shutting it down
+[2025-10-23 15:46:34.559] [26733] [HailoRT] [info] [queue_elements.cpp:543] [execute_deactivate] enqueue() in element PushQEl_nms2bestnew_v8/conv71_97 was aborted, got status = HAILO_SHUTDOWN_EVENT_SIGNALED(57)
+[2025-10-23 15:46:34.559] [26733] [HailoRT] [info] [queue_elements.cpp:543] [execute_deactivate] enqueue() in element PushQEl_nms0bestnew_v8/conv60_97 was aborted, got status = HAILO_SHUTDOWN_EVENT_SIGNALED(57)
+[2025-10-23 15:46:34.559] [26733] [HailoRT] [info] [queue_elements.cpp:543] [execute_deactivate] enqueue() in element PushQEl_nms3bestnew_v8/conv70_97 was aborted, got status = HAILO_SHUTDOWN_EVENT_SIGNALED(57)
+[2025-10-23 15:46:34.559] [26733] [HailoRT] [info] [queue_elements.cpp:543] [execute_deactivate] enqueue() in element PushQEl_nms1bestnew_v8/conv59_97 was aborted, got status = HAILO_SHUTDOWN_EVENT_SIGNALED(57)
+[2025-10-23 15:46:34.560] [26733] [HailoRT] [info] [queue_elements.cpp:543] [execute_deactivate] enqueue() in element PushQEl_nms3bestnew_v8/conv47_97 was aborted, got status = HAILO_SHUTDOWN_EVENT_SIGNALED(57)
+[2025-10-23 15:46:34.560] [26733] [HailoRT] [info] [queue_elements.cpp:543] [execute_deactivate] enqueue() in element PushQEl_nms2bestnew_v8/conv48_97 was aborted, got status = HAILO_SHUTDOWN_EVENT_SIGNALED(57)
+[2025-10-23 15:46:34.560] [26733] [HailoRT] [info] [queue_elements.cpp:543] [execute_deactivate] enqueue() in element PushQEl1bestnew_v8/input_layer1 was aborted, got status = HAILO_SHUTDOWN_EVENT_SIGNALED(57)
+[2025-10-23 15:46:34.560] [26733] [HailoRT] [info] [queue_elements.cpp:543] [execute_deactivate] enqueue() in element EntryPushQEl0bestnew_v8/input_layer1 was aborted, got status = HAILO_SHUTDOWN_EVENT_SIGNALED(57)
+[2025-10-23 15:46:34.560] [26733] [HailoRT] [info] [queue_elements.cpp:43] [~BaseQueueElement] Queue element EntryPushQEl0bestnew_v8/input_layer1 has 0 frames in his Queue on destruction
+[2025-10-23 15:46:34.560] [26733] [HailoRT] [info] [queue_elements.cpp:43] [~BaseQueueElement] Queue element PushQEl1bestnew_v8/input_layer1 has 0 frames in his Queue on destruction
+[2025-10-23 15:46:34.560] [26733] [HailoRT] [info] [queue_elements.cpp:43] [~BaseQueueElement] Queue element PushQEl_nms3bestnew_v8/conv47_97 has 0 frames in his Queue on destruction
+[2025-10-23 15:46:34.560] [26733] [HailoRT] [info] [queue_elements.cpp:43] [~BaseQueueElement] Queue element PushQEl_nms2bestnew_v8/conv48_97 has 0 frames in his Queue on destruction
+[2025-10-23 15:46:34.560] [26733] [HailoRT] [info] [queue_elements.cpp:43] [~BaseQueueElement] Queue element PushQEl_nms1bestnew_v8/conv59_97 has 0 frames in his Queue on destruction
+[2025-10-23 15:46:34.560] [26733] [HailoRT] [info] [queue_elements.cpp:43] [~BaseQueueElement] Queue element PushQEl_nms0bestnew_v8/conv60_97 has 0 frames in his Queue on destruction
+[2025-10-23 15:46:34.560] [26733] [HailoRT] [info] [queue_elements.cpp:43] [~BaseQueueElement] Queue element PushQEl_nms3bestnew_v8/conv70_97 has 0 frames in his Queue on destruction
+[2025-10-23 15:46:34.560] [26733] [HailoRT] [info] [queue_elements.cpp:43] [~BaseQueueElement] Queue element PushQEl_nms2bestnew_v8/conv71_97 has 0 frames in his Queue on destruction
+[2025-10-23 15:46:34.561] [26792] [HailoRT] [info] [vdevice.cpp:430] [listener_run_in_thread] Shutdown event was signaled in listener_run_in_thread
+[2025-10-23 15:46:53.191] [26882] [HailoRT] [info] [device.cpp:51] [Device] OS Version: Linux 6.12.47+rpt-rpi-2712 #1 SMP PREEMPT Debian 1:6.12.47-1+rpt1~bookworm (2025-09-16) aarch64
+[2025-10-23 15:46:53.192] [26882] [HailoRT] [info] [control.cpp:109] [control__parse_identify_results] firmware_version is: 4.19.0
+[2025-10-23 15:46:53.193] [26882] [HailoRT] [info] [control.cpp:109] [control__parse_identify_results] firmware_version is: 4.19.0
+[2025-10-23 15:46:53.254] [26882] [HailoRT] [info] [device.cpp:51] [Device] OS Version: Linux 6.12.47+rpt-rpi-2712 #1 SMP PREEMPT Debian 1:6.12.47-1+rpt1~bookworm (2025-09-16) aarch64
+[2025-10-23 15:46:53.255] [26882] [HailoRT] [info] [control.cpp:109] [control__parse_identify_results] firmware_version is: 4.19.0
+[2025-10-23 15:46:53.256] [26882] [HailoRT] [info] [control.cpp:109] [control__parse_identify_results] firmware_version is: 4.19.0
+[2025-10-23 15:46:53.832] [26900] [HailoRT] [info] [device.cpp:51] [Device] OS Version: Linux 6.12.47+rpt-rpi-2712 #1 SMP PREEMPT Debian 1:6.12.47-1+rpt1~bookworm (2025-09-16) aarch64
+[2025-10-23 15:46:53.833] [26900] [HailoRT] [info] [control.cpp:109] [control__parse_identify_results] firmware_version is: 4.19.0
+[2025-10-23 15:46:53.834] [26900] [HailoRT] [info] [control.cpp:109] [control__parse_identify_results] firmware_version is: 4.19.0
+[2025-10-23 15:46:54.892] [26900] [HailoRT] [info] [device.cpp:51] [Device] OS Version: Linux 6.12.47+rpt-rpi-2712 #1 SMP PREEMPT Debian 1:6.12.47-1+rpt1~bookworm (2025-09-16) aarch64
+[2025-10-23 15:46:54.894] [26900] [HailoRT] [info] [control.cpp:109] [control__parse_identify_results] firmware_version is: 4.19.0
+[2025-10-23 15:46:55.027] [26900] [HailoRT] [info] [hef.cpp:1847] [get_network_group_and_network_name] No name was given. Addressing all networks of default network_group: bestnew_v8
+[2025-10-23 15:46:55.027] [26900] [HailoRT] [info] [hef.cpp:1847] [get_network_group_and_network_name] No name was given. Addressing all networks of default network_group: bestnew_v8
+[2025-10-23 15:46:55.195] [26900] [HailoRT] [info] [multi_io_elements.cpp:783] [create] Created (AsyncHwEl)
+[2025-10-23 15:46:55.195] [26900] [HailoRT] [info] [queue_elements.cpp:427] [create] Created (EntryPushQEl0bestnew_v8/input_layer1 | timeout: 10s)
+[2025-10-23 15:46:55.195] [26900] [HailoRT] [info] [filter_elements.cpp:101] [create] Created (PreInferEl1bestnew_v8/input_layer1 | Reorder - src_order: NHWC, src_shape: (640, 640, 3), dst_order: NHCW, dst_shape: (640, 640, 3))
+[2025-10-23 15:46:55.195] [26900] [HailoRT] [info] [queue_elements.cpp:427] [create] Created (PushQEl1bestnew_v8/input_layer1 | timeout: 10s)
+[2025-10-23 15:46:55.196] [26900] [HailoRT] [info] [multi_io_elements.cpp:162] [create] Created (NmsPPMuxEl0YOLOV8-Post-Process | Op YOLOV8, Name: YOLOV8-Post-Process, Score threshold: 0.300, IoU threshold: 0.60, Classes: 4, Cross classes: false, Max bboxes per class: 100, Image height: 640, Image width: 640)
+[2025-10-23 15:46:55.196] [26900] [HailoRT] [info] [queue_elements.cpp:427] [create] Created (PushQEl_nms3bestnew_v8/conv47_97 | timeout: 10s)
+[2025-10-23 15:46:55.196] [26900] [HailoRT] [info] [queue_elements.cpp:427] [create] Created (PushQEl_nms2bestnew_v8/conv48_97 | timeout: 10s)
+[2025-10-23 15:46:55.196] [26900] [HailoRT] [info] [queue_elements.cpp:427] [create] Created (PushQEl_nms1bestnew_v8/conv59_97 | timeout: 10s)
+[2025-10-23 15:46:55.196] [26900] [HailoRT] [info] [queue_elements.cpp:427] [create] Created (PushQEl_nms0bestnew_v8/conv60_97 | timeout: 10s)
+[2025-10-23 15:46:55.196] [26900] [HailoRT] [info] [queue_elements.cpp:427] [create] Created (PushQEl_nms3bestnew_v8/conv70_97 | timeout: 10s)
+[2025-10-23 15:46:55.196] [26900] [HailoRT] [info] [queue_elements.cpp:427] [create] Created (PushQEl_nms2bestnew_v8/conv71_97 | timeout: 10s)
+[2025-10-23 15:46:55.196] [26900] [HailoRT] [info] [edge_elements.cpp:187] [create] Created (LastAsyncEl0NmsPPMuxEl0YOLOV8-Post-Process)
+[2025-10-23 15:46:55.196] [26900] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] EntryPushQEl0bestnew_v8/input_layer1 | inputs: user | outputs: PreInferEl1bestnew_v8/input_layer1
+[2025-10-23 15:46:55.196] [26900] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] PreInferEl1bestnew_v8/input_layer1 | inputs: EntryPushQEl0bestnew_v8/input_layer1 | outputs: PushQEl1bestnew_v8/input_layer1
+[2025-10-23 15:46:55.196] [26900] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] PushQEl1bestnew_v8/input_layer1 | inputs: PreInferEl1bestnew_v8/input_layer1 | outputs: AsyncHwEl
+[2025-10-23 15:46:55.196] [26900] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] AsyncHwEl | inputs: PushQEl1bestnew_v8/input_layer1 | outputs: PushQEl_nms2bestnew_v8/conv71_97 PushQEl_nms0bestnew_v8/conv60_97 PushQEl_nms3bestnew_v8/conv70_97 PushQEl_nms1bestnew_v8/conv59_97 PushQEl_nms3bestnew_v8/conv47_97 PushQEl_nms2bestnew_v8/conv48_97
+[2025-10-23 15:46:55.196] [26900] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] PushQEl_nms2bestnew_v8/conv71_97 | inputs: AsyncHwEl | outputs: NmsPPMuxEl0YOLOV8-Post-Process
+[2025-10-23 15:46:55.196] [26900] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] NmsPPMuxEl0YOLOV8-Post-Process | inputs: PushQEl_nms3bestnew_v8/conv47_97 PushQEl_nms2bestnew_v8/conv48_97 PushQEl_nms1bestnew_v8/conv59_97 PushQEl_nms0bestnew_v8/conv60_97 PushQEl_nms3bestnew_v8/conv70_97 PushQEl_nms2bestnew_v8/conv71_97 | outputs: LastAsyncEl0NmsPPMuxEl0YOLOV8-Post-Process
+[2025-10-23 15:46:55.196] [26900] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] LastAsyncEl0NmsPPMuxEl0YOLOV8-Post-Process | inputs: NmsPPMuxEl0YOLOV8-Post-Process | outputs: user
+[2025-10-23 15:46:55.196] [26900] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] PushQEl_nms0bestnew_v8/conv60_97 | inputs: AsyncHwEl | outputs: NmsPPMuxEl0YOLOV8-Post-Process
+[2025-10-23 15:46:55.196] [26900] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] PushQEl_nms3bestnew_v8/conv70_97 | inputs: AsyncHwEl | outputs: NmsPPMuxEl0YOLOV8-Post-Process
+[2025-10-23 15:46:55.196] [26900] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] PushQEl_nms1bestnew_v8/conv59_97 | inputs: AsyncHwEl | outputs: NmsPPMuxEl0YOLOV8-Post-Process
+[2025-10-23 15:46:55.196] [26900] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] PushQEl_nms3bestnew_v8/conv47_97 | inputs: AsyncHwEl | outputs: NmsPPMuxEl0YOLOV8-Post-Process
+[2025-10-23 15:46:55.196] [26900] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] PushQEl_nms2bestnew_v8/conv48_97 | inputs: AsyncHwEl | outputs: NmsPPMuxEl0YOLOV8-Post-Process
+[2025-10-23 15:46:55.197] [26900] [HailoRT] [info] [hef.cpp:1847] [get_network_group_and_network_name] No name was given. Addressing all networks of default network_group: bestnew_v8
+[2025-10-23 15:46:55.197] [26900] [HailoRT] [info] [hef.cpp:1847] [get_network_group_and_network_name] No name was given. Addressing all networks of default network_group: bestnew_v8
+[2025-10-23 15:46:56.587] [26882] [HailoRT] [info] [async_infer_runner.cpp:86] [shutdown] Pipeline was aborted. Shutting it down
+[2025-10-23 15:46:56.587] [26882] [HailoRT] [info] [queue_elements.cpp:543] [execute_deactivate] enqueue() in element PushQEl_nms2bestnew_v8/conv71_97 was aborted, got status = HAILO_SHUTDOWN_EVENT_SIGNALED(57)
+[2025-10-23 15:46:56.587] [26882] [HailoRT] [info] [queue_elements.cpp:543] [execute_deactivate] enqueue() in element PushQEl_nms0bestnew_v8/conv60_97 was aborted, got status = HAILO_SHUTDOWN_EVENT_SIGNALED(57)
+[2025-10-23 15:46:56.587] [26882] [HailoRT] [info] [queue_elements.cpp:543] [execute_deactivate] enqueue() in element PushQEl_nms3bestnew_v8/conv70_97 was aborted, got status = HAILO_SHUTDOWN_EVENT_SIGNALED(57)
+[2025-10-23 15:46:56.587] [26882] [HailoRT] [info] [queue_elements.cpp:543] [execute_deactivate] enqueue() in element PushQEl_nms1bestnew_v8/conv59_97 was aborted, got status = HAILO_SHUTDOWN_EVENT_SIGNALED(57)
+[2025-10-23 15:46:56.587] [26882] [HailoRT] [info] [queue_elements.cpp:543] [execute_deactivate] enqueue() in element PushQEl_nms3bestnew_v8/conv47_97 was aborted, got status = HAILO_SHUTDOWN_EVENT_SIGNALED(57)
+[2025-10-23 15:46:56.587] [26882] [HailoRT] [info] [queue_elements.cpp:543] [execute_deactivate] enqueue() in element PushQEl_nms2bestnew_v8/conv48_97 was aborted, got status = HAILO_SHUTDOWN_EVENT_SIGNALED(57)
+[2025-10-23 15:46:56.587] [26882] [HailoRT] [info] [queue_elements.cpp:543] [execute_deactivate] enqueue() in element PushQEl1bestnew_v8/input_layer1 was aborted, got status = HAILO_SHUTDOWN_EVENT_SIGNALED(57)
+[2025-10-23 15:46:56.587] [26882] [HailoRT] [info] [queue_elements.cpp:543] [execute_deactivate] enqueue() in element EntryPushQEl0bestnew_v8/input_layer1 was aborted, got status = HAILO_SHUTDOWN_EVENT_SIGNALED(57)
+[2025-10-23 15:46:56.587] [26882] [HailoRT] [info] [queue_elements.cpp:43] [~BaseQueueElement] Queue element EntryPushQEl0bestnew_v8/input_layer1 has 0 frames in his Queue on destruction
+[2025-10-23 15:46:56.587] [26882] [HailoRT] [info] [queue_elements.cpp:43] [~BaseQueueElement] Queue element PushQEl1bestnew_v8/input_layer1 has 0 frames in his Queue on destruction
+[2025-10-23 15:46:56.587] [26882] [HailoRT] [info] [queue_elements.cpp:43] [~BaseQueueElement] Queue element PushQEl_nms3bestnew_v8/conv47_97 has 0 frames in his Queue on destruction
+[2025-10-23 15:46:56.588] [26882] [HailoRT] [info] [queue_elements.cpp:43] [~BaseQueueElement] Queue element PushQEl_nms2bestnew_v8/conv48_97 has 0 frames in his Queue on destruction
+[2025-10-23 15:46:56.588] [26882] [HailoRT] [info] [queue_elements.cpp:43] [~BaseQueueElement] Queue element PushQEl_nms1bestnew_v8/conv59_97 has 0 frames in his Queue on destruction
+[2025-10-23 15:46:56.588] [26882] [HailoRT] [info] [queue_elements.cpp:43] [~BaseQueueElement] Queue element PushQEl_nms0bestnew_v8/conv60_97 has 0 frames in his Queue on destruction
+[2025-10-23 15:46:56.588] [26882] [HailoRT] [info] [queue_elements.cpp:43] [~BaseQueueElement] Queue element PushQEl_nms3bestnew_v8/conv70_97 has 0 frames in his Queue on destruction
+[2025-10-23 15:46:56.588] [26882] [HailoRT] [info] [queue_elements.cpp:43] [~BaseQueueElement] Queue element PushQEl_nms2bestnew_v8/conv71_97 has 0 frames in his Queue on destruction
+[2025-10-23 15:46:56.589] [26939] [HailoRT] [info] [vdevice.cpp:430] [listener_run_in_thread] Shutdown event was signaled in listener_run_in_thread
+[2025-10-23 15:53:43.632] [28215] [HailoRT] [info] [device.cpp:51] [Device] OS Version: Linux 6.12.47+rpt-rpi-2712 #1 SMP PREEMPT Debian 1:6.12.47-1+rpt1~bookworm (2025-09-16) aarch64
+[2025-10-23 15:53:43.633] [28215] [HailoRT] [info] [control.cpp:109] [control__parse_identify_results] firmware_version is: 4.19.0
+[2025-10-23 15:53:43.634] [28215] [HailoRT] [info] [control.cpp:109] [control__parse_identify_results] firmware_version is: 4.19.0
+[2025-10-23 15:53:43.690] [28215] [HailoRT] [info] [device.cpp:51] [Device] OS Version: Linux 6.12.47+rpt-rpi-2712 #1 SMP PREEMPT Debian 1:6.12.47-1+rpt1~bookworm (2025-09-16) aarch64
+[2025-10-23 15:53:43.691] [28215] [HailoRT] [info] [control.cpp:109] [control__parse_identify_results] firmware_version is: 4.19.0
+[2025-10-23 15:53:43.692] [28215] [HailoRT] [info] [control.cpp:109] [control__parse_identify_results] firmware_version is: 4.19.0
+[2025-10-23 15:53:44.268] [28227] [HailoRT] [info] [device.cpp:51] [Device] OS Version: Linux 6.12.47+rpt-rpi-2712 #1 SMP PREEMPT Debian 1:6.12.47-1+rpt1~bookworm (2025-09-16) aarch64
+[2025-10-23 15:53:44.270] [28227] [HailoRT] [info] [control.cpp:109] [control__parse_identify_results] firmware_version is: 4.19.0
+[2025-10-23 15:53:44.271] [28227] [HailoRT] [info] [control.cpp:109] [control__parse_identify_results] firmware_version is: 4.19.0
+[2025-10-23 15:53:45.320] [28227] [HailoRT] [info] [device.cpp:51] [Device] OS Version: Linux 6.12.47+rpt-rpi-2712 #1 SMP PREEMPT Debian 1:6.12.47-1+rpt1~bookworm (2025-09-16) aarch64
+[2025-10-23 15:53:45.321] [28227] [HailoRT] [info] [control.cpp:109] [control__parse_identify_results] firmware_version is: 4.19.0
+[2025-10-23 15:53:45.421] [28227] [HailoRT] [info] [hef.cpp:1847] [get_network_group_and_network_name] No name was given. Addressing all networks of default network_group: bestnew_v8
+[2025-10-23 15:53:45.421] [28227] [HailoRT] [info] [hef.cpp:1847] [get_network_group_and_network_name] No name was given. Addressing all networks of default network_group: bestnew_v8
+[2025-10-23 15:53:45.590] [28227] [HailoRT] [info] [multi_io_elements.cpp:783] [create] Created (AsyncHwEl)
+[2025-10-23 15:53:45.590] [28227] [HailoRT] [info] [queue_elements.cpp:427] [create] Created (EntryPushQEl0bestnew_v8/input_layer1 | timeout: 10s)
+[2025-10-23 15:53:45.590] [28227] [HailoRT] [info] [filter_elements.cpp:101] [create] Created (PreInferEl1bestnew_v8/input_layer1 | Reorder - src_order: NHWC, src_shape: (640, 640, 3), dst_order: NHCW, dst_shape: (640, 640, 3))
+[2025-10-23 15:53:45.590] [28227] [HailoRT] [info] [queue_elements.cpp:427] [create] Created (PushQEl1bestnew_v8/input_layer1 | timeout: 10s)
+[2025-10-23 15:53:45.591] [28227] [HailoRT] [info] [multi_io_elements.cpp:162] [create] Created (NmsPPMuxEl0YOLOV8-Post-Process | Op YOLOV8, Name: YOLOV8-Post-Process, Score threshold: 0.300, IoU threshold: 0.60, Classes: 4, Cross classes: false, Max bboxes per class: 100, Image height: 640, Image width: 640)
+[2025-10-23 15:53:45.591] [28227] [HailoRT] [info] [queue_elements.cpp:427] [create] Created (PushQEl_nms3bestnew_v8/conv47_97 | timeout: 10s)
+[2025-10-23 15:53:45.591] [28227] [HailoRT] [info] [queue_elements.cpp:427] [create] Created (PushQEl_nms2bestnew_v8/conv48_97 | timeout: 10s)
+[2025-10-23 15:53:45.591] [28227] [HailoRT] [info] [queue_elements.cpp:427] [create] Created (PushQEl_nms1bestnew_v8/conv59_97 | timeout: 10s)
+[2025-10-23 15:53:45.591] [28227] [HailoRT] [info] [queue_elements.cpp:427] [create] Created (PushQEl_nms0bestnew_v8/conv60_97 | timeout: 10s)
+[2025-10-23 15:53:45.591] [28227] [HailoRT] [info] [queue_elements.cpp:427] [create] Created (PushQEl_nms3bestnew_v8/conv70_97 | timeout: 10s)
+[2025-10-23 15:53:45.591] [28227] [HailoRT] [info] [queue_elements.cpp:427] [create] Created (PushQEl_nms2bestnew_v8/conv71_97 | timeout: 10s)
+[2025-10-23 15:53:45.591] [28227] [HailoRT] [info] [edge_elements.cpp:187] [create] Created (LastAsyncEl0NmsPPMuxEl0YOLOV8-Post-Process)
+[2025-10-23 15:53:45.591] [28227] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] EntryPushQEl0bestnew_v8/input_layer1 | inputs: user | outputs: PreInferEl1bestnew_v8/input_layer1
+[2025-10-23 15:53:45.591] [28227] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] PreInferEl1bestnew_v8/input_layer1 | inputs: EntryPushQEl0bestnew_v8/input_layer1 | outputs: PushQEl1bestnew_v8/input_layer1
+[2025-10-23 15:53:45.591] [28227] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] PushQEl1bestnew_v8/input_layer1 | inputs: PreInferEl1bestnew_v8/input_layer1 | outputs: AsyncHwEl
+[2025-10-23 15:53:45.591] [28227] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] AsyncHwEl | inputs: PushQEl1bestnew_v8/input_layer1 | outputs: PushQEl_nms2bestnew_v8/conv71_97 PushQEl_nms0bestnew_v8/conv60_97 PushQEl_nms3bestnew_v8/conv70_97 PushQEl_nms1bestnew_v8/conv59_97 PushQEl_nms3bestnew_v8/conv47_97 PushQEl_nms2bestnew_v8/conv48_97
+[2025-10-23 15:53:45.591] [28227] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] PushQEl_nms2bestnew_v8/conv71_97 | inputs: AsyncHwEl | outputs: NmsPPMuxEl0YOLOV8-Post-Process
+[2025-10-23 15:53:45.591] [28227] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] NmsPPMuxEl0YOLOV8-Post-Process | inputs: PushQEl_nms3bestnew_v8/conv47_97 PushQEl_nms2bestnew_v8/conv48_97 PushQEl_nms1bestnew_v8/conv59_97 PushQEl_nms0bestnew_v8/conv60_97 PushQEl_nms3bestnew_v8/conv70_97 PushQEl_nms2bestnew_v8/conv71_97 | outputs: LastAsyncEl0NmsPPMuxEl0YOLOV8-Post-Process
+[2025-10-23 15:53:45.591] [28227] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] LastAsyncEl0NmsPPMuxEl0YOLOV8-Post-Process | inputs: NmsPPMuxEl0YOLOV8-Post-Process | outputs: user
+[2025-10-23 15:53:45.591] [28227] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] PushQEl_nms0bestnew_v8/conv60_97 | inputs: AsyncHwEl | outputs: NmsPPMuxEl0YOLOV8-Post-Process
+[2025-10-23 15:53:45.591] [28227] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] PushQEl_nms3bestnew_v8/conv70_97 | inputs: AsyncHwEl | outputs: NmsPPMuxEl0YOLOV8-Post-Process
+[2025-10-23 15:53:45.591] [28227] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] PushQEl_nms1bestnew_v8/conv59_97 | inputs: AsyncHwEl | outputs: NmsPPMuxEl0YOLOV8-Post-Process
+[2025-10-23 15:53:45.591] [28227] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] PushQEl_nms3bestnew_v8/conv47_97 | inputs: AsyncHwEl | outputs: NmsPPMuxEl0YOLOV8-Post-Process
+[2025-10-23 15:53:45.591] [28227] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] PushQEl_nms2bestnew_v8/conv48_97 | inputs: AsyncHwEl | outputs: NmsPPMuxEl0YOLOV8-Post-Process
+[2025-10-23 15:53:45.592] [28227] [HailoRT] [info] [hef.cpp:1847] [get_network_group_and_network_name] No name was given. Addressing all networks of default network_group: bestnew_v8
+[2025-10-23 15:53:45.592] [28227] [HailoRT] [info] [hef.cpp:1847] [get_network_group_and_network_name] No name was given. Addressing all networks of default network_group: bestnew_v8
+[2025-10-23 15:53:46.991] [28215] [HailoRT] [info] [async_infer_runner.cpp:86] [shutdown] Pipeline was aborted. Shutting it down
+[2025-10-23 15:53:46.991] [28215] [HailoRT] [info] [queue_elements.cpp:543] [execute_deactivate] enqueue() in element PushQEl_nms2bestnew_v8/conv71_97 was aborted, got status = HAILO_SHUTDOWN_EVENT_SIGNALED(57)
+[2025-10-23 15:53:46.991] [28215] [HailoRT] [info] [queue_elements.cpp:543] [execute_deactivate] enqueue() in element PushQEl_nms0bestnew_v8/conv60_97 was aborted, got status = HAILO_SHUTDOWN_EVENT_SIGNALED(57)
+[2025-10-23 15:53:46.991] [28215] [HailoRT] [info] [queue_elements.cpp:543] [execute_deactivate] enqueue() in element PushQEl_nms3bestnew_v8/conv70_97 was aborted, got status = HAILO_SHUTDOWN_EVENT_SIGNALED(57)
+[2025-10-23 15:53:46.991] [28215] [HailoRT] [info] [queue_elements.cpp:543] [execute_deactivate] enqueue() in element PushQEl_nms1bestnew_v8/conv59_97 was aborted, got status = HAILO_SHUTDOWN_EVENT_SIGNALED(57)
+[2025-10-23 15:53:46.992] [28215] [HailoRT] [info] [queue_elements.cpp:543] [execute_deactivate] enqueue() in element PushQEl_nms3bestnew_v8/conv47_97 was aborted, got status = HAILO_SHUTDOWN_EVENT_SIGNALED(57)
+[2025-10-23 15:53:46.992] [28215] [HailoRT] [info] [queue_elements.cpp:543] [execute_deactivate] enqueue() in element PushQEl_nms2bestnew_v8/conv48_97 was aborted, got status = HAILO_SHUTDOWN_EVENT_SIGNALED(57)
+[2025-10-23 15:53:46.992] [28215] [HailoRT] [info] [queue_elements.cpp:543] [execute_deactivate] enqueue() in element PushQEl1bestnew_v8/input_layer1 was aborted, got status = HAILO_SHUTDOWN_EVENT_SIGNALED(57)
+[2025-10-23 15:53:46.992] [28215] [HailoRT] [info] [queue_elements.cpp:543] [execute_deactivate] enqueue() in element EntryPushQEl0bestnew_v8/input_layer1 was aborted, got status = HAILO_SHUTDOWN_EVENT_SIGNALED(57)
+[2025-10-23 15:53:46.992] [28215] [HailoRT] [info] [queue_elements.cpp:43] [~BaseQueueElement] Queue element EntryPushQEl0bestnew_v8/input_layer1 has 0 frames in his Queue on destruction
+[2025-10-23 15:53:46.992] [28215] [HailoRT] [info] [queue_elements.cpp:43] [~BaseQueueElement] Queue element PushQEl1bestnew_v8/input_layer1 has 0 frames in his Queue on destruction
+[2025-10-23 15:53:46.992] [28215] [HailoRT] [info] [queue_elements.cpp:43] [~BaseQueueElement] Queue element PushQEl_nms3bestnew_v8/conv47_97 has 0 frames in his Queue on destruction
+[2025-10-23 15:53:46.992] [28215] [HailoRT] [info] [queue_elements.cpp:43] [~BaseQueueElement] Queue element PushQEl_nms2bestnew_v8/conv48_97 has 0 frames in his Queue on destruction
+[2025-10-23 15:53:46.992] [28215] [HailoRT] [info] [queue_elements.cpp:43] [~BaseQueueElement] Queue element PushQEl_nms1bestnew_v8/conv59_97 has 0 frames in his Queue on destruction
+[2025-10-23 15:53:46.992] [28215] [HailoRT] [info] [queue_elements.cpp:43] [~BaseQueueElement] Queue element PushQEl_nms0bestnew_v8/conv60_97 has 0 frames in his Queue on destruction
+[2025-10-23 15:53:46.992] [28215] [HailoRT] [info] [queue_elements.cpp:43] [~BaseQueueElement] Queue element PushQEl_nms3bestnew_v8/conv70_97 has 0 frames in his Queue on destruction
+[2025-10-23 15:53:46.992] [28215] [HailoRT] [info] [queue_elements.cpp:43] [~BaseQueueElement] Queue element PushQEl_nms2bestnew_v8/conv71_97 has 0 frames in his Queue on destruction
+[2025-10-23 15:53:46.993] [28272] [HailoRT] [info] [vdevice.cpp:430] [listener_run_in_thread] Shutdown event was signaled in listener_run_in_thread
+[2025-10-23 15:54:34.888] [28471] [HailoRT] [info] [device.cpp:51] [Device] OS Version: Linux 6.12.47+rpt-rpi-2712 #1 SMP PREEMPT Debian 1:6.12.47-1+rpt1~bookworm (2025-09-16) aarch64
+[2025-10-23 15:54:34.889] [28471] [HailoRT] [info] [control.cpp:109] [control__parse_identify_results] firmware_version is: 4.19.0
+[2025-10-23 15:54:34.890] [28471] [HailoRT] [info] [control.cpp:109] [control__parse_identify_results] firmware_version is: 4.19.0
+[2025-10-23 15:54:34.950] [28471] [HailoRT] [info] [device.cpp:51] [Device] OS Version: Linux 6.12.47+rpt-rpi-2712 #1 SMP PREEMPT Debian 1:6.12.47-1+rpt1~bookworm (2025-09-16) aarch64
+[2025-10-23 15:54:34.951] [28471] [HailoRT] [info] [control.cpp:109] [control__parse_identify_results] firmware_version is: 4.19.0
+[2025-10-23 15:54:34.952] [28471] [HailoRT] [info] [control.cpp:109] [control__parse_identify_results] firmware_version is: 4.19.0
+[2025-10-23 15:54:35.464] [28483] [HailoRT] [info] [device.cpp:51] [Device] OS Version: Linux 6.12.47+rpt-rpi-2712 #1 SMP PREEMPT Debian 1:6.12.47-1+rpt1~bookworm (2025-09-16) aarch64
+[2025-10-23 15:54:35.465] [28483] [HailoRT] [info] [control.cpp:109] [control__parse_identify_results] firmware_version is: 4.19.0
+[2025-10-23 15:54:35.466] [28483] [HailoRT] [info] [control.cpp:109] [control__parse_identify_results] firmware_version is: 4.19.0
+[2025-10-23 15:54:36.515] [28483] [HailoRT] [info] [device.cpp:51] [Device] OS Version: Linux 6.12.47+rpt-rpi-2712 #1 SMP PREEMPT Debian 1:6.12.47-1+rpt1~bookworm (2025-09-16) aarch64
+[2025-10-23 15:54:36.516] [28483] [HailoRT] [info] [control.cpp:109] [control__parse_identify_results] firmware_version is: 4.19.0
+[2025-10-23 15:54:36.614] [28483] [HailoRT] [info] [hef.cpp:1847] [get_network_group_and_network_name] No name was given. Addressing all networks of default network_group: bestnew_v8
+[2025-10-23 15:54:36.614] [28483] [HailoRT] [info] [hef.cpp:1847] [get_network_group_and_network_name] No name was given. Addressing all networks of default network_group: bestnew_v8
+[2025-10-23 15:54:36.782] [28483] [HailoRT] [info] [multi_io_elements.cpp:783] [create] Created (AsyncHwEl)
+[2025-10-23 15:54:36.782] [28483] [HailoRT] [info] [queue_elements.cpp:427] [create] Created (EntryPushQEl0bestnew_v8/input_layer1 | timeout: 10s)
+[2025-10-23 15:54:36.782] [28483] [HailoRT] [info] [filter_elements.cpp:101] [create] Created (PreInferEl1bestnew_v8/input_layer1 | Reorder - src_order: NHWC, src_shape: (640, 640, 3), dst_order: NHCW, dst_shape: (640, 640, 3))
+[2025-10-23 15:54:36.782] [28483] [HailoRT] [info] [queue_elements.cpp:427] [create] Created (PushQEl1bestnew_v8/input_layer1 | timeout: 10s)
+[2025-10-23 15:54:36.783] [28483] [HailoRT] [info] [multi_io_elements.cpp:162] [create] Created (NmsPPMuxEl0YOLOV8-Post-Process | Op YOLOV8, Name: YOLOV8-Post-Process, Score threshold: 0.300, IoU threshold: 0.60, Classes: 4, Cross classes: false, Max bboxes per class: 100, Image height: 640, Image width: 640)
+[2025-10-23 15:54:36.783] [28483] [HailoRT] [info] [queue_elements.cpp:427] [create] Created (PushQEl_nms3bestnew_v8/conv47_97 | timeout: 10s)
+[2025-10-23 15:54:36.783] [28483] [HailoRT] [info] [queue_elements.cpp:427] [create] Created (PushQEl_nms2bestnew_v8/conv48_97 | timeout: 10s)
+[2025-10-23 15:54:36.783] [28483] [HailoRT] [info] [queue_elements.cpp:427] [create] Created (PushQEl_nms1bestnew_v8/conv59_97 | timeout: 10s)
+[2025-10-23 15:54:36.783] [28483] [HailoRT] [info] [queue_elements.cpp:427] [create] Created (PushQEl_nms0bestnew_v8/conv60_97 | timeout: 10s)
+[2025-10-23 15:54:36.783] [28483] [HailoRT] [info] [queue_elements.cpp:427] [create] Created (PushQEl_nms3bestnew_v8/conv70_97 | timeout: 10s)
+[2025-10-23 15:54:36.783] [28483] [HailoRT] [info] [queue_elements.cpp:427] [create] Created (PushQEl_nms2bestnew_v8/conv71_97 | timeout: 10s)
+[2025-10-23 15:54:36.783] [28483] [HailoRT] [info] [edge_elements.cpp:187] [create] Created (LastAsyncEl0NmsPPMuxEl0YOLOV8-Post-Process)
+[2025-10-23 15:54:36.783] [28483] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] EntryPushQEl0bestnew_v8/input_layer1 | inputs: user | outputs: PreInferEl1bestnew_v8/input_layer1
+[2025-10-23 15:54:36.783] [28483] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] PreInferEl1bestnew_v8/input_layer1 | inputs: EntryPushQEl0bestnew_v8/input_layer1 | outputs: PushQEl1bestnew_v8/input_layer1
+[2025-10-23 15:54:36.783] [28483] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] PushQEl1bestnew_v8/input_layer1 | inputs: PreInferEl1bestnew_v8/input_layer1 | outputs: AsyncHwEl
+[2025-10-23 15:54:36.783] [28483] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] AsyncHwEl | inputs: PushQEl1bestnew_v8/input_layer1 | outputs: PushQEl_nms2bestnew_v8/conv71_97 PushQEl_nms0bestnew_v8/conv60_97 PushQEl_nms3bestnew_v8/conv70_97 PushQEl_nms1bestnew_v8/conv59_97 PushQEl_nms3bestnew_v8/conv47_97 PushQEl_nms2bestnew_v8/conv48_97
+[2025-10-23 15:54:36.783] [28483] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] PushQEl_nms2bestnew_v8/conv71_97 | inputs: AsyncHwEl | outputs: NmsPPMuxEl0YOLOV8-Post-Process
+[2025-10-23 15:54:36.783] [28483] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] NmsPPMuxEl0YOLOV8-Post-Process | inputs: PushQEl_nms3bestnew_v8/conv47_97 PushQEl_nms2bestnew_v8/conv48_97 PushQEl_nms1bestnew_v8/conv59_97 PushQEl_nms0bestnew_v8/conv60_97 PushQEl_nms3bestnew_v8/conv70_97 PushQEl_nms2bestnew_v8/conv71_97 | outputs: LastAsyncEl0NmsPPMuxEl0YOLOV8-Post-Process
+[2025-10-23 15:54:36.783] [28483] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] LastAsyncEl0NmsPPMuxEl0YOLOV8-Post-Process | inputs: NmsPPMuxEl0YOLOV8-Post-Process | outputs: user
+[2025-10-23 15:54:36.783] [28483] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] PushQEl_nms0bestnew_v8/conv60_97 | inputs: AsyncHwEl | outputs: NmsPPMuxEl0YOLOV8-Post-Process
+[2025-10-23 15:54:36.783] [28483] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] PushQEl_nms3bestnew_v8/conv70_97 | inputs: AsyncHwEl | outputs: NmsPPMuxEl0YOLOV8-Post-Process
+[2025-10-23 15:54:36.783] [28483] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] PushQEl_nms1bestnew_v8/conv59_97 | inputs: AsyncHwEl | outputs: NmsPPMuxEl0YOLOV8-Post-Process
+[2025-10-23 15:54:36.783] [28483] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] PushQEl_nms3bestnew_v8/conv47_97 | inputs: AsyncHwEl | outputs: NmsPPMuxEl0YOLOV8-Post-Process
+[2025-10-23 15:54:36.783] [28483] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] PushQEl_nms2bestnew_v8/conv48_97 | inputs: AsyncHwEl | outputs: NmsPPMuxEl0YOLOV8-Post-Process
+[2025-10-23 15:54:36.784] [28483] [HailoRT] [info] [hef.cpp:1847] [get_network_group_and_network_name] No name was given. Addressing all networks of default network_group: bestnew_v8
+[2025-10-23 15:54:36.784] [28483] [HailoRT] [info] [hef.cpp:1847] [get_network_group_and_network_name] No name was given. Addressing all networks of default network_group: bestnew_v8
+[2025-10-23 15:54:45.283] [28471] [HailoRT] [info] [async_infer_runner.cpp:86] [shutdown] Pipeline was aborted. Shutting it down
+[2025-10-23 15:54:45.284] [28471] [HailoRT] [info] [queue_elements.cpp:543] [execute_deactivate] enqueue() in element PushQEl_nms2bestnew_v8/conv71_97 was aborted, got status = HAILO_SHUTDOWN_EVENT_SIGNALED(57)
+[2025-10-23 15:54:45.284] [28471] [HailoRT] [info] [queue_elements.cpp:543] [execute_deactivate] enqueue() in element PushQEl_nms0bestnew_v8/conv60_97 was aborted, got status = HAILO_SHUTDOWN_EVENT_SIGNALED(57)
+[2025-10-23 15:54:45.284] [28471] [HailoRT] [info] [queue_elements.cpp:543] [execute_deactivate] enqueue() in element PushQEl_nms3bestnew_v8/conv70_97 was aborted, got status = HAILO_SHUTDOWN_EVENT_SIGNALED(57)
+[2025-10-23 15:54:45.284] [28471] [HailoRT] [info] [queue_elements.cpp:543] [execute_deactivate] enqueue() in element PushQEl_nms1bestnew_v8/conv59_97 was aborted, got status = HAILO_SHUTDOWN_EVENT_SIGNALED(57)
+[2025-10-23 15:54:45.284] [28471] [HailoRT] [info] [queue_elements.cpp:543] [execute_deactivate] enqueue() in element PushQEl_nms3bestnew_v8/conv47_97 was aborted, got status = HAILO_SHUTDOWN_EVENT_SIGNALED(57)
+[2025-10-23 15:54:45.284] [28471] [HailoRT] [info] [queue_elements.cpp:543] [execute_deactivate] enqueue() in element PushQEl_nms2bestnew_v8/conv48_97 was aborted, got status = HAILO_SHUTDOWN_EVENT_SIGNALED(57)
+[2025-10-23 15:54:45.284] [28471] [HailoRT] [info] [queue_elements.cpp:543] [execute_deactivate] enqueue() in element PushQEl1bestnew_v8/input_layer1 was aborted, got status = HAILO_SHUTDOWN_EVENT_SIGNALED(57)
+[2025-10-23 15:54:45.284] [28471] [HailoRT] [info] [queue_elements.cpp:543] [execute_deactivate] enqueue() in element EntryPushQEl0bestnew_v8/input_layer1 was aborted, got status = HAILO_SHUTDOWN_EVENT_SIGNALED(57)
+[2025-10-23 15:54:45.284] [28471] [HailoRT] [info] [queue_elements.cpp:43] [~BaseQueueElement] Queue element EntryPushQEl0bestnew_v8/input_layer1 has 0 frames in his Queue on destruction
+[2025-10-23 15:54:45.284] [28471] [HailoRT] [info] [queue_elements.cpp:43] [~BaseQueueElement] Queue element PushQEl1bestnew_v8/input_layer1 has 0 frames in his Queue on destruction
+[2025-10-23 15:54:45.284] [28471] [HailoRT] [info] [queue_elements.cpp:43] [~BaseQueueElement] Queue element PushQEl_nms3bestnew_v8/conv47_97 has 0 frames in his Queue on destruction
+[2025-10-23 15:54:45.284] [28471] [HailoRT] [info] [queue_elements.cpp:43] [~BaseQueueElement] Queue element PushQEl_nms2bestnew_v8/conv48_97 has 0 frames in his Queue on destruction
+[2025-10-23 15:54:45.284] [28471] [HailoRT] [info] [queue_elements.cpp:43] [~BaseQueueElement] Queue element PushQEl_nms1bestnew_v8/conv59_97 has 0 frames in his Queue on destruction
+[2025-10-23 15:54:45.284] [28471] [HailoRT] [info] [queue_elements.cpp:43] [~BaseQueueElement] Queue element PushQEl_nms0bestnew_v8/conv60_97 has 0 frames in his Queue on destruction
+[2025-10-23 15:54:45.284] [28471] [HailoRT] [info] [queue_elements.cpp:43] [~BaseQueueElement] Queue element PushQEl_nms3bestnew_v8/conv70_97 has 0 frames in his Queue on destruction
+[2025-10-23 15:54:45.284] [28471] [HailoRT] [info] [queue_elements.cpp:43] [~BaseQueueElement] Queue element PushQEl_nms2bestnew_v8/conv71_97 has 0 frames in his Queue on destruction
+[2025-10-23 15:54:45.285] [28528] [HailoRT] [info] [vdevice.cpp:430] [listener_run_in_thread] Shutdown event was signaled in listener_run_in_thread
+[2025-10-23 15:55:20.782] [28797] [HailoRT] [info] [device.cpp:51] [Device] OS Version: Linux 6.12.47+rpt-rpi-2712 #1 SMP PREEMPT Debian 1:6.12.47-1+rpt1~bookworm (2025-09-16) aarch64
+[2025-10-23 15:55:20.784] [28797] [HailoRT] [info] [control.cpp:109] [control__parse_identify_results] firmware_version is: 4.19.0
+[2025-10-23 15:55:20.785] [28797] [HailoRT] [info] [control.cpp:109] [control__parse_identify_results] firmware_version is: 4.19.0
+[2025-10-23 15:55:20.842] [28797] [HailoRT] [info] [device.cpp:51] [Device] OS Version: Linux 6.12.47+rpt-rpi-2712 #1 SMP PREEMPT Debian 1:6.12.47-1+rpt1~bookworm (2025-09-16) aarch64
+[2025-10-23 15:55:20.843] [28797] [HailoRT] [info] [control.cpp:109] [control__parse_identify_results] firmware_version is: 4.19.0
+[2025-10-23 15:55:20.844] [28797] [HailoRT] [info] [control.cpp:109] [control__parse_identify_results] firmware_version is: 4.19.0
+[2025-10-23 15:55:21.390] [28809] [HailoRT] [info] [device.cpp:51] [Device] OS Version: Linux 6.12.47+rpt-rpi-2712 #1 SMP PREEMPT Debian 1:6.12.47-1+rpt1~bookworm (2025-09-16) aarch64
+[2025-10-23 15:55:21.392] [28809] [HailoRT] [info] [control.cpp:109] [control__parse_identify_results] firmware_version is: 4.19.0
+[2025-10-23 15:55:21.393] [28809] [HailoRT] [info] [control.cpp:109] [control__parse_identify_results] firmware_version is: 4.19.0
+[2025-10-23 15:55:22.451] [28809] [HailoRT] [info] [device.cpp:51] [Device] OS Version: Linux 6.12.47+rpt-rpi-2712 #1 SMP PREEMPT Debian 1:6.12.47-1+rpt1~bookworm (2025-09-16) aarch64
+[2025-10-23 15:55:22.452] [28809] [HailoRT] [info] [control.cpp:109] [control__parse_identify_results] firmware_version is: 4.19.0
+[2025-10-23 15:55:22.550] [28809] [HailoRT] [info] [hef.cpp:1847] [get_network_group_and_network_name] No name was given. Addressing all networks of default network_group: bestnew_v8
+[2025-10-23 15:55:22.550] [28809] [HailoRT] [info] [hef.cpp:1847] [get_network_group_and_network_name] No name was given. Addressing all networks of default network_group: bestnew_v8
+[2025-10-23 15:55:22.722] [28809] [HailoRT] [info] [multi_io_elements.cpp:783] [create] Created (AsyncHwEl)
+[2025-10-23 15:55:22.722] [28809] [HailoRT] [info] [queue_elements.cpp:427] [create] Created (EntryPushQEl0bestnew_v8/input_layer1 | timeout: 10s)
+[2025-10-23 15:55:22.722] [28809] [HailoRT] [info] [filter_elements.cpp:101] [create] Created (PreInferEl1bestnew_v8/input_layer1 | Reorder - src_order: NHWC, src_shape: (640, 640, 3), dst_order: NHCW, dst_shape: (640, 640, 3))
+[2025-10-23 15:55:22.722] [28809] [HailoRT] [info] [queue_elements.cpp:427] [create] Created (PushQEl1bestnew_v8/input_layer1 | timeout: 10s)
+[2025-10-23 15:55:22.723] [28809] [HailoRT] [info] [multi_io_elements.cpp:162] [create] Created (NmsPPMuxEl0YOLOV8-Post-Process | Op YOLOV8, Name: YOLOV8-Post-Process, Score threshold: 0.300, IoU threshold: 0.60, Classes: 4, Cross classes: false, Max bboxes per class: 100, Image height: 640, Image width: 640)
+[2025-10-23 15:55:22.723] [28809] [HailoRT] [info] [queue_elements.cpp:427] [create] Created (PushQEl_nms3bestnew_v8/conv47_97 | timeout: 10s)
+[2025-10-23 15:55:22.723] [28809] [HailoRT] [info] [queue_elements.cpp:427] [create] Created (PushQEl_nms2bestnew_v8/conv48_97 | timeout: 10s)
+[2025-10-23 15:55:22.723] [28809] [HailoRT] [info] [queue_elements.cpp:427] [create] Created (PushQEl_nms1bestnew_v8/conv59_97 | timeout: 10s)
+[2025-10-23 15:55:22.723] [28809] [HailoRT] [info] [queue_elements.cpp:427] [create] Created (PushQEl_nms0bestnew_v8/conv60_97 | timeout: 10s)
+[2025-10-23 15:55:22.723] [28809] [HailoRT] [info] [queue_elements.cpp:427] [create] Created (PushQEl_nms3bestnew_v8/conv70_97 | timeout: 10s)
+[2025-10-23 15:55:22.723] [28809] [HailoRT] [info] [queue_elements.cpp:427] [create] Created (PushQEl_nms2bestnew_v8/conv71_97 | timeout: 10s)
+[2025-10-23 15:55:22.723] [28809] [HailoRT] [info] [edge_elements.cpp:187] [create] Created (LastAsyncEl0NmsPPMuxEl0YOLOV8-Post-Process)
+[2025-10-23 15:55:22.723] [28809] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] EntryPushQEl0bestnew_v8/input_layer1 | inputs: user | outputs: PreInferEl1bestnew_v8/input_layer1
+[2025-10-23 15:55:22.723] [28809] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] PreInferEl1bestnew_v8/input_layer1 | inputs: EntryPushQEl0bestnew_v8/input_layer1 | outputs: PushQEl1bestnew_v8/input_layer1
+[2025-10-23 15:55:22.723] [28809] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] PushQEl1bestnew_v8/input_layer1 | inputs: PreInferEl1bestnew_v8/input_layer1 | outputs: AsyncHwEl
+[2025-10-23 15:55:22.723] [28809] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] AsyncHwEl | inputs: PushQEl1bestnew_v8/input_layer1 | outputs: PushQEl_nms2bestnew_v8/conv71_97 PushQEl_nms0bestnew_v8/conv60_97 PushQEl_nms3bestnew_v8/conv70_97 PushQEl_nms1bestnew_v8/conv59_97 PushQEl_nms3bestnew_v8/conv47_97 PushQEl_nms2bestnew_v8/conv48_97
+[2025-10-23 15:55:22.723] [28809] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] PushQEl_nms2bestnew_v8/conv71_97 | inputs: AsyncHwEl | outputs: NmsPPMuxEl0YOLOV8-Post-Process
+[2025-10-23 15:55:22.723] [28809] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] NmsPPMuxEl0YOLOV8-Post-Process | inputs: PushQEl_nms3bestnew_v8/conv47_97 PushQEl_nms2bestnew_v8/conv48_97 PushQEl_nms1bestnew_v8/conv59_97 PushQEl_nms0bestnew_v8/conv60_97 PushQEl_nms3bestnew_v8/conv70_97 PushQEl_nms2bestnew_v8/conv71_97 | outputs: LastAsyncEl0NmsPPMuxEl0YOLOV8-Post-Process
+[2025-10-23 15:55:22.723] [28809] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] LastAsyncEl0NmsPPMuxEl0YOLOV8-Post-Process | inputs: NmsPPMuxEl0YOLOV8-Post-Process | outputs: user
+[2025-10-23 15:55:22.723] [28809] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] PushQEl_nms0bestnew_v8/conv60_97 | inputs: AsyncHwEl | outputs: NmsPPMuxEl0YOLOV8-Post-Process
+[2025-10-23 15:55:22.723] [28809] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] PushQEl_nms3bestnew_v8/conv70_97 | inputs: AsyncHwEl | outputs: NmsPPMuxEl0YOLOV8-Post-Process
+[2025-10-23 15:55:22.723] [28809] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] PushQEl_nms1bestnew_v8/conv59_97 | inputs: AsyncHwEl | outputs: NmsPPMuxEl0YOLOV8-Post-Process
+[2025-10-23 15:55:22.723] [28809] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] PushQEl_nms3bestnew_v8/conv47_97 | inputs: AsyncHwEl | outputs: NmsPPMuxEl0YOLOV8-Post-Process
+[2025-10-23 15:55:22.723] [28809] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] PushQEl_nms2bestnew_v8/conv48_97 | inputs: AsyncHwEl | outputs: NmsPPMuxEl0YOLOV8-Post-Process
+[2025-10-23 15:55:22.724] [28809] [HailoRT] [info] [hef.cpp:1847] [get_network_group_and_network_name] No name was given. Addressing all networks of default network_group: bestnew_v8
+[2025-10-23 15:55:22.724] [28809] [HailoRT] [info] [hef.cpp:1847] [get_network_group_and_network_name] No name was given. Addressing all networks of default network_group: bestnew_v8
+[2025-10-23 15:55:31.157] [28797] [HailoRT] [info] [async_infer_runner.cpp:86] [shutdown] Pipeline was aborted. Shutting it down
+[2025-10-23 15:55:31.158] [28797] [HailoRT] [info] [queue_elements.cpp:543] [execute_deactivate] enqueue() in element PushQEl_nms2bestnew_v8/conv71_97 was aborted, got status = HAILO_SHUTDOWN_EVENT_SIGNALED(57)
+[2025-10-23 15:55:31.158] [28797] [HailoRT] [info] [queue_elements.cpp:543] [execute_deactivate] enqueue() in element PushQEl_nms0bestnew_v8/conv60_97 was aborted, got status = HAILO_SHUTDOWN_EVENT_SIGNALED(57)
+[2025-10-23 15:55:31.158] [28797] [HailoRT] [info] [queue_elements.cpp:543] [execute_deactivate] enqueue() in element PushQEl_nms3bestnew_v8/conv70_97 was aborted, got status = HAILO_SHUTDOWN_EVENT_SIGNALED(57)
+[2025-10-23 15:55:31.158] [28797] [HailoRT] [info] [queue_elements.cpp:543] [execute_deactivate] enqueue() in element PushQEl_nms1bestnew_v8/conv59_97 was aborted, got status = HAILO_SHUTDOWN_EVENT_SIGNALED(57)
+[2025-10-23 15:55:31.158] [28797] [HailoRT] [info] [queue_elements.cpp:543] [execute_deactivate] enqueue() in element PushQEl_nms3bestnew_v8/conv47_97 was aborted, got status = HAILO_SHUTDOWN_EVENT_SIGNALED(57)
+[2025-10-23 15:55:31.158] [28797] [HailoRT] [info] [queue_elements.cpp:543] [execute_deactivate] enqueue() in element PushQEl_nms2bestnew_v8/conv48_97 was aborted, got status = HAILO_SHUTDOWN_EVENT_SIGNALED(57)
+[2025-10-23 15:55:31.158] [28797] [HailoRT] [info] [queue_elements.cpp:543] [execute_deactivate] enqueue() in element PushQEl1bestnew_v8/input_layer1 was aborted, got status = HAILO_SHUTDOWN_EVENT_SIGNALED(57)
+[2025-10-23 15:55:31.158] [28797] [HailoRT] [info] [queue_elements.cpp:543] [execute_deactivate] enqueue() in element EntryPushQEl0bestnew_v8/input_layer1 was aborted, got status = HAILO_SHUTDOWN_EVENT_SIGNALED(57)
+[2025-10-23 15:55:31.158] [28797] [HailoRT] [info] [queue_elements.cpp:43] [~BaseQueueElement] Queue element EntryPushQEl0bestnew_v8/input_layer1 has 0 frames in his Queue on destruction
+[2025-10-23 15:55:31.158] [28797] [HailoRT] [info] [queue_elements.cpp:43] [~BaseQueueElement] Queue element PushQEl1bestnew_v8/input_layer1 has 0 frames in his Queue on destruction
+[2025-10-23 15:55:31.158] [28797] [HailoRT] [info] [queue_elements.cpp:43] [~BaseQueueElement] Queue element PushQEl_nms3bestnew_v8/conv47_97 has 0 frames in his Queue on destruction
+[2025-10-23 15:55:31.158] [28797] [HailoRT] [info] [queue_elements.cpp:43] [~BaseQueueElement] Queue element PushQEl_nms2bestnew_v8/conv48_97 has 0 frames in his Queue on destruction
+[2025-10-23 15:55:31.158] [28797] [HailoRT] [info] [queue_elements.cpp:43] [~BaseQueueElement] Queue element PushQEl_nms1bestnew_v8/conv59_97 has 0 frames in his Queue on destruction
+[2025-10-23 15:55:31.158] [28797] [HailoRT] [info] [queue_elements.cpp:43] [~BaseQueueElement] Queue element PushQEl_nms0bestnew_v8/conv60_97 has 0 frames in his Queue on destruction
+[2025-10-23 15:55:31.158] [28797] [HailoRT] [info] [queue_elements.cpp:43] [~BaseQueueElement] Queue element PushQEl_nms3bestnew_v8/conv70_97 has 0 frames in his Queue on destruction
+[2025-10-23 15:55:31.158] [28797] [HailoRT] [info] [queue_elements.cpp:43] [~BaseQueueElement] Queue element PushQEl_nms2bestnew_v8/conv71_97 has 0 frames in his Queue on destruction
+[2025-10-23 15:55:31.159] [28855] [HailoRT] [info] [vdevice.cpp:430] [listener_run_in_thread] Shutdown event was signaled in listener_run_in_thread
+[2025-10-23 15:57:26.720] [29419] [HailoRT] [info] [device.cpp:51] [Device] OS Version: Linux 6.12.47+rpt-rpi-2712 #1 SMP PREEMPT Debian 1:6.12.47-1+rpt1~bookworm (2025-09-16) aarch64
+[2025-10-23 15:57:26.721] [29419] [HailoRT] [info] [control.cpp:109] [control__parse_identify_results] firmware_version is: 4.19.0
+[2025-10-23 15:57:26.722] [29419] [HailoRT] [info] [control.cpp:109] [control__parse_identify_results] firmware_version is: 4.19.0
+[2025-10-23 15:57:26.782] [29419] [HailoRT] [info] [device.cpp:51] [Device] OS Version: Linux 6.12.47+rpt-rpi-2712 #1 SMP PREEMPT Debian 1:6.12.47-1+rpt1~bookworm (2025-09-16) aarch64
+[2025-10-23 15:57:26.783] [29419] [HailoRT] [info] [control.cpp:109] [control__parse_identify_results] firmware_version is: 4.19.0
+[2025-10-23 15:57:26.784] [29419] [HailoRT] [info] [control.cpp:109] [control__parse_identify_results] firmware_version is: 4.19.0
+[2025-10-23 15:57:27.256] [29437] [HailoRT] [info] [device.cpp:51] [Device] OS Version: Linux 6.12.47+rpt-rpi-2712 #1 SMP PREEMPT Debian 1:6.12.47-1+rpt1~bookworm (2025-09-16) aarch64
+[2025-10-23 15:57:27.257] [29437] [HailoRT] [info] [control.cpp:109] [control__parse_identify_results] firmware_version is: 4.19.0
+[2025-10-23 15:57:27.258] [29437] [HailoRT] [info] [control.cpp:109] [control__parse_identify_results] firmware_version is: 4.19.0
+[2025-10-23 15:57:28.324] [29437] [HailoRT] [info] [device.cpp:51] [Device] OS Version: Linux 6.12.47+rpt-rpi-2712 #1 SMP PREEMPT Debian 1:6.12.47-1+rpt1~bookworm (2025-09-16) aarch64
+[2025-10-23 15:57:28.326] [29437] [HailoRT] [info] [control.cpp:109] [control__parse_identify_results] firmware_version is: 4.19.0
+[2025-10-23 15:57:28.455] [29437] [HailoRT] [info] [hef.cpp:1847] [get_network_group_and_network_name] No name was given. Addressing all networks of default network_group: bestnew_v8
+[2025-10-23 15:57:28.455] [29437] [HailoRT] [info] [hef.cpp:1847] [get_network_group_and_network_name] No name was given. Addressing all networks of default network_group: bestnew_v8
+[2025-10-23 15:57:28.637] [29437] [HailoRT] [info] [multi_io_elements.cpp:783] [create] Created (AsyncHwEl)
+[2025-10-23 15:57:28.637] [29437] [HailoRT] [info] [queue_elements.cpp:427] [create] Created (EntryPushQEl0bestnew_v8/input_layer1 | timeout: 10s)
+[2025-10-23 15:57:28.637] [29437] [HailoRT] [info] [filter_elements.cpp:101] [create] Created (PreInferEl1bestnew_v8/input_layer1 | Reorder - src_order: NHWC, src_shape: (640, 640, 3), dst_order: NHCW, dst_shape: (640, 640, 3))
+[2025-10-23 15:57:28.637] [29437] [HailoRT] [info] [queue_elements.cpp:427] [create] Created (PushQEl1bestnew_v8/input_layer1 | timeout: 10s)
+[2025-10-23 15:57:28.637] [29437] [HailoRT] [info] [multi_io_elements.cpp:162] [create] Created (NmsPPMuxEl0YOLOV8-Post-Process | Op YOLOV8, Name: YOLOV8-Post-Process, Score threshold: 0.300, IoU threshold: 0.60, Classes: 4, Cross classes: false, Max bboxes per class: 100, Image height: 640, Image width: 640)
+[2025-10-23 15:57:28.637] [29437] [HailoRT] [info] [queue_elements.cpp:427] [create] Created (PushQEl_nms3bestnew_v8/conv47_97 | timeout: 10s)
+[2025-10-23 15:57:28.637] [29437] [HailoRT] [info] [queue_elements.cpp:427] [create] Created (PushQEl_nms2bestnew_v8/conv48_97 | timeout: 10s)
+[2025-10-23 15:57:28.637] [29437] [HailoRT] [info] [queue_elements.cpp:427] [create] Created (PushQEl_nms1bestnew_v8/conv59_97 | timeout: 10s)
+[2025-10-23 15:57:28.638] [29437] [HailoRT] [info] [queue_elements.cpp:427] [create] Created (PushQEl_nms0bestnew_v8/conv60_97 | timeout: 10s)
+[2025-10-23 15:57:28.638] [29437] [HailoRT] [info] [queue_elements.cpp:427] [create] Created (PushQEl_nms3bestnew_v8/conv70_97 | timeout: 10s)
+[2025-10-23 15:57:28.638] [29437] [HailoRT] [info] [queue_elements.cpp:427] [create] Created (PushQEl_nms2bestnew_v8/conv71_97 | timeout: 10s)
+[2025-10-23 15:57:28.638] [29437] [HailoRT] [info] [edge_elements.cpp:187] [create] Created (LastAsyncEl0NmsPPMuxEl0YOLOV8-Post-Process)
+[2025-10-23 15:57:28.638] [29437] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] EntryPushQEl0bestnew_v8/input_layer1 | inputs: user | outputs: PreInferEl1bestnew_v8/input_layer1
+[2025-10-23 15:57:28.638] [29437] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] PreInferEl1bestnew_v8/input_layer1 | inputs: EntryPushQEl0bestnew_v8/input_layer1 | outputs: PushQEl1bestnew_v8/input_layer1
+[2025-10-23 15:57:28.638] [29437] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] PushQEl1bestnew_v8/input_layer1 | inputs: PreInferEl1bestnew_v8/input_layer1 | outputs: AsyncHwEl
+[2025-10-23 15:57:28.638] [29437] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] AsyncHwEl | inputs: PushQEl1bestnew_v8/input_layer1 | outputs: PushQEl_nms2bestnew_v8/conv71_97 PushQEl_nms0bestnew_v8/conv60_97 PushQEl_nms3bestnew_v8/conv70_97 PushQEl_nms1bestnew_v8/conv59_97 PushQEl_nms3bestnew_v8/conv47_97 PushQEl_nms2bestnew_v8/conv48_97
+[2025-10-23 15:57:28.638] [29437] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] PushQEl_nms2bestnew_v8/conv71_97 | inputs: AsyncHwEl | outputs: NmsPPMuxEl0YOLOV8-Post-Process
+[2025-10-23 15:57:28.638] [29437] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] NmsPPMuxEl0YOLOV8-Post-Process | inputs: PushQEl_nms3bestnew_v8/conv47_97 PushQEl_nms2bestnew_v8/conv48_97 PushQEl_nms1bestnew_v8/conv59_97 PushQEl_nms0bestnew_v8/conv60_97 PushQEl_nms3bestnew_v8/conv70_97 PushQEl_nms2bestnew_v8/conv71_97 | outputs: LastAsyncEl0NmsPPMuxEl0YOLOV8-Post-Process
+[2025-10-23 15:57:28.638] [29437] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] LastAsyncEl0NmsPPMuxEl0YOLOV8-Post-Process | inputs: NmsPPMuxEl0YOLOV8-Post-Process | outputs: user
+[2025-10-23 15:57:28.638] [29437] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] PushQEl_nms0bestnew_v8/conv60_97 | inputs: AsyncHwEl | outputs: NmsPPMuxEl0YOLOV8-Post-Process
+[2025-10-23 15:57:28.638] [29437] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] PushQEl_nms3bestnew_v8/conv70_97 | inputs: AsyncHwEl | outputs: NmsPPMuxEl0YOLOV8-Post-Process
+[2025-10-23 15:57:28.638] [29437] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] PushQEl_nms1bestnew_v8/conv59_97 | inputs: AsyncHwEl | outputs: NmsPPMuxEl0YOLOV8-Post-Process
+[2025-10-23 15:57:28.638] [29437] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] PushQEl_nms3bestnew_v8/conv47_97 | inputs: AsyncHwEl | outputs: NmsPPMuxEl0YOLOV8-Post-Process
+[2025-10-23 15:57:28.638] [29437] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] PushQEl_nms2bestnew_v8/conv48_97 | inputs: AsyncHwEl | outputs: NmsPPMuxEl0YOLOV8-Post-Process
+[2025-10-23 15:57:28.638] [29437] [HailoRT] [info] [hef.cpp:1847] [get_network_group_and_network_name] No name was given. Addressing all networks of default network_group: bestnew_v8
+[2025-10-23 15:57:28.638] [29437] [HailoRT] [info] [hef.cpp:1847] [get_network_group_and_network_name] No name was given. Addressing all networks of default network_group: bestnew_v8
+[2025-10-23 15:57:37.149] [29419] [HailoRT] [info] [async_infer_runner.cpp:86] [shutdown] Pipeline was aborted. Shutting it down
+[2025-10-23 15:57:37.150] [29419] [HailoRT] [info] [queue_elements.cpp:543] [execute_deactivate] enqueue() in element PushQEl_nms2bestnew_v8/conv71_97 was aborted, got status = HAILO_SHUTDOWN_EVENT_SIGNALED(57)
+[2025-10-23 15:57:37.150] [29419] [HailoRT] [info] [queue_elements.cpp:543] [execute_deactivate] enqueue() in element PushQEl_nms0bestnew_v8/conv60_97 was aborted, got status = HAILO_SHUTDOWN_EVENT_SIGNALED(57)
+[2025-10-23 15:57:37.150] [29419] [HailoRT] [info] [queue_elements.cpp:543] [execute_deactivate] enqueue() in element PushQEl_nms3bestnew_v8/conv70_97 was aborted, got status = HAILO_SHUTDOWN_EVENT_SIGNALED(57)
+[2025-10-23 15:57:37.150] [29419] [HailoRT] [info] [queue_elements.cpp:543] [execute_deactivate] enqueue() in element PushQEl_nms1bestnew_v8/conv59_97 was aborted, got status = HAILO_SHUTDOWN_EVENT_SIGNALED(57)
+[2025-10-23 15:57:37.150] [29419] [HailoRT] [info] [queue_elements.cpp:543] [execute_deactivate] enqueue() in element PushQEl_nms3bestnew_v8/conv47_97 was aborted, got status = HAILO_SHUTDOWN_EVENT_SIGNALED(57)
+[2025-10-23 15:57:37.150] [29419] [HailoRT] [info] [queue_elements.cpp:543] [execute_deactivate] enqueue() in element PushQEl_nms2bestnew_v8/conv48_97 was aborted, got status = HAILO_SHUTDOWN_EVENT_SIGNALED(57)
+[2025-10-23 15:57:37.150] [29419] [HailoRT] [info] [queue_elements.cpp:543] [execute_deactivate] enqueue() in element PushQEl1bestnew_v8/input_layer1 was aborted, got status = HAILO_SHUTDOWN_EVENT_SIGNALED(57)
+[2025-10-23 15:57:37.150] [29419] [HailoRT] [info] [queue_elements.cpp:543] [execute_deactivate] enqueue() in element EntryPushQEl0bestnew_v8/input_layer1 was aborted, got status = HAILO_SHUTDOWN_EVENT_SIGNALED(57)
+[2025-10-23 15:57:37.150] [29419] [HailoRT] [info] [queue_elements.cpp:43] [~BaseQueueElement] Queue element EntryPushQEl0bestnew_v8/input_layer1 has 0 frames in his Queue on destruction
+[2025-10-23 15:57:37.150] [29419] [HailoRT] [info] [queue_elements.cpp:43] [~BaseQueueElement] Queue element PushQEl1bestnew_v8/input_layer1 has 0 frames in his Queue on destruction
+[2025-10-23 15:57:37.150] [29419] [HailoRT] [info] [queue_elements.cpp:43] [~BaseQueueElement] Queue element PushQEl_nms3bestnew_v8/conv47_97 has 0 frames in his Queue on destruction
+[2025-10-23 15:57:37.150] [29419] [HailoRT] [info] [queue_elements.cpp:43] [~BaseQueueElement] Queue element PushQEl_nms2bestnew_v8/conv48_97 has 0 frames in his Queue on destruction
+[2025-10-23 15:57:37.150] [29419] [HailoRT] [info] [queue_elements.cpp:43] [~BaseQueueElement] Queue element PushQEl_nms1bestnew_v8/conv59_97 has 0 frames in his Queue on destruction
+[2025-10-23 15:57:37.150] [29419] [HailoRT] [info] [queue_elements.cpp:43] [~BaseQueueElement] Queue element PushQEl_nms0bestnew_v8/conv60_97 has 0 frames in his Queue on destruction
+[2025-10-23 15:57:37.150] [29419] [HailoRT] [info] [queue_elements.cpp:43] [~BaseQueueElement] Queue element PushQEl_nms3bestnew_v8/conv70_97 has 0 frames in his Queue on destruction
+[2025-10-23 15:57:37.150] [29419] [HailoRT] [info] [queue_elements.cpp:43] [~BaseQueueElement] Queue element PushQEl_nms2bestnew_v8/conv71_97 has 0 frames in his Queue on destruction
+[2025-10-23 15:57:37.151] [29483] [HailoRT] [info] [vdevice.cpp:430] [listener_run_in_thread] Shutdown event was signaled in listener_run_in_thread
+[2025-10-23 15:57:45.856] [29756] [HailoRT] [info] [device.cpp:51] [Device] OS Version: Linux 6.12.47+rpt-rpi-2712 #1 SMP PREEMPT Debian 1:6.12.47-1+rpt1~bookworm (2025-09-16) aarch64
+[2025-10-23 15:57:45.857] [29756] [HailoRT] [info] [control.cpp:109] [control__parse_identify_results] firmware_version is: 4.19.0
+[2025-10-23 15:57:45.858] [29756] [HailoRT] [info] [control.cpp:109] [control__parse_identify_results] firmware_version is: 4.19.0
+[2025-10-23 15:57:45.918] [29756] [HailoRT] [info] [device.cpp:51] [Device] OS Version: Linux 6.12.47+rpt-rpi-2712 #1 SMP PREEMPT Debian 1:6.12.47-1+rpt1~bookworm (2025-09-16) aarch64
+[2025-10-23 15:57:45.919] [29756] [HailoRT] [info] [control.cpp:109] [control__parse_identify_results] firmware_version is: 4.19.0
+[2025-10-23 15:57:45.920] [29756] [HailoRT] [info] [control.cpp:109] [control__parse_identify_results] firmware_version is: 4.19.0
+[2025-10-23 15:57:46.418] [29768] [HailoRT] [info] [device.cpp:51] [Device] OS Version: Linux 6.12.47+rpt-rpi-2712 #1 SMP PREEMPT Debian 1:6.12.47-1+rpt1~bookworm (2025-09-16) aarch64
+[2025-10-23 15:57:46.420] [29768] [HailoRT] [info] [control.cpp:109] [control__parse_identify_results] firmware_version is: 4.19.0
+[2025-10-23 15:57:46.421] [29768] [HailoRT] [info] [control.cpp:109] [control__parse_identify_results] firmware_version is: 4.19.0
+[2025-10-23 15:57:47.469] [29768] [HailoRT] [info] [device.cpp:51] [Device] OS Version: Linux 6.12.47+rpt-rpi-2712 #1 SMP PREEMPT Debian 1:6.12.47-1+rpt1~bookworm (2025-09-16) aarch64
+[2025-10-23 15:57:47.470] [29768] [HailoRT] [info] [control.cpp:109] [control__parse_identify_results] firmware_version is: 4.19.0
+[2025-10-23 15:57:47.602] [29768] [HailoRT] [info] [hef.cpp:1847] [get_network_group_and_network_name] No name was given. Addressing all networks of default network_group: bestnew_v8
+[2025-10-23 15:57:47.602] [29768] [HailoRT] [info] [hef.cpp:1847] [get_network_group_and_network_name] No name was given. Addressing all networks of default network_group: bestnew_v8
+[2025-10-23 15:57:47.771] [29768] [HailoRT] [info] [multi_io_elements.cpp:783] [create] Created (AsyncHwEl)
+[2025-10-23 15:57:47.771] [29768] [HailoRT] [info] [queue_elements.cpp:427] [create] Created (EntryPushQEl0bestnew_v8/input_layer1 | timeout: 10s)
+[2025-10-23 15:57:47.771] [29768] [HailoRT] [info] [filter_elements.cpp:101] [create] Created (PreInferEl1bestnew_v8/input_layer1 | Reorder - src_order: NHWC, src_shape: (640, 640, 3), dst_order: NHCW, dst_shape: (640, 640, 3))
+[2025-10-23 15:57:47.772] [29768] [HailoRT] [info] [queue_elements.cpp:427] [create] Created (PushQEl1bestnew_v8/input_layer1 | timeout: 10s)
+[2025-10-23 15:57:47.772] [29768] [HailoRT] [info] [multi_io_elements.cpp:162] [create] Created (NmsPPMuxEl0YOLOV8-Post-Process | Op YOLOV8, Name: YOLOV8-Post-Process, Score threshold: 0.300, IoU threshold: 0.60, Classes: 4, Cross classes: false, Max bboxes per class: 100, Image height: 640, Image width: 640)
+[2025-10-23 15:57:47.772] [29768] [HailoRT] [info] [queue_elements.cpp:427] [create] Created (PushQEl_nms3bestnew_v8/conv47_97 | timeout: 10s)
+[2025-10-23 15:57:47.772] [29768] [HailoRT] [info] [queue_elements.cpp:427] [create] Created (PushQEl_nms2bestnew_v8/conv48_97 | timeout: 10s)
+[2025-10-23 15:57:47.772] [29768] [HailoRT] [info] [queue_elements.cpp:427] [create] Created (PushQEl_nms1bestnew_v8/conv59_97 | timeout: 10s)
+[2025-10-23 15:57:47.772] [29768] [HailoRT] [info] [queue_elements.cpp:427] [create] Created (PushQEl_nms0bestnew_v8/conv60_97 | timeout: 10s)
+[2025-10-23 15:57:47.772] [29768] [HailoRT] [info] [queue_elements.cpp:427] [create] Created (PushQEl_nms3bestnew_v8/conv70_97 | timeout: 10s)
+[2025-10-23 15:57:47.772] [29768] [HailoRT] [info] [queue_elements.cpp:427] [create] Created (PushQEl_nms2bestnew_v8/conv71_97 | timeout: 10s)
+[2025-10-23 15:57:47.772] [29768] [HailoRT] [info] [edge_elements.cpp:187] [create] Created (LastAsyncEl0NmsPPMuxEl0YOLOV8-Post-Process)
+[2025-10-23 15:57:47.772] [29768] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] EntryPushQEl0bestnew_v8/input_layer1 | inputs: user | outputs: PreInferEl1bestnew_v8/input_layer1
+[2025-10-23 15:57:47.772] [29768] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] PreInferEl1bestnew_v8/input_layer1 | inputs: EntryPushQEl0bestnew_v8/input_layer1 | outputs: PushQEl1bestnew_v8/input_layer1
+[2025-10-23 15:57:47.772] [29768] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] PushQEl1bestnew_v8/input_layer1 | inputs: PreInferEl1bestnew_v8/input_layer1 | outputs: AsyncHwEl
+[2025-10-23 15:57:47.772] [29768] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] AsyncHwEl | inputs: PushQEl1bestnew_v8/input_layer1 | outputs: PushQEl_nms2bestnew_v8/conv71_97 PushQEl_nms0bestnew_v8/conv60_97 PushQEl_nms3bestnew_v8/conv70_97 PushQEl_nms1bestnew_v8/conv59_97 PushQEl_nms3bestnew_v8/conv47_97 PushQEl_nms2bestnew_v8/conv48_97
+[2025-10-23 15:57:47.772] [29768] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] PushQEl_nms2bestnew_v8/conv71_97 | inputs: AsyncHwEl | outputs: NmsPPMuxEl0YOLOV8-Post-Process
+[2025-10-23 15:57:47.772] [29768] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] NmsPPMuxEl0YOLOV8-Post-Process | inputs: PushQEl_nms3bestnew_v8/conv47_97 PushQEl_nms2bestnew_v8/conv48_97 PushQEl_nms1bestnew_v8/conv59_97 PushQEl_nms0bestnew_v8/conv60_97 PushQEl_nms3bestnew_v8/conv70_97 PushQEl_nms2bestnew_v8/conv71_97 | outputs: LastAsyncEl0NmsPPMuxEl0YOLOV8-Post-Process
+[2025-10-23 15:57:47.772] [29768] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] LastAsyncEl0NmsPPMuxEl0YOLOV8-Post-Process | inputs: NmsPPMuxEl0YOLOV8-Post-Process | outputs: user
+[2025-10-23 15:57:47.772] [29768] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] PushQEl_nms0bestnew_v8/conv60_97 | inputs: AsyncHwEl | outputs: NmsPPMuxEl0YOLOV8-Post-Process
+[2025-10-23 15:57:47.772] [29768] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] PushQEl_nms3bestnew_v8/conv70_97 | inputs: AsyncHwEl | outputs: NmsPPMuxEl0YOLOV8-Post-Process
+[2025-10-23 15:57:47.772] [29768] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] PushQEl_nms1bestnew_v8/conv59_97 | inputs: AsyncHwEl | outputs: NmsPPMuxEl0YOLOV8-Post-Process
+[2025-10-23 15:57:47.772] [29768] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] PushQEl_nms3bestnew_v8/conv47_97 | inputs: AsyncHwEl | outputs: NmsPPMuxEl0YOLOV8-Post-Process
+[2025-10-23 15:57:47.772] [29768] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] PushQEl_nms2bestnew_v8/conv48_97 | inputs: AsyncHwEl | outputs: NmsPPMuxEl0YOLOV8-Post-Process
+[2025-10-23 15:57:47.773] [29768] [HailoRT] [info] [hef.cpp:1847] [get_network_group_and_network_name] No name was given. Addressing all networks of default network_group: bestnew_v8
+[2025-10-23 15:57:47.773] [29768] [HailoRT] [info] [hef.cpp:1847] [get_network_group_and_network_name] No name was given. Addressing all networks of default network_group: bestnew_v8
+[2025-10-23 15:57:56.270] [29756] [HailoRT] [info] [async_infer_runner.cpp:86] [shutdown] Pipeline was aborted. Shutting it down
+[2025-10-23 15:57:56.271] [29756] [HailoRT] [info] [queue_elements.cpp:543] [execute_deactivate] enqueue() in element PushQEl_nms2bestnew_v8/conv71_97 was aborted, got status = HAILO_SHUTDOWN_EVENT_SIGNALED(57)
+[2025-10-23 15:57:56.271] [29756] [HailoRT] [info] [queue_elements.cpp:543] [execute_deactivate] enqueue() in element PushQEl_nms0bestnew_v8/conv60_97 was aborted, got status = HAILO_SHUTDOWN_EVENT_SIGNALED(57)
+[2025-10-23 15:57:56.271] [29756] [HailoRT] [info] [queue_elements.cpp:543] [execute_deactivate] enqueue() in element PushQEl_nms3bestnew_v8/conv70_97 was aborted, got status = HAILO_SHUTDOWN_EVENT_SIGNALED(57)
+[2025-10-23 15:57:56.271] [29756] [HailoRT] [info] [queue_elements.cpp:543] [execute_deactivate] enqueue() in element PushQEl_nms1bestnew_v8/conv59_97 was aborted, got status = HAILO_SHUTDOWN_EVENT_SIGNALED(57)
+[2025-10-23 15:57:56.271] [29756] [HailoRT] [info] [queue_elements.cpp:543] [execute_deactivate] enqueue() in element PushQEl_nms3bestnew_v8/conv47_97 was aborted, got status = HAILO_SHUTDOWN_EVENT_SIGNALED(57)
+[2025-10-23 15:57:56.271] [29756] [HailoRT] [info] [queue_elements.cpp:543] [execute_deactivate] enqueue() in element PushQEl_nms2bestnew_v8/conv48_97 was aborted, got status = HAILO_SHUTDOWN_EVENT_SIGNALED(57)
+[2025-10-23 15:57:56.271] [29756] [HailoRT] [info] [queue_elements.cpp:543] [execute_deactivate] enqueue() in element PushQEl1bestnew_v8/input_layer1 was aborted, got status = HAILO_SHUTDOWN_EVENT_SIGNALED(57)
+[2025-10-23 15:57:56.271] [29756] [HailoRT] [info] [queue_elements.cpp:543] [execute_deactivate] enqueue() in element EntryPushQEl0bestnew_v8/input_layer1 was aborted, got status = HAILO_SHUTDOWN_EVENT_SIGNALED(57)
+[2025-10-23 15:57:56.271] [29756] [HailoRT] [info] [queue_elements.cpp:43] [~BaseQueueElement] Queue element EntryPushQEl0bestnew_v8/input_layer1 has 0 frames in his Queue on destruction
+[2025-10-23 15:57:56.271] [29756] [HailoRT] [info] [queue_elements.cpp:43] [~BaseQueueElement] Queue element PushQEl1bestnew_v8/input_layer1 has 0 frames in his Queue on destruction
+[2025-10-23 15:57:56.271] [29756] [HailoRT] [info] [queue_elements.cpp:43] [~BaseQueueElement] Queue element PushQEl_nms3bestnew_v8/conv47_97 has 0 frames in his Queue on destruction
+[2025-10-23 15:57:56.271] [29756] [HailoRT] [info] [queue_elements.cpp:43] [~BaseQueueElement] Queue element PushQEl_nms2bestnew_v8/conv48_97 has 0 frames in his Queue on destruction
+[2025-10-23 15:57:56.271] [29756] [HailoRT] [info] [queue_elements.cpp:43] [~BaseQueueElement] Queue element PushQEl_nms1bestnew_v8/conv59_97 has 0 frames in his Queue on destruction
+[2025-10-23 15:57:56.271] [29756] [HailoRT] [info] [queue_elements.cpp:43] [~BaseQueueElement] Queue element PushQEl_nms0bestnew_v8/conv60_97 has 0 frames in his Queue on destruction
+[2025-10-23 15:57:56.271] [29756] [HailoRT] [info] [queue_elements.cpp:43] [~BaseQueueElement] Queue element PushQEl_nms3bestnew_v8/conv70_97 has 0 frames in his Queue on destruction
+[2025-10-23 15:57:56.271] [29756] [HailoRT] [info] [queue_elements.cpp:43] [~BaseQueueElement] Queue element PushQEl_nms2bestnew_v8/conv71_97 has 0 frames in his Queue on destruction
+[2025-10-23 15:57:56.272] [29813] [HailoRT] [info] [vdevice.cpp:430] [listener_run_in_thread] Shutdown event was signaled in listener_run_in_thread
+[2025-10-23 15:58:14.720] [30150] [HailoRT] [info] [device.cpp:51] [Device] OS Version: Linux 6.12.47+rpt-rpi-2712 #1 SMP PREEMPT Debian 1:6.12.47-1+rpt1~bookworm (2025-09-16) aarch64
+[2025-10-23 15:58:14.721] [30150] [HailoRT] [info] [control.cpp:109] [control__parse_identify_results] firmware_version is: 4.19.0
+[2025-10-23 15:58:14.722] [30150] [HailoRT] [info] [control.cpp:109] [control__parse_identify_results] firmware_version is: 4.19.0
+[2025-10-23 15:58:14.798] [30150] [HailoRT] [info] [device.cpp:51] [Device] OS Version: Linux 6.12.47+rpt-rpi-2712 #1 SMP PREEMPT Debian 1:6.12.47-1+rpt1~bookworm (2025-09-16) aarch64
+[2025-10-23 15:58:14.799] [30150] [HailoRT] [info] [control.cpp:109] [control__parse_identify_results] firmware_version is: 4.19.0
+[2025-10-23 15:58:14.800] [30150] [HailoRT] [info] [control.cpp:109] [control__parse_identify_results] firmware_version is: 4.19.0
+[2025-10-23 15:58:15.299] [30165] [HailoRT] [info] [device.cpp:51] [Device] OS Version: Linux 6.12.47+rpt-rpi-2712 #1 SMP PREEMPT Debian 1:6.12.47-1+rpt1~bookworm (2025-09-16) aarch64
+[2025-10-23 15:58:15.301] [30165] [HailoRT] [info] [control.cpp:109] [control__parse_identify_results] firmware_version is: 4.19.0
+[2025-10-23 15:58:15.302] [30165] [HailoRT] [info] [control.cpp:109] [control__parse_identify_results] firmware_version is: 4.19.0
+[2025-10-23 15:58:16.353] [30165] [HailoRT] [info] [device.cpp:51] [Device] OS Version: Linux 6.12.47+rpt-rpi-2712 #1 SMP PREEMPT Debian 1:6.12.47-1+rpt1~bookworm (2025-09-16) aarch64
+[2025-10-23 15:58:16.354] [30165] [HailoRT] [info] [control.cpp:109] [control__parse_identify_results] firmware_version is: 4.19.0
+[2025-10-23 15:58:16.473] [30165] [HailoRT] [info] [hef.cpp:1847] [get_network_group_and_network_name] No name was given. Addressing all networks of default network_group: bestnew_v8
+[2025-10-23 15:58:16.473] [30165] [HailoRT] [info] [hef.cpp:1847] [get_network_group_and_network_name] No name was given. Addressing all networks of default network_group: bestnew_v8
+[2025-10-23 15:58:16.642] [30165] [HailoRT] [info] [multi_io_elements.cpp:783] [create] Created (AsyncHwEl)
+[2025-10-23 15:58:16.642] [30165] [HailoRT] [info] [queue_elements.cpp:427] [create] Created (EntryPushQEl0bestnew_v8/input_layer1 | timeout: 10s)
+[2025-10-23 15:58:16.642] [30165] [HailoRT] [info] [filter_elements.cpp:101] [create] Created (PreInferEl1bestnew_v8/input_layer1 | Reorder - src_order: NHWC, src_shape: (640, 640, 3), dst_order: NHCW, dst_shape: (640, 640, 3))
+[2025-10-23 15:58:16.643] [30165] [HailoRT] [info] [queue_elements.cpp:427] [create] Created (PushQEl1bestnew_v8/input_layer1 | timeout: 10s)
+[2025-10-23 15:58:16.643] [30165] [HailoRT] [info] [multi_io_elements.cpp:162] [create] Created (NmsPPMuxEl0YOLOV8-Post-Process | Op YOLOV8, Name: YOLOV8-Post-Process, Score threshold: 0.300, IoU threshold: 0.60, Classes: 4, Cross classes: false, Max bboxes per class: 100, Image height: 640, Image width: 640)
+[2025-10-23 15:58:16.643] [30165] [HailoRT] [info] [queue_elements.cpp:427] [create] Created (PushQEl_nms3bestnew_v8/conv47_97 | timeout: 10s)
+[2025-10-23 15:58:16.643] [30165] [HailoRT] [info] [queue_elements.cpp:427] [create] Created (PushQEl_nms2bestnew_v8/conv48_97 | timeout: 10s)
+[2025-10-23 15:58:16.643] [30165] [HailoRT] [info] [queue_elements.cpp:427] [create] Created (PushQEl_nms1bestnew_v8/conv59_97 | timeout: 10s)
+[2025-10-23 15:58:16.643] [30165] [HailoRT] [info] [queue_elements.cpp:427] [create] Created (PushQEl_nms0bestnew_v8/conv60_97 | timeout: 10s)
+[2025-10-23 15:58:16.643] [30165] [HailoRT] [info] [queue_elements.cpp:427] [create] Created (PushQEl_nms3bestnew_v8/conv70_97 | timeout: 10s)
+[2025-10-23 15:58:16.643] [30165] [HailoRT] [info] [queue_elements.cpp:427] [create] Created (PushQEl_nms2bestnew_v8/conv71_97 | timeout: 10s)
+[2025-10-23 15:58:16.643] [30165] [HailoRT] [info] [edge_elements.cpp:187] [create] Created (LastAsyncEl0NmsPPMuxEl0YOLOV8-Post-Process)
+[2025-10-23 15:58:16.644] [30165] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] EntryPushQEl0bestnew_v8/input_layer1 | inputs: user | outputs: PreInferEl1bestnew_v8/input_layer1
+[2025-10-23 15:58:16.644] [30165] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] PreInferEl1bestnew_v8/input_layer1 | inputs: EntryPushQEl0bestnew_v8/input_layer1 | outputs: PushQEl1bestnew_v8/input_layer1
+[2025-10-23 15:58:16.644] [30165] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] PushQEl1bestnew_v8/input_layer1 | inputs: PreInferEl1bestnew_v8/input_layer1 | outputs: AsyncHwEl
+[2025-10-23 15:58:16.644] [30165] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] AsyncHwEl | inputs: PushQEl1bestnew_v8/input_layer1 | outputs: PushQEl_nms2bestnew_v8/conv71_97 PushQEl_nms0bestnew_v8/conv60_97 PushQEl_nms3bestnew_v8/conv70_97 PushQEl_nms1bestnew_v8/conv59_97 PushQEl_nms3bestnew_v8/conv47_97 PushQEl_nms2bestnew_v8/conv48_97
+[2025-10-23 15:58:16.644] [30165] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] PushQEl_nms2bestnew_v8/conv71_97 | inputs: AsyncHwEl | outputs: NmsPPMuxEl0YOLOV8-Post-Process
+[2025-10-23 15:58:16.644] [30165] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] NmsPPMuxEl0YOLOV8-Post-Process | inputs: PushQEl_nms3bestnew_v8/conv47_97 PushQEl_nms2bestnew_v8/conv48_97 PushQEl_nms1bestnew_v8/conv59_97 PushQEl_nms0bestnew_v8/conv60_97 PushQEl_nms3bestnew_v8/conv70_97 PushQEl_nms2bestnew_v8/conv71_97 | outputs: LastAsyncEl0NmsPPMuxEl0YOLOV8-Post-Process
+[2025-10-23 15:58:16.644] [30165] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] LastAsyncEl0NmsPPMuxEl0YOLOV8-Post-Process | inputs: NmsPPMuxEl0YOLOV8-Post-Process | outputs: user
+[2025-10-23 15:58:16.644] [30165] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] PushQEl_nms0bestnew_v8/conv60_97 | inputs: AsyncHwEl | outputs: NmsPPMuxEl0YOLOV8-Post-Process
+[2025-10-23 15:58:16.644] [30165] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] PushQEl_nms3bestnew_v8/conv70_97 | inputs: AsyncHwEl | outputs: NmsPPMuxEl0YOLOV8-Post-Process
+[2025-10-23 15:58:16.644] [30165] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] PushQEl_nms1bestnew_v8/conv59_97 | inputs: AsyncHwEl | outputs: NmsPPMuxEl0YOLOV8-Post-Process
+[2025-10-23 15:58:16.644] [30165] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] PushQEl_nms3bestnew_v8/conv47_97 | inputs: AsyncHwEl | outputs: NmsPPMuxEl0YOLOV8-Post-Process
+[2025-10-23 15:58:16.644] [30165] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] PushQEl_nms2bestnew_v8/conv48_97 | inputs: AsyncHwEl | outputs: NmsPPMuxEl0YOLOV8-Post-Process
+[2025-10-23 15:58:16.644] [30165] [HailoRT] [info] [hef.cpp:1847] [get_network_group_and_network_name] No name was given. Addressing all networks of default network_group: bestnew_v8
+[2025-10-23 15:58:16.644] [30165] [HailoRT] [info] [hef.cpp:1847] [get_network_group_and_network_name] No name was given. Addressing all networks of default network_group: bestnew_v8
+[2025-10-23 15:58:25.111] [30150] [HailoRT] [info] [async_infer_runner.cpp:86] [shutdown] Pipeline was aborted. Shutting it down
+[2025-10-23 15:58:25.111] [30150] [HailoRT] [info] [queue_elements.cpp:543] [execute_deactivate] enqueue() in element PushQEl_nms2bestnew_v8/conv71_97 was aborted, got status = HAILO_SHUTDOWN_EVENT_SIGNALED(57)
+[2025-10-23 15:58:25.111] [30150] [HailoRT] [info] [queue_elements.cpp:543] [execute_deactivate] enqueue() in element PushQEl_nms0bestnew_v8/conv60_97 was aborted, got status = HAILO_SHUTDOWN_EVENT_SIGNALED(57)
+[2025-10-23 15:58:25.111] [30150] [HailoRT] [info] [queue_elements.cpp:543] [execute_deactivate] enqueue() in element PushQEl_nms3bestnew_v8/conv70_97 was aborted, got status = HAILO_SHUTDOWN_EVENT_SIGNALED(57)
+[2025-10-23 15:58:25.111] [30150] [HailoRT] [info] [queue_elements.cpp:543] [execute_deactivate] enqueue() in element PushQEl_nms1bestnew_v8/conv59_97 was aborted, got status = HAILO_SHUTDOWN_EVENT_SIGNALED(57)
+[2025-10-23 15:58:25.111] [30150] [HailoRT] [info] [queue_elements.cpp:543] [execute_deactivate] enqueue() in element PushQEl_nms3bestnew_v8/conv47_97 was aborted, got status = HAILO_SHUTDOWN_EVENT_SIGNALED(57)
+[2025-10-23 15:58:25.111] [30150] [HailoRT] [info] [queue_elements.cpp:543] [execute_deactivate] enqueue() in element PushQEl_nms2bestnew_v8/conv48_97 was aborted, got status = HAILO_SHUTDOWN_EVENT_SIGNALED(57)
+[2025-10-23 15:58:25.111] [30150] [HailoRT] [info] [queue_elements.cpp:543] [execute_deactivate] enqueue() in element PushQEl1bestnew_v8/input_layer1 was aborted, got status = HAILO_SHUTDOWN_EVENT_SIGNALED(57)
+[2025-10-23 15:58:25.111] [30150] [HailoRT] [info] [queue_elements.cpp:543] [execute_deactivate] enqueue() in element EntryPushQEl0bestnew_v8/input_layer1 was aborted, got status = HAILO_SHUTDOWN_EVENT_SIGNALED(57)
+[2025-10-23 15:58:25.111] [30150] [HailoRT] [info] [queue_elements.cpp:43] [~BaseQueueElement] Queue element EntryPushQEl0bestnew_v8/input_layer1 has 0 frames in his Queue on destruction
+[2025-10-23 15:58:25.111] [30150] [HailoRT] [info] [queue_elements.cpp:43] [~BaseQueueElement] Queue element PushQEl1bestnew_v8/input_layer1 has 0 frames in his Queue on destruction
+[2025-10-23 15:58:25.112] [30150] [HailoRT] [info] [queue_elements.cpp:43] [~BaseQueueElement] Queue element PushQEl_nms3bestnew_v8/conv47_97 has 0 frames in his Queue on destruction
+[2025-10-23 15:58:25.112] [30150] [HailoRT] [info] [queue_elements.cpp:43] [~BaseQueueElement] Queue element PushQEl_nms2bestnew_v8/conv48_97 has 0 frames in his Queue on destruction
+[2025-10-23 15:58:25.112] [30150] [HailoRT] [info] [queue_elements.cpp:43] [~BaseQueueElement] Queue element PushQEl_nms1bestnew_v8/conv59_97 has 0 frames in his Queue on destruction
+[2025-10-23 15:58:25.112] [30150] [HailoRT] [info] [queue_elements.cpp:43] [~BaseQueueElement] Queue element PushQEl_nms0bestnew_v8/conv60_97 has 0 frames in his Queue on destruction
+[2025-10-23 15:58:25.112] [30150] [HailoRT] [info] [queue_elements.cpp:43] [~BaseQueueElement] Queue element PushQEl_nms3bestnew_v8/conv70_97 has 0 frames in his Queue on destruction
+[2025-10-23 15:58:25.112] [30150] [HailoRT] [info] [queue_elements.cpp:43] [~BaseQueueElement] Queue element PushQEl_nms2bestnew_v8/conv71_97 has 0 frames in his Queue on destruction
+[2025-10-23 15:58:25.113] [30211] [HailoRT] [info] [vdevice.cpp:430] [listener_run_in_thread] Shutdown event was signaled in listener_run_in_thread
+[2025-10-23 15:58:46.678] [30513] [HailoRT] [info] [device.cpp:51] [Device] OS Version: Linux 6.12.47+rpt-rpi-2712 #1 SMP PREEMPT Debian 1:6.12.47-1+rpt1~bookworm (2025-09-16) aarch64
+[2025-10-23 15:58:46.679] [30513] [HailoRT] [info] [control.cpp:109] [control__parse_identify_results] firmware_version is: 4.19.0
+[2025-10-23 15:58:46.680] [30513] [HailoRT] [info] [control.cpp:109] [control__parse_identify_results] firmware_version is: 4.19.0
+[2025-10-23 15:58:46.746] [30513] [HailoRT] [info] [device.cpp:51] [Device] OS Version: Linux 6.12.47+rpt-rpi-2712 #1 SMP PREEMPT Debian 1:6.12.47-1+rpt1~bookworm (2025-09-16) aarch64
+[2025-10-23 15:58:46.747] [30513] [HailoRT] [info] [control.cpp:109] [control__parse_identify_results] firmware_version is: 4.19.0
+[2025-10-23 15:58:46.748] [30513] [HailoRT] [info] [control.cpp:109] [control__parse_identify_results] firmware_version is: 4.19.0
+[2025-10-23 15:58:47.252] [30525] [HailoRT] [info] [device.cpp:51] [Device] OS Version: Linux 6.12.47+rpt-rpi-2712 #1 SMP PREEMPT Debian 1:6.12.47-1+rpt1~bookworm (2025-09-16) aarch64
+[2025-10-23 15:58:47.253] [30525] [HailoRT] [info] [control.cpp:109] [control__parse_identify_results] firmware_version is: 4.19.0
+[2025-10-23 15:58:47.254] [30525] [HailoRT] [info] [control.cpp:109] [control__parse_identify_results] firmware_version is: 4.19.0
+[2025-10-23 15:58:48.295] [30525] [HailoRT] [info] [device.cpp:51] [Device] OS Version: Linux 6.12.47+rpt-rpi-2712 #1 SMP PREEMPT Debian 1:6.12.47-1+rpt1~bookworm (2025-09-16) aarch64
+[2025-10-23 15:58:48.296] [30525] [HailoRT] [info] [control.cpp:109] [control__parse_identify_results] firmware_version is: 4.19.0
+[2025-10-23 15:58:48.394] [30525] [HailoRT] [info] [hef.cpp:1847] [get_network_group_and_network_name] No name was given. Addressing all networks of default network_group: bestnew_v8
+[2025-10-23 15:58:48.394] [30525] [HailoRT] [info] [hef.cpp:1847] [get_network_group_and_network_name] No name was given. Addressing all networks of default network_group: bestnew_v8
+[2025-10-23 15:58:48.562] [30525] [HailoRT] [info] [multi_io_elements.cpp:783] [create] Created (AsyncHwEl)
+[2025-10-23 15:58:48.562] [30525] [HailoRT] [info] [queue_elements.cpp:427] [create] Created (EntryPushQEl0bestnew_v8/input_layer1 | timeout: 10s)
+[2025-10-23 15:58:48.562] [30525] [HailoRT] [info] [filter_elements.cpp:101] [create] Created (PreInferEl1bestnew_v8/input_layer1 | Reorder - src_order: NHWC, src_shape: (640, 640, 3), dst_order: NHCW, dst_shape: (640, 640, 3))
+[2025-10-23 15:58:48.563] [30525] [HailoRT] [info] [queue_elements.cpp:427] [create] Created (PushQEl1bestnew_v8/input_layer1 | timeout: 10s)
+[2025-10-23 15:58:48.563] [30525] [HailoRT] [info] [multi_io_elements.cpp:162] [create] Created (NmsPPMuxEl0YOLOV8-Post-Process | Op YOLOV8, Name: YOLOV8-Post-Process, Score threshold: 0.300, IoU threshold: 0.60, Classes: 4, Cross classes: false, Max bboxes per class: 100, Image height: 640, Image width: 640)
+[2025-10-23 15:58:48.563] [30525] [HailoRT] [info] [queue_elements.cpp:427] [create] Created (PushQEl_nms3bestnew_v8/conv47_97 | timeout: 10s)
+[2025-10-23 15:58:48.563] [30525] [HailoRT] [info] [queue_elements.cpp:427] [create] Created (PushQEl_nms2bestnew_v8/conv48_97 | timeout: 10s)
+[2025-10-23 15:58:48.563] [30525] [HailoRT] [info] [queue_elements.cpp:427] [create] Created (PushQEl_nms1bestnew_v8/conv59_97 | timeout: 10s)
+[2025-10-23 15:58:48.563] [30525] [HailoRT] [info] [queue_elements.cpp:427] [create] Created (PushQEl_nms0bestnew_v8/conv60_97 | timeout: 10s)
+[2025-10-23 15:58:48.563] [30525] [HailoRT] [info] [queue_elements.cpp:427] [create] Created (PushQEl_nms3bestnew_v8/conv70_97 | timeout: 10s)
+[2025-10-23 15:58:48.563] [30525] [HailoRT] [info] [queue_elements.cpp:427] [create] Created (PushQEl_nms2bestnew_v8/conv71_97 | timeout: 10s)
+[2025-10-23 15:58:48.563] [30525] [HailoRT] [info] [edge_elements.cpp:187] [create] Created (LastAsyncEl0NmsPPMuxEl0YOLOV8-Post-Process)
+[2025-10-23 15:58:48.563] [30525] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] EntryPushQEl0bestnew_v8/input_layer1 | inputs: user | outputs: PreInferEl1bestnew_v8/input_layer1
+[2025-10-23 15:58:48.563] [30525] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] PreInferEl1bestnew_v8/input_layer1 | inputs: EntryPushQEl0bestnew_v8/input_layer1 | outputs: PushQEl1bestnew_v8/input_layer1
+[2025-10-23 15:58:48.563] [30525] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] PushQEl1bestnew_v8/input_layer1 | inputs: PreInferEl1bestnew_v8/input_layer1 | outputs: AsyncHwEl
+[2025-10-23 15:58:48.563] [30525] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] AsyncHwEl | inputs: PushQEl1bestnew_v8/input_layer1 | outputs: PushQEl_nms2bestnew_v8/conv71_97 PushQEl_nms0bestnew_v8/conv60_97 PushQEl_nms3bestnew_v8/conv70_97 PushQEl_nms1bestnew_v8/conv59_97 PushQEl_nms3bestnew_v8/conv47_97 PushQEl_nms2bestnew_v8/conv48_97
+[2025-10-23 15:58:48.563] [30525] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] PushQEl_nms2bestnew_v8/conv71_97 | inputs: AsyncHwEl | outputs: NmsPPMuxEl0YOLOV8-Post-Process
+[2025-10-23 15:58:48.563] [30525] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] NmsPPMuxEl0YOLOV8-Post-Process | inputs: PushQEl_nms3bestnew_v8/conv47_97 PushQEl_nms2bestnew_v8/conv48_97 PushQEl_nms1bestnew_v8/conv59_97 PushQEl_nms0bestnew_v8/conv60_97 PushQEl_nms3bestnew_v8/conv70_97 PushQEl_nms2bestnew_v8/conv71_97 | outputs: LastAsyncEl0NmsPPMuxEl0YOLOV8-Post-Process
+[2025-10-23 15:58:48.563] [30525] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] LastAsyncEl0NmsPPMuxEl0YOLOV8-Post-Process | inputs: NmsPPMuxEl0YOLOV8-Post-Process | outputs: user
+[2025-10-23 15:58:48.564] [30525] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] PushQEl_nms0bestnew_v8/conv60_97 | inputs: AsyncHwEl | outputs: NmsPPMuxEl0YOLOV8-Post-Process
+[2025-10-23 15:58:48.564] [30525] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] PushQEl_nms3bestnew_v8/conv70_97 | inputs: AsyncHwEl | outputs: NmsPPMuxEl0YOLOV8-Post-Process
+[2025-10-23 15:58:48.564] [30525] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] PushQEl_nms1bestnew_v8/conv59_97 | inputs: AsyncHwEl | outputs: NmsPPMuxEl0YOLOV8-Post-Process
+[2025-10-23 15:58:48.564] [30525] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] PushQEl_nms3bestnew_v8/conv47_97 | inputs: AsyncHwEl | outputs: NmsPPMuxEl0YOLOV8-Post-Process
+[2025-10-23 15:58:48.564] [30525] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] PushQEl_nms2bestnew_v8/conv48_97 | inputs: AsyncHwEl | outputs: NmsPPMuxEl0YOLOV8-Post-Process
+[2025-10-23 15:58:48.564] [30525] [HailoRT] [info] [hef.cpp:1847] [get_network_group_and_network_name] No name was given. Addressing all networks of default network_group: bestnew_v8
+[2025-10-23 15:58:48.564] [30525] [HailoRT] [info] [hef.cpp:1847] [get_network_group_and_network_name] No name was given. Addressing all networks of default network_group: bestnew_v8
+[2025-10-23 15:58:57.097] [30513] [HailoRT] [info] [async_infer_runner.cpp:86] [shutdown] Pipeline was aborted. Shutting it down
+[2025-10-23 15:58:57.098] [30513] [HailoRT] [info] [queue_elements.cpp:543] [execute_deactivate] enqueue() in element PushQEl_nms2bestnew_v8/conv71_97 was aborted, got status = HAILO_SHUTDOWN_EVENT_SIGNALED(57)
+[2025-10-23 15:58:57.098] [30513] [HailoRT] [info] [queue_elements.cpp:543] [execute_deactivate] enqueue() in element PushQEl_nms0bestnew_v8/conv60_97 was aborted, got status = HAILO_SHUTDOWN_EVENT_SIGNALED(57)
+[2025-10-23 15:58:57.098] [30513] [HailoRT] [info] [queue_elements.cpp:543] [execute_deactivate] enqueue() in element PushQEl_nms3bestnew_v8/conv70_97 was aborted, got status = HAILO_SHUTDOWN_EVENT_SIGNALED(57)
+[2025-10-23 15:58:57.098] [30513] [HailoRT] [info] [queue_elements.cpp:543] [execute_deactivate] enqueue() in element PushQEl_nms1bestnew_v8/conv59_97 was aborted, got status = HAILO_SHUTDOWN_EVENT_SIGNALED(57)
+[2025-10-23 15:58:57.098] [30513] [HailoRT] [info] [queue_elements.cpp:543] [execute_deactivate] enqueue() in element PushQEl_nms3bestnew_v8/conv47_97 was aborted, got status = HAILO_SHUTDOWN_EVENT_SIGNALED(57)
+[2025-10-23 15:58:57.098] [30513] [HailoRT] [info] [queue_elements.cpp:543] [execute_deactivate] enqueue() in element PushQEl_nms2bestnew_v8/conv48_97 was aborted, got status = HAILO_SHUTDOWN_EVENT_SIGNALED(57)
+[2025-10-23 15:58:57.098] [30513] [HailoRT] [info] [queue_elements.cpp:543] [execute_deactivate] enqueue() in element PushQEl1bestnew_v8/input_layer1 was aborted, got status = HAILO_SHUTDOWN_EVENT_SIGNALED(57)
+[2025-10-23 15:58:57.098] [30513] [HailoRT] [info] [queue_elements.cpp:543] [execute_deactivate] enqueue() in element EntryPushQEl0bestnew_v8/input_layer1 was aborted, got status = HAILO_SHUTDOWN_EVENT_SIGNALED(57)
+[2025-10-23 15:58:57.098] [30513] [HailoRT] [info] [queue_elements.cpp:43] [~BaseQueueElement] Queue element EntryPushQEl0bestnew_v8/input_layer1 has 0 frames in his Queue on destruction
+[2025-10-23 15:58:57.098] [30513] [HailoRT] [info] [queue_elements.cpp:43] [~BaseQueueElement] Queue element PushQEl1bestnew_v8/input_layer1 has 0 frames in his Queue on destruction
+[2025-10-23 15:58:57.098] [30513] [HailoRT] [info] [queue_elements.cpp:43] [~BaseQueueElement] Queue element PushQEl_nms3bestnew_v8/conv47_97 has 0 frames in his Queue on destruction
+[2025-10-23 15:58:57.098] [30513] [HailoRT] [info] [queue_elements.cpp:43] [~BaseQueueElement] Queue element PushQEl_nms2bestnew_v8/conv48_97 has 0 frames in his Queue on destruction
+[2025-10-23 15:58:57.098] [30513] [HailoRT] [info] [queue_elements.cpp:43] [~BaseQueueElement] Queue element PushQEl_nms1bestnew_v8/conv59_97 has 0 frames in his Queue on destruction
+[2025-10-23 15:58:57.098] [30513] [HailoRT] [info] [queue_elements.cpp:43] [~BaseQueueElement] Queue element PushQEl_nms0bestnew_v8/conv60_97 has 0 frames in his Queue on destruction
+[2025-10-23 15:58:57.098] [30513] [HailoRT] [info] [queue_elements.cpp:43] [~BaseQueueElement] Queue element PushQEl_nms3bestnew_v8/conv70_97 has 0 frames in his Queue on destruction
+[2025-10-23 15:58:57.098] [30513] [HailoRT] [info] [queue_elements.cpp:43] [~BaseQueueElement] Queue element PushQEl_nms2bestnew_v8/conv71_97 has 0 frames in his Queue on destruction
+[2025-10-23 15:58:57.099] [30571] [HailoRT] [info] [vdevice.cpp:430] [listener_run_in_thread] Shutdown event was signaled in listener_run_in_thread
+[2025-10-23 16:20:40.083] [34673] [HailoRT] [info] [device.cpp:51] [Device] OS Version: Linux 6.12.47+rpt-rpi-2712 #1 SMP PREEMPT Debian 1:6.12.47-1+rpt1~bookworm (2025-09-16) aarch64
+[2025-10-23 16:20:40.084] [34673] [HailoRT] [info] [control.cpp:109] [control__parse_identify_results] firmware_version is: 4.19.0
+[2025-10-23 16:20:40.085] [34673] [HailoRT] [info] [control.cpp:109] [control__parse_identify_results] firmware_version is: 4.19.0
+[2025-10-23 16:20:40.150] [34673] [HailoRT] [info] [device.cpp:51] [Device] OS Version: Linux 6.12.47+rpt-rpi-2712 #1 SMP PREEMPT Debian 1:6.12.47-1+rpt1~bookworm (2025-09-16) aarch64
+[2025-10-23 16:20:40.151] [34673] [HailoRT] [info] [control.cpp:109] [control__parse_identify_results] firmware_version is: 4.19.0
+[2025-10-23 16:20:40.152] [34673] [HailoRT] [info] [control.cpp:109] [control__parse_identify_results] firmware_version is: 4.19.0
+[2025-10-23 16:20:40.660] [34685] [HailoRT] [info] [device.cpp:51] [Device] OS Version: Linux 6.12.47+rpt-rpi-2712 #1 SMP PREEMPT Debian 1:6.12.47-1+rpt1~bookworm (2025-09-16) aarch64
+[2025-10-23 16:20:40.661] [34685] [HailoRT] [info] [control.cpp:109] [control__parse_identify_results] firmware_version is: 4.19.0
+[2025-10-23 16:20:40.662] [34685] [HailoRT] [info] [control.cpp:109] [control__parse_identify_results] firmware_version is: 4.19.0
+[2025-10-23 16:20:41.705] [34685] [HailoRT] [info] [device.cpp:51] [Device] OS Version: Linux 6.12.47+rpt-rpi-2712 #1 SMP PREEMPT Debian 1:6.12.47-1+rpt1~bookworm (2025-09-16) aarch64
+[2025-10-23 16:20:41.706] [34685] [HailoRT] [info] [control.cpp:109] [control__parse_identify_results] firmware_version is: 4.19.0
+[2025-10-23 16:20:41.804] [34685] [HailoRT] [info] [hef.cpp:1847] [get_network_group_and_network_name] No name was given. Addressing all networks of default network_group: bestnew_v8
+[2025-10-23 16:20:41.804] [34685] [HailoRT] [info] [hef.cpp:1847] [get_network_group_and_network_name] No name was given. Addressing all networks of default network_group: bestnew_v8
+[2025-10-23 16:20:41.987] [34685] [HailoRT] [info] [multi_io_elements.cpp:783] [create] Created (AsyncHwEl)
+[2025-10-23 16:20:41.988] [34685] [HailoRT] [info] [queue_elements.cpp:427] [create] Created (EntryPushQEl0bestnew_v8/input_layer1 | timeout: 10s)
+[2025-10-23 16:20:41.988] [34685] [HailoRT] [info] [filter_elements.cpp:101] [create] Created (PreInferEl1bestnew_v8/input_layer1 | Reorder - src_order: NHWC, src_shape: (640, 640, 3), dst_order: NHCW, dst_shape: (640, 640, 3))
+[2025-10-23 16:20:41.988] [34685] [HailoRT] [info] [queue_elements.cpp:427] [create] Created (PushQEl1bestnew_v8/input_layer1 | timeout: 10s)
+[2025-10-23 16:20:41.988] [34685] [HailoRT] [info] [multi_io_elements.cpp:162] [create] Created (NmsPPMuxEl0YOLOV8-Post-Process | Op YOLOV8, Name: YOLOV8-Post-Process, Score threshold: 0.300, IoU threshold: 0.60, Classes: 4, Cross classes: false, Max bboxes per class: 100, Image height: 640, Image width: 640)
+[2025-10-23 16:20:41.989] [34685] [HailoRT] [info] [queue_elements.cpp:427] [create] Created (PushQEl_nms3bestnew_v8/conv47_97 | timeout: 10s)
+[2025-10-23 16:20:41.989] [34685] [HailoRT] [info] [queue_elements.cpp:427] [create] Created (PushQEl_nms2bestnew_v8/conv48_97 | timeout: 10s)
+[2025-10-23 16:20:41.989] [34685] [HailoRT] [info] [queue_elements.cpp:427] [create] Created (PushQEl_nms1bestnew_v8/conv59_97 | timeout: 10s)
+[2025-10-23 16:20:41.989] [34685] [HailoRT] [info] [queue_elements.cpp:427] [create] Created (PushQEl_nms0bestnew_v8/conv60_97 | timeout: 10s)
+[2025-10-23 16:20:41.989] [34685] [HailoRT] [info] [queue_elements.cpp:427] [create] Created (PushQEl_nms3bestnew_v8/conv70_97 | timeout: 10s)
+[2025-10-23 16:20:41.989] [34685] [HailoRT] [info] [queue_elements.cpp:427] [create] Created (PushQEl_nms2bestnew_v8/conv71_97 | timeout: 10s)
+[2025-10-23 16:20:41.989] [34685] [HailoRT] [info] [edge_elements.cpp:187] [create] Created (LastAsyncEl0NmsPPMuxEl0YOLOV8-Post-Process)
+[2025-10-23 16:20:41.989] [34685] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] EntryPushQEl0bestnew_v8/input_layer1 | inputs: user | outputs: PreInferEl1bestnew_v8/input_layer1
+[2025-10-23 16:20:41.989] [34685] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] PreInferEl1bestnew_v8/input_layer1 | inputs: EntryPushQEl0bestnew_v8/input_layer1 | outputs: PushQEl1bestnew_v8/input_layer1
+[2025-10-23 16:20:41.989] [34685] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] PushQEl1bestnew_v8/input_layer1 | inputs: PreInferEl1bestnew_v8/input_layer1 | outputs: AsyncHwEl
+[2025-10-23 16:20:41.989] [34685] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] AsyncHwEl | inputs: PushQEl1bestnew_v8/input_layer1 | outputs: PushQEl_nms2bestnew_v8/conv71_97 PushQEl_nms0bestnew_v8/conv60_97 PushQEl_nms3bestnew_v8/conv70_97 PushQEl_nms1bestnew_v8/conv59_97 PushQEl_nms3bestnew_v8/conv47_97 PushQEl_nms2bestnew_v8/conv48_97
+[2025-10-23 16:20:41.989] [34685] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] PushQEl_nms2bestnew_v8/conv71_97 | inputs: AsyncHwEl | outputs: NmsPPMuxEl0YOLOV8-Post-Process
+[2025-10-23 16:20:41.989] [34685] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] NmsPPMuxEl0YOLOV8-Post-Process | inputs: PushQEl_nms3bestnew_v8/conv47_97 PushQEl_nms2bestnew_v8/conv48_97 PushQEl_nms1bestnew_v8/conv59_97 PushQEl_nms0bestnew_v8/conv60_97 PushQEl_nms3bestnew_v8/conv70_97 PushQEl_nms2bestnew_v8/conv71_97 | outputs: LastAsyncEl0NmsPPMuxEl0YOLOV8-Post-Process
+[2025-10-23 16:20:41.989] [34685] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] LastAsyncEl0NmsPPMuxEl0YOLOV8-Post-Process | inputs: NmsPPMuxEl0YOLOV8-Post-Process | outputs: user
+[2025-10-23 16:20:41.989] [34685] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] PushQEl_nms0bestnew_v8/conv60_97 | inputs: AsyncHwEl | outputs: NmsPPMuxEl0YOLOV8-Post-Process
+[2025-10-23 16:20:41.989] [34685] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] PushQEl_nms3bestnew_v8/conv70_97 | inputs: AsyncHwEl | outputs: NmsPPMuxEl0YOLOV8-Post-Process
+[2025-10-23 16:20:41.989] [34685] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] PushQEl_nms1bestnew_v8/conv59_97 | inputs: AsyncHwEl | outputs: NmsPPMuxEl0YOLOV8-Post-Process
+[2025-10-23 16:20:41.989] [34685] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] PushQEl_nms3bestnew_v8/conv47_97 | inputs: AsyncHwEl | outputs: NmsPPMuxEl0YOLOV8-Post-Process
+[2025-10-23 16:20:41.989] [34685] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] PushQEl_nms2bestnew_v8/conv48_97 | inputs: AsyncHwEl | outputs: NmsPPMuxEl0YOLOV8-Post-Process
+[2025-10-23 16:20:41.990] [34685] [HailoRT] [info] [hef.cpp:1847] [get_network_group_and_network_name] No name was given. Addressing all networks of default network_group: bestnew_v8
+[2025-10-23 16:20:41.990] [34685] [HailoRT] [info] [hef.cpp:1847] [get_network_group_and_network_name] No name was given. Addressing all networks of default network_group: bestnew_v8
+[2025-10-23 16:20:50.451] [34673] [HailoRT] [info] [async_infer_runner.cpp:86] [shutdown] Pipeline was aborted. Shutting it down
+[2025-10-23 16:20:50.451] [34673] [HailoRT] [info] [queue_elements.cpp:543] [execute_deactivate] enqueue() in element PushQEl_nms2bestnew_v8/conv71_97 was aborted, got status = HAILO_SHUTDOWN_EVENT_SIGNALED(57)
+[2025-10-23 16:20:50.451] [34673] [HailoRT] [info] [queue_elements.cpp:543] [execute_deactivate] enqueue() in element PushQEl_nms0bestnew_v8/conv60_97 was aborted, got status = HAILO_SHUTDOWN_EVENT_SIGNALED(57)
+[2025-10-23 16:20:50.451] [34673] [HailoRT] [info] [queue_elements.cpp:543] [execute_deactivate] enqueue() in element PushQEl_nms3bestnew_v8/conv70_97 was aborted, got status = HAILO_SHUTDOWN_EVENT_SIGNALED(57)
+[2025-10-23 16:20:50.451] [34673] [HailoRT] [info] [queue_elements.cpp:543] [execute_deactivate] enqueue() in element PushQEl_nms1bestnew_v8/conv59_97 was aborted, got status = HAILO_SHUTDOWN_EVENT_SIGNALED(57)
+[2025-10-23 16:20:50.451] [34673] [HailoRT] [info] [queue_elements.cpp:543] [execute_deactivate] enqueue() in element PushQEl_nms3bestnew_v8/conv47_97 was aborted, got status = HAILO_SHUTDOWN_EVENT_SIGNALED(57)
+[2025-10-23 16:20:50.451] [34673] [HailoRT] [info] [queue_elements.cpp:543] [execute_deactivate] enqueue() in element PushQEl_nms2bestnew_v8/conv48_97 was aborted, got status = HAILO_SHUTDOWN_EVENT_SIGNALED(57)
+[2025-10-23 16:20:50.451] [34673] [HailoRT] [info] [queue_elements.cpp:543] [execute_deactivate] enqueue() in element PushQEl1bestnew_v8/input_layer1 was aborted, got status = HAILO_SHUTDOWN_EVENT_SIGNALED(57)
+[2025-10-23 16:20:50.451] [34673] [HailoRT] [info] [queue_elements.cpp:543] [execute_deactivate] enqueue() in element EntryPushQEl0bestnew_v8/input_layer1 was aborted, got status = HAILO_SHUTDOWN_EVENT_SIGNALED(57)
+[2025-10-23 16:20:50.451] [34673] [HailoRT] [info] [queue_elements.cpp:43] [~BaseQueueElement] Queue element EntryPushQEl0bestnew_v8/input_layer1 has 0 frames in his Queue on destruction
+[2025-10-23 16:20:50.451] [34673] [HailoRT] [info] [queue_elements.cpp:43] [~BaseQueueElement] Queue element PushQEl1bestnew_v8/input_layer1 has 0 frames in his Queue on destruction
+[2025-10-23 16:20:50.452] [34673] [HailoRT] [info] [queue_elements.cpp:43] [~BaseQueueElement] Queue element PushQEl_nms3bestnew_v8/conv47_97 has 0 frames in his Queue on destruction
+[2025-10-23 16:20:50.452] [34673] [HailoRT] [info] [queue_elements.cpp:43] [~BaseQueueElement] Queue element PushQEl_nms2bestnew_v8/conv48_97 has 0 frames in his Queue on destruction
+[2025-10-23 16:20:50.452] [34673] [HailoRT] [info] [queue_elements.cpp:43] [~BaseQueueElement] Queue element PushQEl_nms1bestnew_v8/conv59_97 has 0 frames in his Queue on destruction
+[2025-10-23 16:20:50.452] [34673] [HailoRT] [info] [queue_elements.cpp:43] [~BaseQueueElement] Queue element PushQEl_nms0bestnew_v8/conv60_97 has 0 frames in his Queue on destruction
+[2025-10-23 16:20:50.452] [34673] [HailoRT] [info] [queue_elements.cpp:43] [~BaseQueueElement] Queue element PushQEl_nms3bestnew_v8/conv70_97 has 0 frames in his Queue on destruction
+[2025-10-23 16:20:50.452] [34673] [HailoRT] [info] [queue_elements.cpp:43] [~BaseQueueElement] Queue element PushQEl_nms2bestnew_v8/conv71_97 has 0 frames in his Queue on destruction
+[2025-10-23 16:20:50.453] [34731] [HailoRT] [info] [vdevice.cpp:430] [listener_run_in_thread] Shutdown event was signaled in listener_run_in_thread
+[2025-10-23 16:21:16.032] [34987] [HailoRT] [info] [device.cpp:51] [Device] OS Version: Linux 6.12.47+rpt-rpi-2712 #1 SMP PREEMPT Debian 1:6.12.47-1+rpt1~bookworm (2025-09-16) aarch64
+[2025-10-23 16:21:16.033] [34987] [HailoRT] [info] [control.cpp:109] [control__parse_identify_results] firmware_version is: 4.19.0
+[2025-10-23 16:21:16.034] [34987] [HailoRT] [info] [control.cpp:109] [control__parse_identify_results] firmware_version is: 4.19.0
+[2025-10-23 16:21:16.098] [34987] [HailoRT] [info] [device.cpp:51] [Device] OS Version: Linux 6.12.47+rpt-rpi-2712 #1 SMP PREEMPT Debian 1:6.12.47-1+rpt1~bookworm (2025-09-16) aarch64
+[2025-10-23 16:21:16.099] [34987] [HailoRT] [info] [control.cpp:109] [control__parse_identify_results] firmware_version is: 4.19.0
+[2025-10-23 16:21:16.100] [34987] [HailoRT] [info] [control.cpp:109] [control__parse_identify_results] firmware_version is: 4.19.0
+[2025-10-23 16:21:16.621] [35000] [HailoRT] [info] [device.cpp:51] [Device] OS Version: Linux 6.12.47+rpt-rpi-2712 #1 SMP PREEMPT Debian 1:6.12.47-1+rpt1~bookworm (2025-09-16) aarch64
+[2025-10-23 16:21:16.623] [35000] [HailoRT] [info] [control.cpp:109] [control__parse_identify_results] firmware_version is: 4.19.0
+[2025-10-23 16:21:16.624] [35000] [HailoRT] [info] [control.cpp:109] [control__parse_identify_results] firmware_version is: 4.19.0
+[2025-10-23 16:21:17.671] [35000] [HailoRT] [info] [device.cpp:51] [Device] OS Version: Linux 6.12.47+rpt-rpi-2712 #1 SMP PREEMPT Debian 1:6.12.47-1+rpt1~bookworm (2025-09-16) aarch64
+[2025-10-23 16:21:17.672] [35000] [HailoRT] [info] [control.cpp:109] [control__parse_identify_results] firmware_version is: 4.19.0
+[2025-10-23 16:21:17.771] [35000] [HailoRT] [info] [hef.cpp:1847] [get_network_group_and_network_name] No name was given. Addressing all networks of default network_group: bestnew_v8
+[2025-10-23 16:21:17.771] [35000] [HailoRT] [info] [hef.cpp:1847] [get_network_group_and_network_name] No name was given. Addressing all networks of default network_group: bestnew_v8
+[2025-10-23 16:21:17.943] [35000] [HailoRT] [info] [multi_io_elements.cpp:783] [create] Created (AsyncHwEl)
+[2025-10-23 16:21:17.943] [35000] [HailoRT] [info] [queue_elements.cpp:427] [create] Created (EntryPushQEl0bestnew_v8/input_layer1 | timeout: 10s)
+[2025-10-23 16:21:17.943] [35000] [HailoRT] [info] [filter_elements.cpp:101] [create] Created (PreInferEl1bestnew_v8/input_layer1 | Reorder - src_order: NHWC, src_shape: (640, 640, 3), dst_order: NHCW, dst_shape: (640, 640, 3))
+[2025-10-23 16:21:17.943] [35000] [HailoRT] [info] [queue_elements.cpp:427] [create] Created (PushQEl1bestnew_v8/input_layer1 | timeout: 10s)
+[2025-10-23 16:21:17.943] [35000] [HailoRT] [info] [multi_io_elements.cpp:162] [create] Created (NmsPPMuxEl0YOLOV8-Post-Process | Op YOLOV8, Name: YOLOV8-Post-Process, Score threshold: 0.300, IoU threshold: 0.60, Classes: 4, Cross classes: false, Max bboxes per class: 100, Image height: 640, Image width: 640)
+[2025-10-23 16:21:17.943] [35000] [HailoRT] [info] [queue_elements.cpp:427] [create] Created (PushQEl_nms3bestnew_v8/conv47_97 | timeout: 10s)
+[2025-10-23 16:21:17.944] [35000] [HailoRT] [info] [queue_elements.cpp:427] [create] Created (PushQEl_nms2bestnew_v8/conv48_97 | timeout: 10s)
+[2025-10-23 16:21:17.944] [35000] [HailoRT] [info] [queue_elements.cpp:427] [create] Created (PushQEl_nms1bestnew_v8/conv59_97 | timeout: 10s)
+[2025-10-23 16:21:17.944] [35000] [HailoRT] [info] [queue_elements.cpp:427] [create] Created (PushQEl_nms0bestnew_v8/conv60_97 | timeout: 10s)
+[2025-10-23 16:21:17.944] [35000] [HailoRT] [info] [queue_elements.cpp:427] [create] Created (PushQEl_nms3bestnew_v8/conv70_97 | timeout: 10s)
+[2025-10-23 16:21:17.944] [35000] [HailoRT] [info] [queue_elements.cpp:427] [create] Created (PushQEl_nms2bestnew_v8/conv71_97 | timeout: 10s)
+[2025-10-23 16:21:17.944] [35000] [HailoRT] [info] [edge_elements.cpp:187] [create] Created (LastAsyncEl0NmsPPMuxEl0YOLOV8-Post-Process)
+[2025-10-23 16:21:17.944] [35000] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] EntryPushQEl0bestnew_v8/input_layer1 | inputs: user | outputs: PreInferEl1bestnew_v8/input_layer1
+[2025-10-23 16:21:17.944] [35000] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] PreInferEl1bestnew_v8/input_layer1 | inputs: EntryPushQEl0bestnew_v8/input_layer1 | outputs: PushQEl1bestnew_v8/input_layer1
+[2025-10-23 16:21:17.944] [35000] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] PushQEl1bestnew_v8/input_layer1 | inputs: PreInferEl1bestnew_v8/input_layer1 | outputs: AsyncHwEl
+[2025-10-23 16:21:17.944] [35000] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] AsyncHwEl | inputs: PushQEl1bestnew_v8/input_layer1 | outputs: PushQEl_nms2bestnew_v8/conv71_97 PushQEl_nms0bestnew_v8/conv60_97 PushQEl_nms3bestnew_v8/conv70_97 PushQEl_nms1bestnew_v8/conv59_97 PushQEl_nms3bestnew_v8/conv47_97 PushQEl_nms2bestnew_v8/conv48_97
+[2025-10-23 16:21:17.944] [35000] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] PushQEl_nms2bestnew_v8/conv71_97 | inputs: AsyncHwEl | outputs: NmsPPMuxEl0YOLOV8-Post-Process
+[2025-10-23 16:21:17.944] [35000] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] NmsPPMuxEl0YOLOV8-Post-Process | inputs: PushQEl_nms3bestnew_v8/conv47_97 PushQEl_nms2bestnew_v8/conv48_97 PushQEl_nms1bestnew_v8/conv59_97 PushQEl_nms0bestnew_v8/conv60_97 PushQEl_nms3bestnew_v8/conv70_97 PushQEl_nms2bestnew_v8/conv71_97 | outputs: LastAsyncEl0NmsPPMuxEl0YOLOV8-Post-Process
+[2025-10-23 16:21:17.944] [35000] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] LastAsyncEl0NmsPPMuxEl0YOLOV8-Post-Process | inputs: NmsPPMuxEl0YOLOV8-Post-Process | outputs: user
+[2025-10-23 16:21:17.944] [35000] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] PushQEl_nms0bestnew_v8/conv60_97 | inputs: AsyncHwEl | outputs: NmsPPMuxEl0YOLOV8-Post-Process
+[2025-10-23 16:21:17.944] [35000] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] PushQEl_nms3bestnew_v8/conv70_97 | inputs: AsyncHwEl | outputs: NmsPPMuxEl0YOLOV8-Post-Process
+[2025-10-23 16:21:17.944] [35000] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] PushQEl_nms1bestnew_v8/conv59_97 | inputs: AsyncHwEl | outputs: NmsPPMuxEl0YOLOV8-Post-Process
+[2025-10-23 16:21:17.944] [35000] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] PushQEl_nms3bestnew_v8/conv47_97 | inputs: AsyncHwEl | outputs: NmsPPMuxEl0YOLOV8-Post-Process
+[2025-10-23 16:21:17.944] [35000] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] PushQEl_nms2bestnew_v8/conv48_97 | inputs: AsyncHwEl | outputs: NmsPPMuxEl0YOLOV8-Post-Process
+[2025-10-23 16:21:17.945] [35000] [HailoRT] [info] [hef.cpp:1847] [get_network_group_and_network_name] No name was given. Addressing all networks of default network_group: bestnew_v8
+[2025-10-23 16:21:17.945] [35000] [HailoRT] [info] [hef.cpp:1847] [get_network_group_and_network_name] No name was given. Addressing all networks of default network_group: bestnew_v8
+[2025-10-23 16:21:26.426] [34987] [HailoRT] [info] [async_infer_runner.cpp:86] [shutdown] Pipeline was aborted. Shutting it down
+[2025-10-23 16:21:26.426] [34987] [HailoRT] [info] [queue_elements.cpp:543] [execute_deactivate] enqueue() in element PushQEl_nms2bestnew_v8/conv71_97 was aborted, got status = HAILO_SHUTDOWN_EVENT_SIGNALED(57)
+[2025-10-23 16:21:26.426] [34987] [HailoRT] [info] [queue_elements.cpp:543] [execute_deactivate] enqueue() in element PushQEl_nms0bestnew_v8/conv60_97 was aborted, got status = HAILO_SHUTDOWN_EVENT_SIGNALED(57)
+[2025-10-23 16:21:26.426] [34987] [HailoRT] [info] [queue_elements.cpp:543] [execute_deactivate] enqueue() in element PushQEl_nms3bestnew_v8/conv70_97 was aborted, got status = HAILO_SHUTDOWN_EVENT_SIGNALED(57)
+[2025-10-23 16:21:26.426] [34987] [HailoRT] [info] [queue_elements.cpp:543] [execute_deactivate] enqueue() in element PushQEl_nms1bestnew_v8/conv59_97 was aborted, got status = HAILO_SHUTDOWN_EVENT_SIGNALED(57)
+[2025-10-23 16:21:26.426] [34987] [HailoRT] [info] [queue_elements.cpp:543] [execute_deactivate] enqueue() in element PushQEl_nms3bestnew_v8/conv47_97 was aborted, got status = HAILO_SHUTDOWN_EVENT_SIGNALED(57)
+[2025-10-23 16:21:26.426] [34987] [HailoRT] [info] [queue_elements.cpp:543] [execute_deactivate] enqueue() in element PushQEl_nms2bestnew_v8/conv48_97 was aborted, got status = HAILO_SHUTDOWN_EVENT_SIGNALED(57)
+[2025-10-23 16:21:26.426] [34987] [HailoRT] [info] [queue_elements.cpp:543] [execute_deactivate] enqueue() in element PushQEl1bestnew_v8/input_layer1 was aborted, got status = HAILO_SHUTDOWN_EVENT_SIGNALED(57)
+[2025-10-23 16:21:26.426] [34987] [HailoRT] [info] [queue_elements.cpp:543] [execute_deactivate] enqueue() in element EntryPushQEl0bestnew_v8/input_layer1 was aborted, got status = HAILO_SHUTDOWN_EVENT_SIGNALED(57)
+[2025-10-23 16:21:26.426] [34987] [HailoRT] [info] [queue_elements.cpp:43] [~BaseQueueElement] Queue element EntryPushQEl0bestnew_v8/input_layer1 has 0 frames in his Queue on destruction
+[2025-10-23 16:21:26.426] [34987] [HailoRT] [info] [queue_elements.cpp:43] [~BaseQueueElement] Queue element PushQEl1bestnew_v8/input_layer1 has 0 frames in his Queue on destruction
+[2025-10-23 16:21:26.426] [34987] [HailoRT] [info] [queue_elements.cpp:43] [~BaseQueueElement] Queue element PushQEl_nms3bestnew_v8/conv47_97 has 0 frames in his Queue on destruction
+[2025-10-23 16:21:26.427] [34987] [HailoRT] [info] [queue_elements.cpp:43] [~BaseQueueElement] Queue element PushQEl_nms2bestnew_v8/conv48_97 has 0 frames in his Queue on destruction
+[2025-10-23 16:21:26.427] [34987] [HailoRT] [info] [queue_elements.cpp:43] [~BaseQueueElement] Queue element PushQEl_nms1bestnew_v8/conv59_97 has 0 frames in his Queue on destruction
+[2025-10-23 16:21:26.427] [34987] [HailoRT] [info] [queue_elements.cpp:43] [~BaseQueueElement] Queue element PushQEl_nms0bestnew_v8/conv60_97 has 0 frames in his Queue on destruction
+[2025-10-23 16:21:26.427] [34987] [HailoRT] [info] [queue_elements.cpp:43] [~BaseQueueElement] Queue element PushQEl_nms3bestnew_v8/conv70_97 has 0 frames in his Queue on destruction
+[2025-10-23 16:21:26.427] [34987] [HailoRT] [info] [queue_elements.cpp:43] [~BaseQueueElement] Queue element PushQEl_nms2bestnew_v8/conv71_97 has 0 frames in his Queue on destruction
+[2025-10-23 16:21:26.428] [35045] [HailoRT] [info] [vdevice.cpp:430] [listener_run_in_thread] Shutdown event was signaled in listener_run_in_thread
+[2025-10-23 16:24:35.220] [35792] [HailoRT] [info] [device.cpp:51] [Device] OS Version: Linux 6.12.47+rpt-rpi-2712 #1 SMP PREEMPT Debian 1:6.12.47-1+rpt1~bookworm (2025-09-16) aarch64
+[2025-10-23 16:24:35.221] [35792] [HailoRT] [info] [control.cpp:109] [control__parse_identify_results] firmware_version is: 4.19.0
+[2025-10-23 16:24:35.222] [35792] [HailoRT] [info] [control.cpp:109] [control__parse_identify_results] firmware_version is: 4.19.0
+[2025-10-23 16:24:35.286] [35792] [HailoRT] [info] [device.cpp:51] [Device] OS Version: Linux 6.12.47+rpt-rpi-2712 #1 SMP PREEMPT Debian 1:6.12.47-1+rpt1~bookworm (2025-09-16) aarch64
+[2025-10-23 16:24:35.288] [35792] [HailoRT] [info] [control.cpp:109] [control__parse_identify_results] firmware_version is: 4.19.0
+[2025-10-23 16:24:35.288] [35792] [HailoRT] [info] [control.cpp:109] [control__parse_identify_results] firmware_version is: 4.19.0
+[2025-10-23 16:24:35.772] [35804] [HailoRT] [info] [device.cpp:51] [Device] OS Version: Linux 6.12.47+rpt-rpi-2712 #1 SMP PREEMPT Debian 1:6.12.47-1+rpt1~bookworm (2025-09-16) aarch64
+[2025-10-23 16:24:35.774] [35804] [HailoRT] [info] [control.cpp:109] [control__parse_identify_results] firmware_version is: 4.19.0
+[2025-10-23 16:24:35.775] [35804] [HailoRT] [info] [control.cpp:109] [control__parse_identify_results] firmware_version is: 4.19.0
+[2025-10-23 16:24:36.815] [35804] [HailoRT] [info] [device.cpp:51] [Device] OS Version: Linux 6.12.47+rpt-rpi-2712 #1 SMP PREEMPT Debian 1:6.12.47-1+rpt1~bookworm (2025-09-16) aarch64
+[2025-10-23 16:24:36.816] [35804] [HailoRT] [info] [control.cpp:109] [control__parse_identify_results] firmware_version is: 4.19.0
+[2025-10-23 16:24:36.914] [35804] [HailoRT] [info] [hef.cpp:1847] [get_network_group_and_network_name] No name was given. Addressing all networks of default network_group: bestnew_v8
+[2025-10-23 16:24:36.914] [35804] [HailoRT] [info] [hef.cpp:1847] [get_network_group_and_network_name] No name was given. Addressing all networks of default network_group: bestnew_v8
+[2025-10-23 16:24:37.082] [35804] [HailoRT] [info] [multi_io_elements.cpp:783] [create] Created (AsyncHwEl)
+[2025-10-23 16:24:37.082] [35804] [HailoRT] [info] [queue_elements.cpp:427] [create] Created (EntryPushQEl0bestnew_v8/input_layer1 | timeout: 10s)
+[2025-10-23 16:24:37.082] [35804] [HailoRT] [info] [filter_elements.cpp:101] [create] Created (PreInferEl1bestnew_v8/input_layer1 | Reorder - src_order: NHWC, src_shape: (640, 640, 3), dst_order: NHCW, dst_shape: (640, 640, 3))
+[2025-10-23 16:24:37.082] [35804] [HailoRT] [info] [queue_elements.cpp:427] [create] Created (PushQEl1bestnew_v8/input_layer1 | timeout: 10s)
+[2025-10-23 16:24:37.083] [35804] [HailoRT] [info] [multi_io_elements.cpp:162] [create] Created (NmsPPMuxEl0YOLOV8-Post-Process | Op YOLOV8, Name: YOLOV8-Post-Process, Score threshold: 0.300, IoU threshold: 0.60, Classes: 4, Cross classes: false, Max bboxes per class: 100, Image height: 640, Image width: 640)
+[2025-10-23 16:24:37.083] [35804] [HailoRT] [info] [queue_elements.cpp:427] [create] Created (PushQEl_nms3bestnew_v8/conv47_97 | timeout: 10s)
+[2025-10-23 16:24:37.083] [35804] [HailoRT] [info] [queue_elements.cpp:427] [create] Created (PushQEl_nms2bestnew_v8/conv48_97 | timeout: 10s)
+[2025-10-23 16:24:37.083] [35804] [HailoRT] [info] [queue_elements.cpp:427] [create] Created (PushQEl_nms1bestnew_v8/conv59_97 | timeout: 10s)
+[2025-10-23 16:24:37.083] [35804] [HailoRT] [info] [queue_elements.cpp:427] [create] Created (PushQEl_nms0bestnew_v8/conv60_97 | timeout: 10s)
+[2025-10-23 16:24:37.083] [35804] [HailoRT] [info] [queue_elements.cpp:427] [create] Created (PushQEl_nms3bestnew_v8/conv70_97 | timeout: 10s)
+[2025-10-23 16:24:37.083] [35804] [HailoRT] [info] [queue_elements.cpp:427] [create] Created (PushQEl_nms2bestnew_v8/conv71_97 | timeout: 10s)
+[2025-10-23 16:24:37.083] [35804] [HailoRT] [info] [edge_elements.cpp:187] [create] Created (LastAsyncEl0NmsPPMuxEl0YOLOV8-Post-Process)
+[2025-10-23 16:24:37.083] [35804] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] EntryPushQEl0bestnew_v8/input_layer1 | inputs: user | outputs: PreInferEl1bestnew_v8/input_layer1
+[2025-10-23 16:24:37.083] [35804] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] PreInferEl1bestnew_v8/input_layer1 | inputs: EntryPushQEl0bestnew_v8/input_layer1 | outputs: PushQEl1bestnew_v8/input_layer1
+[2025-10-23 16:24:37.083] [35804] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] PushQEl1bestnew_v8/input_layer1 | inputs: PreInferEl1bestnew_v8/input_layer1 | outputs: AsyncHwEl
+[2025-10-23 16:24:37.083] [35804] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] AsyncHwEl | inputs: PushQEl1bestnew_v8/input_layer1 | outputs: PushQEl_nms2bestnew_v8/conv71_97 PushQEl_nms0bestnew_v8/conv60_97 PushQEl_nms3bestnew_v8/conv70_97 PushQEl_nms1bestnew_v8/conv59_97 PushQEl_nms3bestnew_v8/conv47_97 PushQEl_nms2bestnew_v8/conv48_97
+[2025-10-23 16:24:37.083] [35804] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] PushQEl_nms2bestnew_v8/conv71_97 | inputs: AsyncHwEl | outputs: NmsPPMuxEl0YOLOV8-Post-Process
+[2025-10-23 16:24:37.083] [35804] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] NmsPPMuxEl0YOLOV8-Post-Process | inputs: PushQEl_nms3bestnew_v8/conv47_97 PushQEl_nms2bestnew_v8/conv48_97 PushQEl_nms1bestnew_v8/conv59_97 PushQEl_nms0bestnew_v8/conv60_97 PushQEl_nms3bestnew_v8/conv70_97 PushQEl_nms2bestnew_v8/conv71_97 | outputs: LastAsyncEl0NmsPPMuxEl0YOLOV8-Post-Process
+[2025-10-23 16:24:37.084] [35804] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] LastAsyncEl0NmsPPMuxEl0YOLOV8-Post-Process | inputs: NmsPPMuxEl0YOLOV8-Post-Process | outputs: user
+[2025-10-23 16:24:37.084] [35804] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] PushQEl_nms0bestnew_v8/conv60_97 | inputs: AsyncHwEl | outputs: NmsPPMuxEl0YOLOV8-Post-Process
+[2025-10-23 16:24:37.084] [35804] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] PushQEl_nms3bestnew_v8/conv70_97 | inputs: AsyncHwEl | outputs: NmsPPMuxEl0YOLOV8-Post-Process
+[2025-10-23 16:24:37.084] [35804] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] PushQEl_nms1bestnew_v8/conv59_97 | inputs: AsyncHwEl | outputs: NmsPPMuxEl0YOLOV8-Post-Process
+[2025-10-23 16:24:37.084] [35804] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] PushQEl_nms3bestnew_v8/conv47_97 | inputs: AsyncHwEl | outputs: NmsPPMuxEl0YOLOV8-Post-Process
+[2025-10-23 16:24:37.084] [35804] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] PushQEl_nms2bestnew_v8/conv48_97 | inputs: AsyncHwEl | outputs: NmsPPMuxEl0YOLOV8-Post-Process
+[2025-10-23 16:24:37.084] [35804] [HailoRT] [info] [hef.cpp:1847] [get_network_group_and_network_name] No name was given. Addressing all networks of default network_group: bestnew_v8
+[2025-10-23 16:24:37.084] [35804] [HailoRT] [info] [hef.cpp:1847] [get_network_group_and_network_name] No name was given. Addressing all networks of default network_group: bestnew_v8
+[2025-10-23 16:24:45.616] [35792] [HailoRT] [info] [async_infer_runner.cpp:86] [shutdown] Pipeline was aborted. Shutting it down
+[2025-10-23 16:24:45.616] [35792] [HailoRT] [info] [queue_elements.cpp:543] [execute_deactivate] enqueue() in element PushQEl_nms2bestnew_v8/conv71_97 was aborted, got status = HAILO_SHUTDOWN_EVENT_SIGNALED(57)
+[2025-10-23 16:24:45.616] [35792] [HailoRT] [info] [queue_elements.cpp:543] [execute_deactivate] enqueue() in element PushQEl_nms0bestnew_v8/conv60_97 was aborted, got status = HAILO_SHUTDOWN_EVENT_SIGNALED(57)
+[2025-10-23 16:24:45.617] [35792] [HailoRT] [info] [queue_elements.cpp:543] [execute_deactivate] enqueue() in element PushQEl_nms3bestnew_v8/conv70_97 was aborted, got status = HAILO_SHUTDOWN_EVENT_SIGNALED(57)
+[2025-10-23 16:24:45.617] [35792] [HailoRT] [info] [queue_elements.cpp:543] [execute_deactivate] enqueue() in element PushQEl_nms1bestnew_v8/conv59_97 was aborted, got status = HAILO_SHUTDOWN_EVENT_SIGNALED(57)
+[2025-10-23 16:24:45.617] [35792] [HailoRT] [info] [queue_elements.cpp:543] [execute_deactivate] enqueue() in element PushQEl_nms3bestnew_v8/conv47_97 was aborted, got status = HAILO_SHUTDOWN_EVENT_SIGNALED(57)
+[2025-10-23 16:24:45.617] [35792] [HailoRT] [info] [queue_elements.cpp:543] [execute_deactivate] enqueue() in element PushQEl_nms2bestnew_v8/conv48_97 was aborted, got status = HAILO_SHUTDOWN_EVENT_SIGNALED(57)
+[2025-10-23 16:24:45.617] [35792] [HailoRT] [info] [queue_elements.cpp:543] [execute_deactivate] enqueue() in element PushQEl1bestnew_v8/input_layer1 was aborted, got status = HAILO_SHUTDOWN_EVENT_SIGNALED(57)
+[2025-10-23 16:24:45.617] [35792] [HailoRT] [info] [queue_elements.cpp:543] [execute_deactivate] enqueue() in element EntryPushQEl0bestnew_v8/input_layer1 was aborted, got status = HAILO_SHUTDOWN_EVENT_SIGNALED(57)
+[2025-10-23 16:24:45.617] [35792] [HailoRT] [info] [queue_elements.cpp:43] [~BaseQueueElement] Queue element EntryPushQEl0bestnew_v8/input_layer1 has 0 frames in his Queue on destruction
+[2025-10-23 16:24:45.617] [35792] [HailoRT] [info] [queue_elements.cpp:43] [~BaseQueueElement] Queue element PushQEl1bestnew_v8/input_layer1 has 0 frames in his Queue on destruction
+[2025-10-23 16:24:45.617] [35792] [HailoRT] [info] [queue_elements.cpp:43] [~BaseQueueElement] Queue element PushQEl_nms3bestnew_v8/conv47_97 has 0 frames in his Queue on destruction
+[2025-10-23 16:24:45.617] [35792] [HailoRT] [info] [queue_elements.cpp:43] [~BaseQueueElement] Queue element PushQEl_nms2bestnew_v8/conv48_97 has 0 frames in his Queue on destruction
+[2025-10-23 16:24:45.617] [35792] [HailoRT] [info] [queue_elements.cpp:43] [~BaseQueueElement] Queue element PushQEl_nms1bestnew_v8/conv59_97 has 0 frames in his Queue on destruction
+[2025-10-23 16:24:45.617] [35792] [HailoRT] [info] [queue_elements.cpp:43] [~BaseQueueElement] Queue element PushQEl_nms0bestnew_v8/conv60_97 has 0 frames in his Queue on destruction
+[2025-10-23 16:24:45.617] [35792] [HailoRT] [info] [queue_elements.cpp:43] [~BaseQueueElement] Queue element PushQEl_nms3bestnew_v8/conv70_97 has 0 frames in his Queue on destruction
+[2025-10-23 16:24:45.617] [35792] [HailoRT] [info] [queue_elements.cpp:43] [~BaseQueueElement] Queue element PushQEl_nms2bestnew_v8/conv71_97 has 0 frames in his Queue on destruction
+[2025-10-23 16:24:45.618] [35850] [HailoRT] [info] [vdevice.cpp:430] [listener_run_in_thread] Shutdown event was signaled in listener_run_in_thread
+[2025-10-23 16:35:33.512] [38015] [HailoRT] [info] [device.cpp:51] [Device] OS Version: Linux 6.12.47+rpt-rpi-2712 #1 SMP PREEMPT Debian 1:6.12.47-1+rpt1~bookworm (2025-09-16) aarch64
+[2025-10-23 16:35:33.513] [38015] [HailoRT] [info] [control.cpp:109] [control__parse_identify_results] firmware_version is: 4.19.0
+[2025-10-23 16:35:33.514] [38015] [HailoRT] [info] [control.cpp:109] [control__parse_identify_results] firmware_version is: 4.19.0
+[2025-10-23 16:35:33.571] [38015] [HailoRT] [info] [device.cpp:51] [Device] OS Version: Linux 6.12.47+rpt-rpi-2712 #1 SMP PREEMPT Debian 1:6.12.47-1+rpt1~bookworm (2025-09-16) aarch64
+[2025-10-23 16:35:33.572] [38015] [HailoRT] [info] [control.cpp:109] [control__parse_identify_results] firmware_version is: 4.19.0
+[2025-10-23 16:35:33.573] [38015] [HailoRT] [info] [control.cpp:109] [control__parse_identify_results] firmware_version is: 4.19.0
+[2025-10-23 16:39:50.583] [1906] [HailoRT] [info] [device.cpp:51] [Device] OS Version: Linux 6.12.47+rpt-rpi-2712 #1 SMP PREEMPT Debian 1:6.12.47-1+rpt1~bookworm (2025-09-16) aarch64
+[2025-10-23 16:39:50.584] [1906] [HailoRT] [info] [control.cpp:109] [control__parse_identify_results] firmware_version is: 4.19.0
+[2025-10-23 16:39:50.585] [1906] [HailoRT] [info] [control.cpp:109] [control__parse_identify_results] firmware_version is: 4.19.0
+[2025-10-23 16:39:50.793] [1906] [HailoRT] [info] [device.cpp:51] [Device] OS Version: Linux 6.12.47+rpt-rpi-2712 #1 SMP PREEMPT Debian 1:6.12.47-1+rpt1~bookworm (2025-09-16) aarch64
+[2025-10-23 16:39:50.794] [1906] [HailoRT] [info] [control.cpp:109] [control__parse_identify_results] firmware_version is: 4.19.0
+[2025-10-23 16:39:50.795] [1906] [HailoRT] [info] [control.cpp:109] [control__parse_identify_results] firmware_version is: 4.19.0
+[2025-10-23 16:39:51.597] [1918] [HailoRT] [info] [device.cpp:51] [Device] OS Version: Linux 6.12.47+rpt-rpi-2712 #1 SMP PREEMPT Debian 1:6.12.47-1+rpt1~bookworm (2025-09-16) aarch64
+[2025-10-23 16:39:51.598] [1918] [HailoRT] [info] [control.cpp:109] [control__parse_identify_results] firmware_version is: 4.19.0
+[2025-10-23 16:39:51.599] [1918] [HailoRT] [info] [control.cpp:109] [control__parse_identify_results] firmware_version is: 4.19.0
+[2025-10-23 16:39:52.691] [1918] [HailoRT] [info] [device.cpp:51] [Device] OS Version: Linux 6.12.47+rpt-rpi-2712 #1 SMP PREEMPT Debian 1:6.12.47-1+rpt1~bookworm (2025-09-16) aarch64
+[2025-10-23 16:39:52.692] [1918] [HailoRT] [info] [control.cpp:109] [control__parse_identify_results] firmware_version is: 4.19.0
+[2025-10-23 16:39:52.804] [1918] [HailoRT] [info] [hef.cpp:1847] [get_network_group_and_network_name] No name was given. Addressing all networks of default network_group: bestnew_v8
+[2025-10-23 16:39:52.804] [1918] [HailoRT] [info] [hef.cpp:1847] [get_network_group_and_network_name] No name was given. Addressing all networks of default network_group: bestnew_v8
+[2025-10-23 16:39:52.981] [1918] [HailoRT] [info] [multi_io_elements.cpp:783] [create] Created (AsyncHwEl)
+[2025-10-23 16:39:52.982] [1918] [HailoRT] [info] [queue_elements.cpp:427] [create] Created (EntryPushQEl0bestnew_v8/input_layer1 | timeout: 10s)
+[2025-10-23 16:39:52.982] [1918] [HailoRT] [info] [filter_elements.cpp:101] [create] Created (PreInferEl1bestnew_v8/input_layer1 | Reorder - src_order: NHWC, src_shape: (640, 640, 3), dst_order: NHCW, dst_shape: (640, 640, 3))
+[2025-10-23 16:39:52.982] [1918] [HailoRT] [info] [queue_elements.cpp:427] [create] Created (PushQEl1bestnew_v8/input_layer1 | timeout: 10s)
+[2025-10-23 16:39:52.982] [1918] [HailoRT] [info] [multi_io_elements.cpp:162] [create] Created (NmsPPMuxEl0YOLOV8-Post-Process | Op YOLOV8, Name: YOLOV8-Post-Process, Score threshold: 0.300, IoU threshold: 0.60, Classes: 4, Cross classes: false, Max bboxes per class: 100, Image height: 640, Image width: 640)
+[2025-10-23 16:39:52.982] [1918] [HailoRT] [info] [queue_elements.cpp:427] [create] Created (PushQEl_nms3bestnew_v8/conv47_97 | timeout: 10s)
+[2025-10-23 16:39:52.982] [1918] [HailoRT] [info] [queue_elements.cpp:427] [create] Created (PushQEl_nms2bestnew_v8/conv48_97 | timeout: 10s)
+[2025-10-23 16:39:52.983] [1918] [HailoRT] [info] [queue_elements.cpp:427] [create] Created (PushQEl_nms1bestnew_v8/conv59_97 | timeout: 10s)
+[2025-10-23 16:39:52.983] [1918] [HailoRT] [info] [queue_elements.cpp:427] [create] Created (PushQEl_nms0bestnew_v8/conv60_97 | timeout: 10s)
+[2025-10-23 16:39:52.983] [1918] [HailoRT] [info] [queue_elements.cpp:427] [create] Created (PushQEl_nms3bestnew_v8/conv70_97 | timeout: 10s)
+[2025-10-23 16:39:52.983] [1918] [HailoRT] [info] [queue_elements.cpp:427] [create] Created (PushQEl_nms2bestnew_v8/conv71_97 | timeout: 10s)
+[2025-10-23 16:39:52.983] [1918] [HailoRT] [info] [edge_elements.cpp:187] [create] Created (LastAsyncEl0NmsPPMuxEl0YOLOV8-Post-Process)
+[2025-10-23 16:39:52.983] [1918] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] EntryPushQEl0bestnew_v8/input_layer1 | inputs: user | outputs: PreInferEl1bestnew_v8/input_layer1
+[2025-10-23 16:39:52.984] [1918] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] PreInferEl1bestnew_v8/input_layer1 | inputs: EntryPushQEl0bestnew_v8/input_layer1 | outputs: PushQEl1bestnew_v8/input_layer1
+[2025-10-23 16:39:52.984] [1918] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] PushQEl1bestnew_v8/input_layer1 | inputs: PreInferEl1bestnew_v8/input_layer1 | outputs: AsyncHwEl
+[2025-10-23 16:39:52.984] [1918] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] AsyncHwEl | inputs: PushQEl1bestnew_v8/input_layer1 | outputs: PushQEl_nms2bestnew_v8/conv71_97 PushQEl_nms0bestnew_v8/conv60_97 PushQEl_nms3bestnew_v8/conv70_97 PushQEl_nms1bestnew_v8/conv59_97 PushQEl_nms3bestnew_v8/conv47_97 PushQEl_nms2bestnew_v8/conv48_97
+[2025-10-23 16:39:52.984] [1918] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] PushQEl_nms2bestnew_v8/conv71_97 | inputs: AsyncHwEl | outputs: NmsPPMuxEl0YOLOV8-Post-Process
+[2025-10-23 16:39:52.984] [1918] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] NmsPPMuxEl0YOLOV8-Post-Process | inputs: PushQEl_nms3bestnew_v8/conv47_97 PushQEl_nms2bestnew_v8/conv48_97 PushQEl_nms1bestnew_v8/conv59_97 PushQEl_nms0bestnew_v8/conv60_97 PushQEl_nms3bestnew_v8/conv70_97 PushQEl_nms2bestnew_v8/conv71_97 | outputs: LastAsyncEl0NmsPPMuxEl0YOLOV8-Post-Process
+[2025-10-23 16:39:52.984] [1918] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] LastAsyncEl0NmsPPMuxEl0YOLOV8-Post-Process | inputs: NmsPPMuxEl0YOLOV8-Post-Process | outputs: user
+[2025-10-23 16:39:52.984] [1918] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] PushQEl_nms0bestnew_v8/conv60_97 | inputs: AsyncHwEl | outputs: NmsPPMuxEl0YOLOV8-Post-Process
+[2025-10-23 16:39:52.984] [1918] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] PushQEl_nms3bestnew_v8/conv70_97 | inputs: AsyncHwEl | outputs: NmsPPMuxEl0YOLOV8-Post-Process
+[2025-10-23 16:39:52.984] [1918] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] PushQEl_nms1bestnew_v8/conv59_97 | inputs: AsyncHwEl | outputs: NmsPPMuxEl0YOLOV8-Post-Process
+[2025-10-23 16:39:52.984] [1918] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] PushQEl_nms3bestnew_v8/conv47_97 | inputs: AsyncHwEl | outputs: NmsPPMuxEl0YOLOV8-Post-Process
+[2025-10-23 16:39:52.984] [1918] [HailoRT] [info] [pipeline.cpp:872] [print_deep_description] PushQEl_nms2bestnew_v8/conv48_97 | inputs: AsyncHwEl | outputs: NmsPPMuxEl0YOLOV8-Post-Process
+[2025-10-23 16:39:52.984] [1918] [HailoRT] [info] [hef.cpp:1847] [get_network_group_and_network_name] No name was given. Addressing all networks of default network_group: bestnew_v8
+[2025-10-23 16:39:52.984] [1918] [HailoRT] [info] [hef.cpp:1847] [get_network_group_and_network_name] No name was given. Addressing all networks of default network_group: bestnew_v8
+[2025-10-23 16:40:01.157] [1906] [HailoRT] [info] [async_infer_runner.cpp:86] [shutdown] Pipeline was aborted. Shutting it down
+[2025-10-23 16:40:01.158] [1906] [HailoRT] [info] [queue_elements.cpp:543] [execute_deactivate] enqueue() in element PushQEl_nms2bestnew_v8/conv71_97 was aborted, got status = HAILO_SHUTDOWN_EVENT_SIGNALED(57)
+[2025-10-23 16:40:01.158] [1906] [HailoRT] [info] [queue_elements.cpp:543] [execute_deactivate] enqueue() in element PushQEl_nms0bestnew_v8/conv60_97 was aborted, got status = HAILO_SHUTDOWN_EVENT_SIGNALED(57)
+[2025-10-23 16:40:01.158] [1906] [HailoRT] [info] [queue_elements.cpp:543] [execute_deactivate] enqueue() in element PushQEl_nms3bestnew_v8/conv70_97 was aborted, got status = HAILO_SHUTDOWN_EVENT_SIGNALED(57)
+[2025-10-23 16:40:01.158] [1906] [HailoRT] [info] [queue_elements.cpp:543] [execute_deactivate] enqueue() in element PushQEl_nms1bestnew_v8/conv59_97 was aborted, got status = HAILO_SHUTDOWN_EVENT_SIGNALED(57)
+[2025-10-23 16:40:01.158] [1906] [HailoRT] [info] [queue_elements.cpp:543] [execute_deactivate] enqueue() in element PushQEl_nms3bestnew_v8/conv47_97 was aborted, got status = HAILO_SHUTDOWN_EVENT_SIGNALED(57)
+[2025-10-23 16:40:01.158] [1906] [HailoRT] [info] [queue_elements.cpp:543] [execute_deactivate] enqueue() in element PushQEl_nms2bestnew_v8/conv48_97 was aborted, got status = HAILO_SHUTDOWN_EVENT_SIGNALED(57)
+[2025-10-23 16:40:01.158] [1906] [HailoRT] [info] [queue_elements.cpp:543] [execute_deactivate] enqueue() in element PushQEl1bestnew_v8/input_layer1 was aborted, got status = HAILO_SHUTDOWN_EVENT_SIGNALED(57)
+[2025-10-23 16:40:01.158] [1906] [HailoRT] [info] [queue_elements.cpp:543] [execute_deactivate] enqueue() in element EntryPushQEl0bestnew_v8/input_layer1 was aborted, got status = HAILO_SHUTDOWN_EVENT_SIGNALED(57)
+[2025-10-23 16:40:01.158] [1906] [HailoRT] [info] [queue_elements.cpp:43] [~BaseQueueElement] Queue element EntryPushQEl0bestnew_v8/input_layer1 has 0 frames in his Queue on destruction
+[2025-10-23 16:40:01.158] [1906] [HailoRT] [info] [queue_elements.cpp:43] [~BaseQueueElement] Queue element PushQEl1bestnew_v8/input_layer1 has 0 frames in his Queue on destruction
+[2025-10-23 16:40:01.158] [1906] [HailoRT] [info] [queue_elements.cpp:43] [~BaseQueueElement] Queue element PushQEl_nms3bestnew_v8/conv47_97 has 0 frames in his Queue on destruction
+[2025-10-23 16:40:01.158] [1906] [HailoRT] [info] [queue_elements.cpp:43] [~BaseQueueElement] Queue element PushQEl_nms2bestnew_v8/conv48_97 has 0 frames in his Queue on destruction
+[2025-10-23 16:40:01.158] [1906] [HailoRT] [info] [queue_elements.cpp:43] [~BaseQueueElement] Queue element PushQEl_nms1bestnew_v8/conv59_97 has 0 frames in his Queue on destruction
+[2025-10-23 16:40:01.158] [1906] [HailoRT] [info] [queue_elements.cpp:43] [~BaseQueueElement] Queue element PushQEl_nms0bestnew_v8/conv60_97 has 0 frames in his Queue on destruction
+[2025-10-23 16:40:01.158] [1906] [HailoRT] [info] [queue_elements.cpp:43] [~BaseQueueElement] Queue element PushQEl_nms3bestnew_v8/conv70_97 has 0 frames in his Queue on destruction
+[2025-10-23 16:40:01.158] [1906] [HailoRT] [info] [queue_elements.cpp:43] [~BaseQueueElement] Queue element PushQEl_nms2bestnew_v8/conv71_97 has 0 frames in his Queue on destruction
+[2025-10-23 16:40:01.159] [1961] [HailoRT] [info] [vdevice.cpp:430] [listener_run_in_thread] Shutdown event was signaled in listener_run_in_thread
