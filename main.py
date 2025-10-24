@@ -18,7 +18,7 @@ LLM_MODEL = config["llm"]["model"]
 
 STT_MODEL_PATH = config["stt"]["model_path"]
 TTS_VOICE = config["tts"]["speech_voice"]
-CV_MODEL_PATH = config["cv"]["model_path"]
+CV_MODEL_PATH = config["cv"]["model_file"]
 
 DB_CONFIG = config["database"]
 
@@ -66,11 +66,15 @@ def setup_robot() -> RecyclingRobot:
         print("🤖 MODO PRODUCCIÓN - Usando hardware real")
         print("=" * 60)
         from robot_project import SerialConnection, SpeechToText, TextToSpeech, ComputerVision, StudentDatabase, LargeLanguageModel
-
+        from robot_project.speech.mock_stt import MockSpeechToText as SpeechToText
+        from robot_project.speech.mock_tts import MockTextToSpeech as TextToSpeech
+        from robot_project.connections.mock_serial import MockSerialConnection as SerialConnection
+        from robot_project.database.mock_database import MockStudentDatabase as StudentDatabase
+        
     stt = SpeechToText(STT_MODEL_PATH)
     llm = LargeLanguageModel(LLM_API_KEY, LLM_API_BASE, LLM_MODEL)
     tts = TextToSpeech(AUDIO_DEVICE, TTS_VOICE, "+0%")
-    cv = HailoVision(CV_MODEL_PATH)
+    cv = HailoVision(model_name= CV_MODEL_PATH, zoo_url = "src/robot_project/models", inference_host="@local")
     ser = SerialConnection(SERIAL_CONN1, 9600, 1)
     db = StudentDatabase(DB_CONFIG)
 

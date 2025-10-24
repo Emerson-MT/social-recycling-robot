@@ -22,6 +22,12 @@ class RecyclingRobot(Robot):
         self.audio_paths = audio_paths
         self.test = -1
     
+    def is_user_there(self):
+        return True
+    
+    def set_screen(self, state):
+        pass
+    
     def set_test_num(self, test_num):
         self.test = test_num
 
@@ -110,7 +116,7 @@ class RecyclingRobot(Robot):
 
     def test_vision(self):
         # We classify the waste using Computer vision
-        resultado = self.classify_waste()
+        resultado = self.classify_waste(tiempo_limite=10, confianza_minima=0.3, mostrar=True)
         # We extract details
         if resultado:
 
@@ -282,7 +288,7 @@ class RecyclingFSM:
 
     def state_clasificar(self):
         # clasifica el residuo
-        resultado = self.robot.classify_waste()
+        resultado = self.robot.classify_waste(tiempo_limite=2, confianza_minima=0.3, mostrar=False)
         # Se obtienen datos relevantes del resultado
         if resultado:                      
             # Se desglosa el resultado

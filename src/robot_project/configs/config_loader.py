@@ -11,7 +11,7 @@ def load_config():
 
     # Resolve file paths
     config["stt"]["model_path"] = str(MODELS_DIR / config["stt"]["model_file"])
-    config["cv"]["model_path"] = str(MODELS_DIR / config["cv"]["model_file"])
+    #config["cv"]["model_path"] = str(MODELS_DIR / config["cv"]["model_file"])
     config["audio_files"]["start_audio_path"] = str(AUDIO_DIR / config["audio_files"]["start_audio_file"])
     config["audio_files"]["win_audio_path"] = str(AUDIO_DIR / config["audio_files"]["win_audio_file"])
     config["audio_files"]["lose_audio_path"] = str(AUDIO_DIR / config["audio_files"]["lose_audio_file"])
