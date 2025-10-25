@@ -7,11 +7,14 @@ from robot_project.llm import LargeLanguageModel
 from robot_project.speech import TextToSpeech, SpeechToText
 from robot_project.vision import ComputerVision
 from robot_project.connections import SerialConnection
+from robot_project.display import Display
 from robot_project.configs.environment import is_mock_mode
 
 class Robot:
 
-    def __init__(self, name, commands, audio_device, stt: SpeechToText, llm: LargeLanguageModel, tts: TextToSpeech, cv: ComputerVision, ser: SerialConnection):
+    def __init__(self, name, commands, audio_device, stt: SpeechToText, llm: LargeLanguageModel, 
+                 tts: TextToSpeech, cv: ComputerVision, ser: SerialConnection, display: Display
+                 ):
         self.name = name
         self.audio_device = audio_device   
         self.stt = stt # Speech to text (STT)
@@ -19,6 +22,7 @@ class Robot:
         self.llm = llm # Large Language Model (LLM)
         self.cv = cv # Computer Vision 
         self.ser = ser # Serial connection
+        self.display = display
         # Command queues
         self.commands = commands or {}
         self.command_queue = queue.Queue()
@@ -42,7 +46,7 @@ class Robot:
         # Obtener el dispositivo de salida de audio
         device = self.audio_device
         if not device:
-            print("❌ No se encontró el dispositivo USB Audio CODEC.")
+            print("❌ No se encontró el dispositivo de audio USB.")
             return
 
         print(f"🔊 Reproduciendo en: {device}")

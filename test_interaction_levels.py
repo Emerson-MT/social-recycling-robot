@@ -8,16 +8,16 @@ import os
 import sys
 
 # Forzar modo mock y niveles de interacción
-os.environ['ROBOT_MOCK_MODE'] = 'true'
+os.environ['ROBOT_MODE'] = 'sim'
 # Si quieres probar el modo legacy, descomenta la siguiente línea:
-# os.environ['ROBOT_LEGACY_MODE'] = 'true'
+# os.environ['ROBOT_MODE'] = 'real'
 
 # Add src to the sys.path
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "src")))
 
-from robot_project import LargeLanguageModel, RecyclingRobot
+from robot_project import RecyclingRobot
 from robot_project.configs.config_loader import load_config
-from robot_project.configs.environment import is_mock_mode, use_interaction_levels
+from robot_project.configs.environment import is_mock_mode
 import signal
 
 # Load the json configuration file
@@ -88,40 +88,7 @@ def setup_robot() -> RecyclingRobot:
 
     return RecyclingRobot("Peri", commands, AUDIO_DEVICE, AUDIO_PATHS, stt, llm, tts, cv, ser, db)
 
-def print_test_info():
-    """Imprime información sobre la prueba"""
-    print("\n" + "=" * 60)
-    print("🧪 TEST DE NIVELES DE INTERACCIÓN")
-    print("=" * 60)
-    print(f"Modo Mock: {'✅ Activado' if is_mock_mode() else '❌ Desactivado'}")
-    print(f"Niveles de Interacción: {'✅ Activado' if use_interaction_levels() else '❌ Desactivado (Legacy)'}")
-    print("=" * 60)
-
-    if use_interaction_levels():
-        print("\n📋 FLUJO DE PRUEBA ESPERADO:")
-        print("1. Di 'reciclar' para iniciar")
-        print("2. El sensor simulará tiempo de aproximación (selecciona opción 3 para PPI alto)")
-        print("3. Se te pedirá código de estudiante (usa 87654321 para un usuario regular)")
-        print("4. La visión clasificará el residuo (simulado)")
-        print("5. NIVEL 1: Verás feedback educativo")
-        print("6. Si permaneces (di 's'), pasas a NIVEL 2")
-        print("7. NIVEL 2: Responde una pregunta de quiz")
-        print("8. Si estás atento (di 's'), pasas a NIVEL 3")
-        print("9. NIVEL 3: Verás impacto ambiental y logros")
-        print("\n💡 CÓDIGOS DE PRUEBA:")
-        print("   12345678 - Juan Pérez (3 interacciones - Novato)")
-        print("   87654321 - María García (8 interacciones - Regular)")
-        print("   33333333 - Carlos Rodríguez (12 interacciones - Experto)")
-    else:
-        print("\n📋 MODO LEGACY ACTIVADO")
-        print("El sistema usará el flujo antiguo sin niveles de interacción.")
-
-    print("\n" + "=" * 60)
-    print("Presiona Ctrl+C para salir en cualquier momento")
-    print("=" * 60 + "\n")
-
 def main():
-    print_test_info()
 
     input("Presiona ENTER para iniciar el test...")
 

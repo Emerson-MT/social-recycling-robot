@@ -35,30 +35,23 @@ class MockSerialConnection:
         time.sleep(0.5)  # Simula latencia
 
         # Simula respuestas según el tipo de mensaje
-        if prefix == "LLENO:":
+        if prefix == "USUARIO:":
+            valor = 1
+            print(f"📥 [MOCK] Recibido: USUARIO:{valor}")
+            return valor
+        
+        elif prefix == "LLENO:":
             # Simula que el tacho nunca está lleno en desarrollo
             valor = 0
             print(f"📥 [MOCK] Recibido: LLENO:{valor}")
             return valor
 
-        elif prefix == "POS:":
+        elif prefix == "RES_EN_POS:":
             # Simula que el residuo siempre está en posición
             valor = 1
-            print(f"📥 [MOCK] Recibido: POS:{valor}")
+            print(f"📥 [MOCK] Recibido: RES_EN_POS:{valor}")
             return valor
-
-        elif prefix == "LISTO:":
-            # Simula que la operación se completó
-            valor = 1
-            print(f"📥 [MOCK] Recibido: LISTO:{valor}")
-            return valor
-
-        elif prefix == "BOTON_RES:":
-            # Simula presión de botón (valores 0-3)
-            valor = random.randint(0, 3)
-            print(f"📥 [MOCK] Recibido: BOTON_RES:{valor}")
-            return valor
-
+        
         else:
             # Respuesta genérica
             valor = 1

@@ -1,4 +1,4 @@
-# ✅ Resumen de Implementación - Niveles de Interacción
+# ✅ Resumen de Implementación - version1 de PERI (orientada a Reciclatón)
 
 ## 📦 Archivos Creados/Modificados
 
@@ -9,44 +9,16 @@
    - Medición de tiempo de aproximación
    - Detección de atención
 
-2. **[src/robot_project/display/mock_display.py](src/robot_project/display/mock_display.py)**
-   - Pantalla táctil simulada con UI visual en consola
-   - Cuadros de feedback para clasificación
-   - Sistema de quiz interactivo
-   - Visualización de estadísticas e impacto
-
-3. **[src/robot_project/gamification/quiz_system.py](src/robot_project/gamification/quiz_system.py)**
-   - Banco de 10 preguntas (básicas, intermedias, avanzadas)
-   - Sistema de puntos y rachas
-   - Sistema de logros desbloqueables
-
-4. **[src/robot_project/analytics/impact_calculator.py](src/robot_project/analytics/impact_calculator.py)**
-   - Cálculo de impacto ambiental por residuo
-   - Equivalencias locales (Lima, Bogotá)
-   - Estadísticas acumuladas del usuario
-   - Generación de mensajes de ranking
-
-5. **[src/robot_project/robot/interaction_levels_fsm.py](src/robot_project/robot/interaction_levels_fsm.py)**
-   - Nueva FSM con estados para niveles 1-3
-   - Cálculo de PPI (Puntaje de Propensión a Interacción)
-   - Lógica de transición entre niveles
-   - Integración con todos los subsistemas
-
 ### **Archivos Modificados**
 
-1. **[src/robot_project/database/mock_database.py](src/robot_project/database/mock_database.py)**
-   - ✅ Campos extendidos con historial de usuario
-   - ✅ Nuevos métodos: `get_student_stats()`, `update_recycling_stats()`, `update_quiz_stats()`, etc.
+1. **[src/robot_project/robot/recycling_robot.py](src/robot_project/robot/recycling_robot.py)**
+   - ✅ Selector de modo (mock vs real) en `run_main_program()` en lugar de new interaction vs legacy
 
-2. **[src/robot_project/robot/recycling_robot.py](src/robot_project/robot/recycling_robot.py)**
-   - ✅ Selector de modo (niveles vs legacy) en `run_main_program()`
-   - ✅ Import de `use_interaction_levels()`
+2. **[src/robot_project/configs/config.json](src/robot_project/configs/config.json)**
+   - ❌ Se removió sección de `interaction_levels`. No se usarán en esta versión.
 
 3. **[src/robot_project/configs/environment.py](src/robot_project/configs/environment.py)**
-   - ✅ Nueva función `use_interaction_levels()` para detectar modo
-
-4. **[src/robot_project/configs/config.json](src/robot_project/configs/config.json)**
-   - ✅ Sección `interaction_levels` con parámetros configurables
+   - ❌ Se removió el uso de use_interaction_levels() y modo legacy. Ahora solo se usarán las interacciones nuevas
 
 ### **Documentación**
 
@@ -107,7 +79,10 @@ python main.py
 ### **Opción 3: Modo Legacy**
 
 ```bash
-export ROBOT_LEGACY_MODE=true
+export ROBOT_MODE=real
+# o
+export ROBOT_MODE=sim
+# luego
 python main.py
 # Selecciona opción 9
 ```
@@ -185,12 +160,7 @@ python main.py
 
 ## 📝 Próximos Pasos (Nivel 4 - No Implementado)
 
-- [ ] Generación real de códigos QR
-- [ ] Integración con app móvil
-- [ ] Rankings en tiempo real
-- [ ] Recompensas tangibles (cupones)
-- [ ] Detección de múltiples usuarios
-- [ ] Adaptación para niños
+- [ ] 
 
 ## 🐛 Posibles Mejoras Futuras
 
@@ -203,26 +173,12 @@ python main.py
 
 ## ✅ Checklist de Validación
 
-- [x] Sistema calcula PPI correctamente
-- [x] Retroalimentación mínima funciona (PPI < 0.6)
-- [x] Nivel 1 muestra feedback educativo
-- [x] Nivel 2 presenta quiz con timer
-- [x] Nivel 3 calcula y muestra impacto
-- [x] Base de datos actualiza estadísticas
-- [x] Logros se desbloquean automáticamente
-- [x] Modo legacy sigue funcionando
-- [x] Variables de entorno controlan modos
-- [x] Documentación completa
+- [x] 
 
 ## 🎉 Conclusión
 
-El sistema de **Niveles de Interacción MVP (1-3)** ha sido implementado exitosamente con:
 
-- ✅ Arquitectura modular y extensible
-- ✅ Modo mock completamente funcional
-- ✅ Compatibilidad con sistema legacy
-- ✅ Documentación exhaustiva
-- ✅ Script de prueba incluido
+- ✅ 
 
 El robot Peri ahora puede adaptar sus interacciones según el nivel de interés del usuario, ofreciendo desde feedback mínimo hasta experiencias educativas completas con gamificación e impacto ambiental personalizado.
 

@@ -17,9 +17,15 @@ class SerialConnection:
             print(f"[Serial] Conectado a {self.port}")
         except serial.SerialException as e:
             print(f"[Serial Error] {e}")
+    
+    def disconnect(self):
+        if self.connection:
+            self.connection.close()
+            print("[Serial] Conexión cerrada.")
 
     def send(self, data: str):
         if self.connection and self.connection.is_open:
+            print(f"📤 Enviando: {data.strip()}")
             self.connection.write(data.encode())
         else:
             print("[Serial Warning] Intento de enviar sin conexión activa.")
@@ -50,8 +56,3 @@ class SerialConnection:
                         print("Formato incorrecto en el mensaje recibido.")
                 else:
                     print(f"Mensaje no reconocido: {msg}")
-
-    def close(self):
-        if self.connection:
-            self.connection.close()
-            print("[Serial] Conexión cerrada.")

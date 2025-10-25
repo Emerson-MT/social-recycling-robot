@@ -1,7 +1,10 @@
 import time
 from typing import Optional, List, Dict
+import pygame
+from PIL import Image, ImageSequence
+import os
 
-class MockDisplay:
+class Display:
     """Mock de pantalla táctil para mostrar información visual"""
 
     def __init__(self):

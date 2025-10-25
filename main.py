@@ -1,9 +1,11 @@
 import os
 import sys
+# Forzar modo mock y niveles de interacción
+os.environ['ROBOT_MODE'] = 'sim'
 # Add src to the sys.path
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "src")))
 # Imports
-from robot_project import SerialConnection, StudentDatabase, LargeLanguageModel, RecyclingRobot, SpeechToText, TextToSpeech, HailoVision
+from robot_project import RecyclingRobot
 from robot_project.configs.config_loader import load_config
 from robot_project.configs.environment import is_mock_mode
 import signal
@@ -53,23 +55,19 @@ def setup_robot() -> RecyclingRobot:
 
     if mock_mode:
         print("=" * 60)
-        print("🔧 MODO DESARROLLO - Usando componentes simulados")
+        print("🔧 MODO SIMULADO ACTIVADO - Usando componentes simulados")
         print("=" * 60)
         from robot_project.speech.mock_stt import MockSpeechToText as SpeechToText
         from robot_project.speech.mock_tts import MockTextToSpeech as TextToSpeech
-        from robot_project.vision.mock_vision import MockComputerVision as ComputerVision
+        from robot_project.vision.mock_vision import MockComputerVision as HailoVision
         from robot_project.connections.mock_serial import MockSerialConnection as SerialConnection
         from robot_project.database.mock_database import MockStudentDatabase as StudentDatabase
         from robot_project.llm.mock_llm import MockLargeLanguageModel as LargeLanguageModel
     else:
         print("=" * 60)
-        print("🤖 MODO PRODUCCIÓN - Usando hardware real")
+        print("🤖 MODO REAL ACTIVADO - Usando hardware real")
         print("=" * 60)
-        from robot_project import SerialConnection, SpeechToText, TextToSpeech, ComputerVision, StudentDatabase, LargeLanguageModel
-        from robot_project.speech.mock_stt import MockSpeechToText as SpeechToText
-        from robot_project.speech.mock_tts import MockTextToSpeech as TextToSpeech
-        from robot_project.connections.mock_serial import MockSerialConnection as SerialConnection
-        from robot_project.database.mock_database import MockStudentDatabase as StudentDatabase
+        from robot_project import SerialConnection, SpeechToText, TextToSpeech, HailoVision, StudentDatabase, LargeLanguageModel
         
     stt = SpeechToText(STT_MODEL_PATH)
     llm = LargeLanguageModel(LLM_API_KEY, LLM_API_BASE, LLM_MODEL)

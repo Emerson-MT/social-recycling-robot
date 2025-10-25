@@ -71,7 +71,9 @@ El sistema detectará automáticamente que no estás en una Raspberry Pi y carga
 Si por alguna razón quieres forzar el modo mock, puedes usar una variable de entorno:
 
 ```bash
-export ROBOT_MOCK_MODE=true
+export ROBOT_MODE=sim
+# o
+export ROBOT_MODE=mock
 python main.py
 ```
 
