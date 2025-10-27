@@ -44,15 +44,15 @@ class SerialConnection:
                 return self.connection.readline().decode().strip()
 
     def wait_for_message(self, prefix, valid_fn):
-        while True:
-            if self.connection.in_waiting > 0:
-                msg = self.connection.readline().decode('utf-8').strip()
-                if msg.startswith(prefix):
-                    try:
-                        value = int(msg.split(":")[1])
-                        if valid_fn(value):
-                            return value
-                    except ValueError:
-                        print("Formato incorrecto en el mensaje recibido.")
-                else:
-                    print(f"Mensaje no reconocido: {msg}")
+       if self.connection.in_waiting > 0:
+           msg = self.connection.readline().decode('utf-8').strip()
+           if msg.startswith(prefix):
+               try:
+                   value = int(msg.split(":")[1])
+                   if valid_fn(value):
+                       return value
+               except ValueError:
+                   print("Formato incorrecto en el mensaje recibido.")
+           else:
+               print(f"Mensaje no reconocido: {msg}")
+
