@@ -1,7 +1,7 @@
 import os
 import sys
 # Forzar modo mock y niveles de interacción
-os.environ['ROBOT_MODE'] = 'sim'
+os.environ['ROBOT_MODE'] = 'real'
 # Add src to the sys.path
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "src")))
 # Imports
@@ -63,11 +63,17 @@ def setup_robot() -> RecyclingRobot:
         from robot_project.connections.mock_serial import MockSerialConnection as SerialConnection
         from robot_project.database.mock_database import MockStudentDatabase as StudentDatabase
         from robot_project.llm.mock_llm import MockLargeLanguageModel as LargeLanguageModel
+        from robot_project.display.mock_display import MockDisplay as Display
     else:
         print("=" * 60)
         print("🤖 MODO REAL ACTIVADO - Usando hardware real")
         print("=" * 60)
         from robot_project import SerialConnection, SpeechToText, TextToSpeech, HailoVision, StudentDatabase, LargeLanguageModel
+        from robot_project.speech.mock_stt import MockSpeechToText as SpeechToText
+        from robot_project.speech.mock_tts import MockTextToSpeech as TextToSpeech
+        from robot_project.database.mock_database import MockStudentDatabase as StudentDatabase
+        from robot_project.llm.mock_llm import MockLargeLanguageModel as LargeLanguageModel
+        from robot_project.display.mock_display import MockDisplay as Display
         
     stt = SpeechToText(STT_MODEL_PATH)
     llm = LargeLanguageModel(LLM_API_KEY, LLM_API_BASE, LLM_MODEL)
@@ -75,8 +81,9 @@ def setup_robot() -> RecyclingRobot:
     cv = HailoVision(model_name= CV_MODEL_PATH, zoo_url = "src/robot_project/models", inference_host="@local")
     ser = SerialConnection(SERIAL_CONN1, 9600, 1)
     db = StudentDatabase(DB_CONFIG)
+    display = Display()
 
-    return RecyclingRobot("Peri", commands, AUDIO_DEVICE, AUDIO_PATHS, stt, llm, tts, cv, ser, db)
+    return RecyclingRobot("Peri", commands, AUDIO_DEVICE, AUDIO_PATHS, stt, llm, tts, cv, ser, db, display)
 
 def show_test_menu():
     print('''\n--- Menú de pruebas ---

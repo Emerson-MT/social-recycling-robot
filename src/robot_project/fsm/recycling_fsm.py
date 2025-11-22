@@ -4,7 +4,7 @@ class RecyclingFSM:
 
     def __init__(self, robot):
         self.robot = robot
-        self.state = "INICIO"
+        self.state = "HIBERNACION"
         self.class_id = None
         self.residuo = None
         self.confianza = None
