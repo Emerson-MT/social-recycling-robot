@@ -28,7 +28,7 @@ DB_CONFIG = config["database"]
 
 AUDIO_DEVICE = config["audio"]["device"]
 
-SERIAL_CONN1 = config["serial"]["conn1"]
+SERIAL_CONN1 = config["serial"]["conn2"]
 
 AUDIO_PATHS = config["audio_files"]
 
