@@ -71,7 +71,7 @@ def setup_robot() -> RecyclingRobot:
         from robot_project.connections.mock_serial import MockSerialConnection as SerialConnection
         from robot_project.database.mock_database import MockStudentDatabase as StudentDatabase
         from robot_project.llm.mock_llm import MockLargeLanguageModel as LargeLanguageModel
-        from robot_project.display.display import Display as Display
+        from robot_project.display.mock_display import MockDisplay as Display
     else:
         print("=" * 60)
         print("🤖 MODO REAL ACTIVADO - Usando hardware real")
@@ -83,7 +83,7 @@ def setup_robot() -> RecyclingRobot:
         from robot_project.speech.mock_tts import MockTextToSpeech as TextToSpeech
         from robot_project.database.mock_database import MockStudentDatabase as StudentDatabase
         from robot_project.llm.mock_llm import MockLargeLanguageModel as LargeLanguageModel
-        from robot_project.display.mock_display import MockDisplay as Display
+        from robot_project.display.display import Display as Display
         
     # Inicializar componentes
     stt = SpeechToText(STT_MODEL_PATH)
