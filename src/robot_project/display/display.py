@@ -1,8 +1,8 @@
 import time
 from typing import Optional, List, Dict
+from pathlib import Path
 import pygame
 from PIL import Image, ImageSequence
-import os
 import textwrap
 
 ###################################################################################
@@ -17,7 +17,7 @@ class Display:
         pygame.font.init()
         self.screen = pygame.display.set_mode(screen_size)
         self.width, self.height = self.screen.get_size()
-        pygame.display.set_caption("Simulador de Interacción Robot")
+        pygame.display.set_caption("Simulador de Interacción Robot PERI")
         self.clock = pygame.time.Clock()
         self.fps = fps
         self.bg_color = bg_color
@@ -25,18 +25,37 @@ class Display:
         self.button_color = (0, 100, 200)
         self.button_text_color = (255, 255, 255)
         
-        # Cargar font
-        try:
-            font_path = os.path.join("Fonts", "LilitaOne-Regular.ttf") 
-            self.font_question = pygame.font.Font(font_path, 50)
-            self.font_options = pygame.font.Font(font_path, 24)
-            self.font_body = pygame.font.Font(font_path, 28)
-        except pygame.error:
-            print("Advertencia: No se encontró la fuente personalizada. Usando fuente por defecto.")
+        # Cargar font usando pathlib
+        # Buscar en múltiples ubicaciones posibles
+        display_dir = Path(__file__).parent  # Directorio donde está display.py
+        project_root = display_dir.parent.parent  # Raíz del proyecto
+        
+        # Posibles ubicaciones de la fuente
+        font_paths = [
+            display_dir / "Fonts" / "LilitaOne-Regular.ttf",  # Junto a display.py
+            project_root / "Fonts" / "LilitaOne-Regular.ttf",  # En raíz del proyecto
+            Path("Fonts") / "LilitaOne-Regular.ttf",  # Relativa al directorio de ejecución
+        ]
+        
+        font_loaded = False
+        for font_path in font_paths:
+            if font_path.exists():
+                try:
+                    self.font_question = pygame.font.Font(str(font_path), 50)
+                    self.font_options = pygame.font.Font(str(font_path), 24)
+                    self.font_body = pygame.font.Font(str(font_path), 28)
+                    print(f"✅ Fuente cargada desde: {font_path}")
+                    font_loaded = True
+                    break
+                except pygame.error as e:
+                    print(f"⚠️  Error al cargar fuente desde {font_path}: {e}")
+                    continue
+        
+        if not font_loaded:
+            print("⚠️  No se encontró la fuente personalizada. Usando fuente por defecto.")
             self.font_question = pygame.font.Font(None, 60)
             self.font_options = pygame.font.Font(None, 40)
             self.font_body = pygame.font.Font(None, 30)
-        
         
         self.animations = {}
         self.current_state_name = None
@@ -52,38 +71,69 @@ class Display:
         self.running = True
         
     def load_gif(self, name, filepath, scale=None):
-        """Carga un archivo GIF como animación"""
-        if not os.path.exists(filepath):
-            print(f"Advertencia: No se encontró el archivo GIF: {filepath}")
+        """
+        Carga un archivo GIF como animación.
+        
+        Args:
+            name: Nombre identificador de la animación
+            filepath: Ruta al archivo (str o Path)
+            scale: Tupla (ancho, alto) para escalar
+        """
+        # Convertir a Path para manejo robusto
+        gif_path = Path(filepath)
+        
+        if not gif_path.exists():
+            print(f"⚠️  Advertencia: No se encontró el archivo GIF: {gif_path}")
             return
-        pil_img = Image.open(filepath)
-        frames = []
-        for frame in ImageSequence.Iterator(pil_img):
-            duration = int(frame.info.get("duration", 100))
-            frame_rgba = frame.convert("RGBA")
-            surface = pygame.image.fromstring(frame_rgba.tobytes(), frame_rgba.size, "RGBA").convert_alpha()
-            if scale:
-                surface = pygame.transform.scale(surface, scale)
-            frames.append((surface, duration))
-        if frames:
-            self.animations[name] = frames
-            print(f"-> Animación '{name}' cargada correctamente.")
+            
+        try:
+            pil_img = Image.open(str(gif_path))
+            frames = []
+            for frame in ImageSequence.Iterator(pil_img):
+                duration = int(frame.info.get("duration", 100))
+                frame_rgba = frame.convert("RGBA")
+                surface = pygame.image.fromstring(
+                    frame_rgba.tobytes(), 
+                    frame_rgba.size, 
+                    "RGBA"
+                ).convert_alpha()
+                
+                if scale:
+                    surface = pygame.transform.scale(surface, scale)
+                frames.append((surface, duration))
+                
+            if frames:
+                self.animations[name] = frames
+                print(f"✅ Animación '{name}' cargada: {gif_path.name}")
+        except Exception as e:
+            print(f"❌ Error al cargar GIF '{name}' desde {gif_path}: {e}")
             
     def load_image(self, name, filepath, scale=None):
-        """Carga una imagen estática (PNG, JPG, etc)"""
-        if not os.path.exists(filepath):
-            print(f"Advertencia: No se encontró el archivo de imagen: {filepath}")
+        """
+        Carga una imagen estática (PNG, JPG, etc).
+        
+        Args:
+            name: Nombre identificador de la imagen
+            filepath: Ruta al archivo (str o Path)
+            scale: Tupla (ancho, alto) para escalar
+        """
+        # Convertir a Path para manejo robusto
+        img_path = Path(filepath)
+        
+        if not img_path.exists():
+            print(f"⚠️  Advertencia: No se encontró el archivo de imagen: {img_path}")
             return
+            
         try:
-            image = pygame.image.load(filepath).convert_alpha()
+            image = pygame.image.load(str(img_path)).convert_alpha()
             if scale:
                 image = pygame.transform.smoothscale(image, scale)
             self.images[name] = image
-            print(f"-> Imagen '{name}' cargada correctamente.")
+            print(f"✅ Imagen '{name}' cargada: {img_path.name}")
         except pygame.error as e:
-            print(f"Error al cargar la imagen {filepath}: {e}")
+            print(f"❌ Error al cargar imagen '{name}' desde {img_path}: {e}")
             
-    def set_expression(self, name, loop = True):
+    def set_expression(self, name, loop=True):
         """Establece la expresión/animación actual"""
         if name in self.animations and self.current_state_name != name:
             self.current_state_name = name
@@ -190,6 +240,12 @@ class Display:
                                     max_width=60)
         
         self.update_display()
+    
+    def quit(self):
+        """Cierra pygame y limpia recursos"""
+        self.running = False
+        pygame.quit()
+        print("✅ Display cerrado correctamente")
         
 ###################################################################################
 ################################ Código anterior ##################################
@@ -197,7 +253,7 @@ class Display:
 
     def show_feedback_box(self, title: str, lines: List[str], icon: str = ""):
         """
-        Muestra un cuadro de retroalimentación visual simulado.
+        Muestra un cuadro de retroalimentación visual simulado en consola.
 
         Args:
             title: Título del cuadro
