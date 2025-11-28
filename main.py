@@ -3,7 +3,7 @@ import sys
 from pathlib import Path  # ← AGREGADO para rutas robustas
 
 # Forzar modo mock y niveles de interacción
-os.environ['ROBOT_MODE'] = 'sim'  # Cambiar a 'real' para producción
+os.environ['ROBOT_MODE'] = 'real'  # Cambiar a 'real' para producción
 # Add src to the sys.path
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "src")))
 # Imports
@@ -71,7 +71,7 @@ def setup_robot() -> RecyclingRobot:
         from robot_project.connections.mock_serial import MockSerialConnection as SerialConnection
         from robot_project.database.mock_database import MockStudentDatabase as StudentDatabase
         from robot_project.llm.mock_llm import MockLargeLanguageModel as LargeLanguageModel
-        from robot_project.display.mock_display import MockDisplay as Display
+        from robot_project.display.display import Display as Display
     else:
         print("=" * 60)
         print("🤖 MODO REAL ACTIVADO - Usando hardware real")
