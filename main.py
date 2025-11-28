@@ -1,7 +1,7 @@
 import os
 import sys
 # Forzar modo mock y niveles de interacción
-os.environ['ROBOT_MODE'] = 'sim'  # Cambiar a 'real' para producción
+os.environ['ROBOT_MODE'] = 'real'  # Cambiar a 'real' para producción
 # Add src to the sys.path
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "src")))
 # Imports
