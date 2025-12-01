@@ -90,7 +90,7 @@ def setup_robot() -> RecyclingRobot:
     llm = LargeLanguageModel(LLM_API_KEY, LLM_API_BASE, LLM_MODEL)
     tts = TextToSpeech(AUDIO_DEVICE, TTS_VOICE, "+0%")
     cv = HailoVision(model_name=CV_MODEL_PATH, zoo_url="src/robot_project/models", inference_host="@local")
-    ser = SerialConnection(SERIAL_CONN1, 9600, 1)
+    ser = SerialConnection(SERIAL_CONN1, 115200, 1)
     db = StudentDatabase(DB_CONFIG)
     display = Display()
 
