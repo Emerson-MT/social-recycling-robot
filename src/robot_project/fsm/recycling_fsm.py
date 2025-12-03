@@ -94,7 +94,7 @@ class RecyclingFSM:
         """
         Estado hibernacion: Espera a que haya un usuario para entrar al estado 'despertando'
         o que haya un residuo en posición para continuar al estado 'clasificar_1'.
-        
+
         MERGED: Lógica de recycling_fsm.py + mejoras visuales de fsm_ale.py
         """
         # Inicializar solo una vez al entrar al estado
@@ -102,6 +102,7 @@ class RecyclingFSM:
             self.robot.ser.send(f"ESTADO:0\n")
             self.robot.display.set_expression("hibernando")
             print("💤 Robot en hibernación...")
+            time.sleep(6)  # Espera 6 segundos para mostrar la animación
             self.mark_state_initialized('hibernacion')
         
         # Renderizar frame (si display tiene pygame)
@@ -139,7 +140,7 @@ class RecyclingFSM:
             # Reproducir sonido de inicio
             # self.robot.play_audio('mp3_path')
             print("🔊 Reproducción de sonido de inicio")
-            
+
             # Animación de despertar
             if hasattr(self.robot.display, 'set_expression'):
                 # Versión con pygame: usar animación de inicio no-loop
@@ -147,8 +148,9 @@ class RecyclingFSM:
             else:
                 # Versión simple: solo expresión genérica
                 self.robot.display.set_expression("despertando")
-            
+
             print("🤖 Expresión de robot despertando")
+            time.sleep(6)  # Espera 6 segundos para mostrar la animación
             
             # Iniciar temporizador (5 segundos si tiene pygame, 3 si no)
             timer_duration = 5 if hasattr(self.robot.display, 'render_frame') else 3
@@ -195,10 +197,11 @@ class RecyclingFSM:
             # Reproducir sonido alegre
             # self.robot.play_audio('mp3_path')
             print("🔊 Reproducción de sonido alegre por recibir residuo")
+            time.sleep(6)  # Espera 6 segundos para mostrar la animación
 
             self.mark_state_initialized('clasificar1')
             self._clasificacion_realizada = False
-        
+
         # Renderizar frame (si display tiene pygame)
         if hasattr(self.robot.display, 'render_frame'):
             self.robot.display.render_frame(text="Clasificando residuo...")
@@ -237,7 +240,8 @@ class RecyclingFSM:
 
             self.robot.display.set_expression("feliz")
             print("🤖 Expresión de robot feliz")
-            
+            time.sleep(6)  # Espera 6 segundos para mostrar la animación
+
             self.mark_state_initialized('clasificar2')
             self._clasificacion_realizada = False
         
@@ -294,10 +298,11 @@ class RecyclingFSM:
 
             self.robot.display.set_expression("feliz")
             print("🤖 Expresión feliz en la pantalla")
+            time.sleep(6)  # Espera 6 segundos para mostrar la animación
 
             # Mensaje de agradecimiento
             self.robot.tts.deliver_message("Muchas gracias por reciclar!")
-            
+
             self.mark_state_initialized('agradecimiento')
             
             # Variables para control de flujo
@@ -326,6 +331,7 @@ class RecyclingFSM:
                 if not self._showing_qr:
                     self._showing_qr = True
                     self.robot.display.set_expression("despedida")
+                    time.sleep(6)  # Espera 6 segundos para mostrar la animación
                     self.robot.tts.deliver_message("Espero verte pronto. Byeeee!")
                     self._despedida_timer_start = time.time()
             
@@ -342,6 +348,7 @@ class RecyclingFSM:
         else:
             self.robot.display.set_expression("despedida")
             print("🤖 Expresión de despedida en la pantalla")
+            time.sleep(6)  # Espera 6 segundos para mostrar la animación
 
             self.robot.tts.deliver_message("Espero verte pronto")
 
