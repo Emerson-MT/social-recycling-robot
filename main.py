@@ -14,7 +14,6 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "src")))
 from robot_project import RecyclingRobot
 from robot_project.configs.config_loader import load_config
 from robot_project.configs.environment import is_mock_mode
-from robot_project.recycling_fsm import RecyclingFSM  # ← AGREGAR ESTE IMPORT
 import signal
 
 # Load the json configuration file
