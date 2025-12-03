@@ -1,15 +1,20 @@
 import os
 import sys
-from pathlib import Path  # ← AGREGADO para rutas robustas
+import tty
+import termios
+from pathlib import Path
 
-# Forzar modo mock y niveles de interacción
-os.environ['ROBOT_MODE'] = 'real'  # Cambiar a 'real' para producción
+# Forzar modo real
+os.environ['ROBOT_MODE'] = 'real'
+
 # Add src to the sys.path
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "src")))
+
 # Imports
 from robot_project import RecyclingRobot
 from robot_project.configs.config_loader import load_config
 from robot_project.configs.environment import is_mock_mode
+from robot_project.recycling_fsm import RecyclingFSM  # ← AGREGAR ESTE IMPORT
 import signal
 
 # Load the json configuration file
@@ -39,15 +44,23 @@ def handle_keyboard_interrupt(signum, frame):
 
 signal.signal(signal.SIGINT, handle_keyboard_interrupt)
 
+# ========== WIZARD OF OZ: CONFIGURACIÓN DE TERMINAL ============================
+class RawMode:
+    """Context manager para modo raw de terminal (no bloquea entrada)"""
+    
+    def __enter__(self):
+        self.fd = sys.stdin.fileno()
+        self.old_settings = termios.tcgetattr(self.fd)
+        tty.setcbreak(self.fd)
+        return self
+    
+    def __exit__(self, type, value, traceback):
+        termios.tcsetattr(self.fd, termios.TCSADRAIN, self.old_settings)
+
 # =============== MAIN FUNCTIONS ==================
 
 def setup_robot() -> RecyclingRobot:
-    """
-    Configura el robot con todos sus componentes.
-    
-    MERGED: Combina la lógica de importación de ambas versiones y agrega
-    la carga de assets de display (de main_ale.py)
-    """
+    """Configura el robot con todos sus componentes"""
     commands = {
         'r': 'reciclar',
         'y': 'yo',
@@ -58,7 +71,6 @@ def setup_robot() -> RecyclingRobot:
         '3': 'residuo_general'
     }
 
-    # Detectar si estamos en modo mock (desarrollo local)
     mock_mode = is_mock_mode()
 
     if mock_mode:
@@ -76,9 +88,7 @@ def setup_robot() -> RecyclingRobot:
         print("=" * 60)
         print("🤖 MODO REAL ACTIVADO - Usando hardware real")
         print("=" * 60)
-        # MERGED: Importar Display real pero mantener mocks para componentes que aún no están listos
         from robot_project import SerialConnection, HailoVision
-        # Mantener mocks para desarrollo incremental
         from robot_project.speech.mock_stt import MockSpeechToText as SpeechToText
         from robot_project.speech.mock_tts import MockTextToSpeech as TextToSpeech
         from robot_project.database.mock_database import MockStudentDatabase as StudentDatabase
@@ -94,35 +104,28 @@ def setup_robot() -> RecyclingRobot:
     db = StudentDatabase(DB_CONFIG)
     display = Display()
 
-    # Crear instancia del robot
     robot = RecyclingRobot("Peri", commands, AUDIO_DEVICE, AUDIO_PATHS, stt, llm, tts, cv, ser, db, display)
 
-    # ========== CARGAR ASSETS DE PYGAME (CORREGIDO CON PATHLIB) ==========
+    # ========== CARGAR ASSETS DE PYGAME ==========
     print("\n" + "=" * 60)
     print("🎨 CARGANDO ASSETS PARA LA PANTALLA")
     print("=" * 60)
     
-    # Obtener la ubicación del módulo display
-    # Opción 1: Si display está en robot_project.display
     try:
         import robot_project.display
         display_module_dir = Path(robot_project.display.__file__).parent
     except:
-        # Opción 2: Fallback - buscar desde el directorio actual
         display_module_dir = Path(__file__).parent / "src" / "robot_project" / "display"
     
-    # Definir ubicaciones posibles para assets
     project_root = Path(__file__).parent
     
-    # Ubicaciones posibles para Animations/Gifs/
     animations_search_paths = [
-        display_module_dir / "Animations" / "Gifs",  # Junto a display.py (CORRECTO según tu estructura)
-        project_root / "Animations" / "Gifs",        # En raíz del proyecto
-        project_root / "src" / "robot_project" / "display" / "Animations" / "Gifs",  # Ruta completa
-        Path("Animations") / "Gifs",                 # Relativa al CWD
+        display_module_dir / "Animations" / "Gifs",
+        project_root / "Animations" / "Gifs",
+        project_root / "src" / "robot_project" / "display" / "Animations" / "Gifs",
+        Path("Animations") / "Gifs",
     ]
     
-    # Buscar directorio de animaciones
     animations_dir = None
     for path in animations_search_paths:
         if path.exists() and path.is_dir():
@@ -132,10 +135,9 @@ def setup_robot() -> RecyclingRobot:
     
     if not animations_dir:
         print("⚠️  No se encontró el directorio de animaciones")
-        animations_dir = Path(".")  # Fallback
+        animations_dir = Path(".")
     
-    # Cargar animaciones GIF
-    anim_scale = (800, 500)  # Escala para las animaciones
+    anim_scale = (800, 500)
     
     gif_assets = {
         "hibernando": "Ojo_dormilon.gif",
@@ -152,17 +154,14 @@ def setup_robot() -> RecyclingRobot:
         filepath = animations_dir / filename
         robot.display.load_gif(name, str(filepath), scale=anim_scale)
     
-    # ========== CARGAR IMAGEN QR (CORREGIDO CON PATHLIB) ==========
-    
-    # Ubicaciones posibles para Images/
+    # Cargar imagen QR
     images_search_paths = [
-        display_module_dir / "Images",  # Junto a display.py (CORRECTO según tu estructura)
-        project_root / "Images",        # En raíz del proyecto
-        project_root / "src" / "robot_project" / "display" / "Images",  # Ruta completa
-        Path("Images"),                 # Relativa al CWD
+        display_module_dir / "Images",
+        project_root / "Images",
+        project_root / "src" / "robot_project" / "display" / "Images",
+        Path("Images"),
     ]
     
-    # Buscar directorio de imágenes
     images_dir = None
     for path in images_search_paths:
         if path.exists() and path.is_dir():
@@ -173,7 +172,6 @@ def setup_robot() -> RecyclingRobot:
     if images_dir:
         qr_path = images_dir / "QR_Prueba.png"
     else:
-        # Fallback: buscar en múltiples ubicaciones
         qr_path = None
         for search_path in images_search_paths:
             potential_qr = search_path / "QR_Prueba.png"
@@ -182,7 +180,7 @@ def setup_robot() -> RecyclingRobot:
                 break
         
         if not qr_path:
-            qr_path = Path("QR_Prueba.png")  # Último fallback
+            qr_path = Path("QR_Prueba.png")
     
     try:
         robot.display.load_image("qr", str(qr_path), scale=(200, 200))
@@ -205,7 +203,7 @@ def show_test_menu():
     6) Pulsadores (stepper)
     7) Código y base de datos
     8) Conversación con Peri
-    9) Programa completo
+    9) Programa completo (WIZARD OF OZ MODE)
     ''')
 
 def get_test_input() -> int:
@@ -223,8 +221,22 @@ def main():
         show_test_menu()
         test = get_test_input()
         peri.set_test_num(test)
+        
         if test == 9:
-            peri.run_main_program()
+            # ========== WIZARD OF OZ MODE ==========
+            print("\n" + "="*60)
+            print("🎭 INICIANDO MODO WIZARD OF OZ")
+            print("="*60)
+            print("\n⚠️  IMPORTANTE: Terminal en modo RAW")
+            print("   Las teclas se leen sin presionar Enter\n")
+            
+            # Crear FSM
+            fsm = RecyclingFSM(peri)
+            
+            # Entrar en modo raw (sin bloqueo)
+            with RawMode():
+                fsm.run()
+            # ==========================================
         else:
             peri.run_test(test)
 
