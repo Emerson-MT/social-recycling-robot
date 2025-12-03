@@ -170,17 +170,17 @@ def setup_robot() -> RecyclingRobot:
             break
     
     if images_dir:
-        qr_path = images_dir / "QR_Prueba.png"
+        qr_path = images_dir / "Encuestas PERI.png"
     else:
         qr_path = None
         for search_path in images_search_paths:
-            potential_qr = search_path / "QR_Prueba.png"
+            potential_qr = search_path / "Encuestas PERI.png"
             if potential_qr.exists():
                 qr_path = potential_qr
                 break
         
         if not qr_path:
-            qr_path = Path("QR_Prueba.png")
+            qr_path = Path("Encuestas PERI.png")
     
     try:
         robot.display.load_image("qr", str(qr_path), scale=(200, 200))
