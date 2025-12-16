@@ -1,6 +1,7 @@
 import time
 import sys
 import select
+from quiz_system import QuizSystem
 
 class RecyclingFSM:
     """
@@ -29,6 +30,10 @@ class RecyclingFSM:
         # WIZARD OF OZ: Flags de control manual
         self.wizard_user_detected = False
         self.wizard_waste_detected = False
+        
+        # Sistema de Quiz
+        self.quiz_system = QuizSystem()
+        self.user_interactions = 0  # Contador para nivel de dificultad
 
     def run(self):
         """
@@ -328,10 +333,121 @@ class RecyclingFSM:
                 print(f"  ⚠️ TTS error: {e}")
             
             self._clasificacion_realizada = True
+            self.user_interactions += 1  # Incrementar contador de interacciones
             time.sleep(1)
 
             print("  ✅ Clasificación completada")
             self.reset_state_flag('clasificar2')
+            
+            # TRANSICIÓN AL QUIZ
+            self.state = "QUIZ"
+            return
+    
+    def state_quiz(self):
+        """
+        Estado QUIZ: Presenta una pregunta de verdadero/falso al usuario
+        """
+        # Inicializar
+        if not self.is_state_initialized('quiz'):
+            print("\n🎮 [QUIZ] Preparando pregunta...")
+            
+            # Expresión neutral/pensativa
+            if hasattr(self.robot.display, 'set_expression'):
+                self.robot.display.set_expression("neutro")
+            
+            # Obtener pregunta según nivel del usuario
+            self.current_question = self.quiz_system.get_question_for_user(self.user_interactions)
+            
+            if not self.current_question:
+                print("  ⚠️ No hay preguntas disponibles, saltando quiz")
+                self.reset_state_flag('quiz')
+                self.state = "AGRADECIMIENTO"
+                return
+            
+            print(f"  📝 Pregunta: {self.current_question['question'][:50]}...")
+            
+            # TTS: Anunciar que viene una pregunta
+            try:
+                self.robot.tts.deliver_message("Ahora una pregunta rápida. Verdadero o falso?")
+            except Exception as e:
+                print(f"  ⚠️ TTS error: {e}")
+            
+            time.sleep(0.5)
+            
+            self.mark_state_initialized('quiz')
+            self._quiz_answered = False
+        
+        # Mostrar pregunta y obtener respuesta (solo una vez)
+        if not self._quiz_answered:
+            # Usar pantalla táctil si está disponible
+            if hasattr(self.robot.display, 'show_true_false_question'):
+                print("  👆 Mostrando pregunta en pantalla táctil...")
+                
+                user_answer = self.robot.display.show_true_false_question(
+                    self.current_question['question'],
+                    timeout_seconds=10
+                )
+            else:
+                # Fallback a consola
+                print(f"\n  📝 {self.current_question['question']}")
+                print("     [V] Verdadero  |  [F] Falso")
+                print("     Tienes 10 segundos...")
+                
+                response = input("  Tu respuesta: ").strip().upper()
+                if response == 'V':
+                    user_answer = True
+                elif response == 'F':
+                    user_answer = False
+                else:
+                    user_answer = None
+            
+            # Procesar respuesta
+            if user_answer is None:
+                print("  ⏱️ Tiempo agotado o sin respuesta")
+                is_correct = False
+                explanation = self.current_question['explanation']
+                points = 0
+            else:
+                is_correct, explanation = self.quiz_system.check_answer(
+                    self.current_question, 
+                    user_answer
+                )
+                points = self.quiz_system.calculate_points(is_correct)
+            
+            # Mostrar resultado en pantalla
+            if hasattr(self.robot.display, 'show_quiz_result_screen'):
+                self.robot.display.show_quiz_result_screen(
+                    is_correct,
+                    explanation,
+                    points,
+                    display_time=5.0
+                )
+            else:
+                # Fallback a consola
+                if is_correct:
+                    print(f"\n  ✅ ¡CORRECTO! +{points} puntos")
+                else:
+                    print(f"\n  ❌ Incorrecto. +{points} puntos por intentar")
+                print(f"  💡 {explanation}")
+                time.sleep(3)
+            
+            # TTS con explicación corta
+            try:
+                if is_correct:
+                    self.robot.tts.deliver_message(f"Correcto! Ganaste {points} puntos.")
+                else:
+                    self.robot.tts.deliver_message(f"La respuesta correcta era {'verdadero' if self.current_question['correct'] else 'falso'}.")
+            except Exception as e:
+                print(f"  ⚠️ TTS error: {e}")
+            
+            print(f"  📊 Resultado: {'✓' if is_correct else '✗'} | Puntos: {points}")
+            
+            self._quiz_answered = True
+            time.sleep(1)
+            
+            # Transición al agradecimiento
+            print("  ✅ Quiz completado")
+            self.reset_state_flag('quiz')
             self.state = "AGRADECIMIENTO"
 
     def state_agradecimiento(self):
