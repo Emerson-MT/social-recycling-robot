@@ -171,7 +171,7 @@ def setup_robot() -> RecyclingRobot:
             break
     
     if images_dir:
-        qr_path = images_dir / "Encuestas PERI.png"
+        qr_path = images_dir / "QR_Prueba.png"
     else:
         qr_path = None
         for search_path in images_search_paths:
