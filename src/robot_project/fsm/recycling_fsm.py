@@ -468,7 +468,7 @@ class RecyclingFSM:
             # TTS
             print("  🗣️ [TTS] Despedida")
             try:
-                self.robot.tts.deliver_message("Muchas gracias por acompañarme! Te regalo 20 Peri-Puntos, escanea el QR y obtenlos.")
+                self.robot.tts.deliver_message("Muchas gracias por acompañarme! Escanea el QR y registrate.")
             except Exception as e:
                 print(f"  ⚠️ TTS error: {e}")
             
