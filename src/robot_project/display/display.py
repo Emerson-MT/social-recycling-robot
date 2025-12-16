@@ -42,7 +42,7 @@ class Display:
             if font_path.exists():
                 try:
                     self.font_question = pygame.font.Font(str(font_path), 50)
-                    self.font_options = pygame.font.Font(str(font_path), 24)
+                    self.font_options = pygame.font.Font(str(font_path), 36)
                     self.font_body = pygame.font.Font(str(font_path), 28)
                     print(f"✅ Fuente cargada desde: {font_path}")
                     font_loaded = True
@@ -54,8 +54,8 @@ class Display:
         if not font_loaded:
             print("⚠️  No se encontró la fuente personalizada. Usando fuente por defecto.")
             self.font_question = pygame.font.Font(None, 60)
-            self.font_options = pygame.font.Font(None, 40)
-            self.font_body = pygame.font.Font(None, 30)
+            self.font_options = pygame.font.Font(None, 45)
+            self.font_body = pygame.font.Font(None, 34)
         
         self.animations = {}
         self.current_state_name = None
@@ -246,6 +246,186 @@ class Display:
         self.running = False
         pygame.quit()
         print("✅ Display cerrado correctamente")
+    
+    # ========== NUEVOS MÉTODOS PARA QUIZ DE VERDADERO/FALSO ==========
+    
+    def show_true_false_question(self, question_text: str, timeout_seconds: int = 10) -> Optional[bool]:
+        """
+        Muestra una pregunta de verdadero/falso con botones táctiles.
+        
+        Args:
+            question_text: Texto de la pregunta
+            timeout_seconds: Tiempo límite para responder
+            
+        Returns:
+            True, False, o None si se agota el tiempo
+        """
+        # Configuración de botones
+        button_width = 300
+        button_height = 120
+        button_spacing = 80
+        
+        # Posiciones de los botones (centrados horizontalmente)
+        center_x = self.width // 2
+        buttons_y = self.height - 180
+        
+        true_button_rect = pygame.Rect(
+            center_x - button_width - button_spacing // 2,
+            buttons_y,
+            button_width,
+            button_height
+        )
+        
+        false_button_rect = pygame.Rect(
+            center_x + button_spacing // 2,
+            buttons_y,
+            button_width,
+            button_height
+        )
+        
+        # Colores
+        true_color = (34, 139, 34)  # Verde
+        false_color = (220, 20, 60)  # Rojo
+        hover_brightness = 1.3
+        
+        # Timer
+        start_time = pygame.time.get_ticks()
+        
+        # Loop de la pregunta
+        while True:
+            # Procesar eventos
+            mouse_pos = pygame.mouse.get_pos()
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    self.running = False
+                    return None
+                elif event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE:
+                    self.running = False
+                    return None
+                elif event.type == pygame.MOUSEBUTTONDOWN:
+                    if true_button_rect.collidepoint(mouse_pos):
+                        return True
+                    elif false_button_rect.collidepoint(mouse_pos):
+                        return False
+            
+            # Verificar timeout
+            elapsed = (pygame.time.get_ticks() - start_time) / 1000
+            if elapsed > timeout_seconds:
+                return None
+            
+            remaining = int(timeout_seconds - elapsed)
+            
+            # Actualizar animación de fondo
+            self.update_animation()
+            
+            # Dibujar fondo y animación
+            self.draw_background_animation()
+            
+            # Dibujar pregunta
+            self.draw_multiline_text(
+                question_text,
+                (self.width // 2, 150),
+                self.font_question,
+                max_width=45,
+                color=(255, 255, 255)
+            )
+            
+            # Dibujar timer
+            timer_text = f"⏱️ {remaining}s"
+            timer_surface = self.font_body.render(timer_text, True, (255, 255, 255))
+            timer_rect = timer_surface.get_rect(center=(self.width // 2, buttons_y - 60))
+            self.screen.blit(timer_surface, timer_rect)
+            
+            # Detectar hover para resaltar botones
+            true_hover = true_button_rect.collidepoint(mouse_pos)
+            false_hover = false_button_rect.collidepoint(mouse_pos)
+            
+            # Dibujar botón VERDADERO
+            true_draw_color = true_color
+            if true_hover:
+                true_draw_color = tuple(min(int(c * hover_brightness), 255) for c in true_color)
+            
+            pygame.draw.rect(self.screen, true_draw_color, true_button_rect, border_radius=20)
+            pygame.draw.rect(self.screen, (255, 255, 255), true_button_rect, width=3, border_radius=20)
+            
+            true_text = self.font_options.render("✓ VERDADERO", True, (255, 255, 255))
+            true_text_rect = true_text.get_rect(center=true_button_rect.center)
+            self.screen.blit(true_text, true_text_rect)
+            
+            # Dibujar botón FALSO
+            false_draw_color = false_color
+            if false_hover:
+                false_draw_color = tuple(min(int(c * hover_brightness), 255) for c in false_color)
+            
+            pygame.draw.rect(self.screen, false_draw_color, false_button_rect, border_radius=20)
+            pygame.draw.rect(self.screen, (255, 255, 255), false_button_rect, width=3, border_radius=20)
+            
+            false_text = self.font_options.render("✗ FALSO", True, (255, 255, 255))
+            false_text_rect = false_text.get_rect(center=false_button_rect.center)
+            self.screen.blit(false_text, false_text_rect)
+            
+            # Actualizar display
+            pygame.display.flip()
+            self.clock.tick(self.fps)
+    
+    def show_quiz_result_screen(self, is_correct: bool, explanation: str, 
+                               points_earned: int, display_time: float = 4.0):
+        """
+        Muestra el resultado del quiz en pantalla con animación.
+        
+        Args:
+            is_correct: Si la respuesta fue correcta
+            explanation: Explicación de la respuesta
+            points_earned: Puntos ganados
+            display_time: Tiempo para mostrar el resultado (segundos)
+        """
+        # Cambiar expresión según resultado
+        if is_correct:
+            if hasattr(self, 'set_expression'):
+                self.set_expression("feliz")
+            result_color = (34, 139, 34)  # Verde
+            result_text = f"🎉 ¡CORRECTO! +{points_earned} puntos"
+        else:
+            if hasattr(self, 'set_expression'):
+                self.set_expression("neutro")
+            result_color = (255, 165, 0)  # Naranja
+            result_text = f"💡 Casi... +{points_earned} puntos"
+        
+        start_time = pygame.time.get_ticks()
+        
+        while (pygame.time.get_ticks() - start_time) / 1000 < display_time:
+            # Procesar eventos (solo para no bloquear)
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    self.running = False
+                    return
+                elif event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE:
+                    self.running = False
+                    return
+            
+            # Actualizar animación
+            self.update_animation()
+            
+            # Dibujar fondo
+            self.draw_background_animation()
+            
+            # Dibujar resultado
+            result_surface = self.font_question.render(result_text, True, result_color)
+            result_rect = result_surface.get_rect(center=(self.width // 2, 120))
+            self.screen.blit(result_surface, result_rect)
+            
+            # Dibujar explicación
+            self.draw_multiline_text(
+                explanation,
+                (self.width // 2, 250),
+                self.font_body,
+                max_width=55,
+                color=(255, 255, 255)
+            )
+            
+            # Actualizar display
+            pygame.display.flip()
+            self.clock.tick(self.fps)
         
 ###################################################################################
 ################################ Código anterior ##################################
@@ -316,7 +496,9 @@ class Display:
     def show_quiz_question(self, question: str, options: List[Dict[str, str]],
                           timer_seconds: int = 10) -> Optional[str]:
         """
-        Muestra una pregunta de quiz (Nivel 2).
+        Muestra una pregunta de quiz (Nivel 2) - MÉTODO LEGACY.
+        
+        NOTA: Este método está deprecado. Usa show_true_false_question() para el nuevo sistema.
 
         Args:
             question: Texto de la pregunta
@@ -354,7 +536,9 @@ class Display:
     def show_quiz_result(self, correct: bool, selected: str, correct_answer: str,
                         points: int, explanation: str, streak: int = 0):
         """
-        Muestra el resultado de un quiz (Nivel 2).
+        Muestra el resultado de un quiz (Nivel 2) - MÉTODO LEGACY.
+        
+        NOTA: Este método está deprecado. Usa show_quiz_result_screen() para el nuevo sistema.
 
         Args:
             correct: Si la respuesta fue correcta
