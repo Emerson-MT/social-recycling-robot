@@ -385,13 +385,13 @@ class RecyclingFSM:
                 
                 user_answer = self.robot.display.show_true_false_question(
                     self.current_question['question'],
-                    timeout_seconds=10
+                    timeout_seconds=15
                 )
             else:
                 # Fallback a consola
                 print(f"\n  📝 {self.current_question['question']}")
                 print("     [V] Verdadero  |  [F] Falso")
-                print("     Tienes 10 segundos...")
+                print("     Tienes 15 segundos...")
                 
                 response = input("  Tu respuesta: ").strip().upper()
                 if response == 'V':
@@ -420,7 +420,7 @@ class RecyclingFSM:
                     is_correct,
                     explanation,
                     points,
-                    display_time=15.0
+                    display_time=5.0
                 )
             else:
                 # Fallback a consola
