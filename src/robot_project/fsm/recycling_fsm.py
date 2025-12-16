@@ -210,7 +210,7 @@ class RecyclingFSM:
         if self.wizard_waste_detected:
             print("  ✅ Residuo depositado (WIZARD)")
             self.robot.play_audio(self.robot.audio_paths["start_audio_path"])
-            self.robot.tts.deliver_message("Hola! Qué tenemos aquí?")
+            self.robot.tts.deliver_message("Mmmmh? Hay alguien ahi?")
             self.wizard_waste_detected = False  # Reset flag
             self.reset_state_flag('despertando')
             self.state = "CLASIFICAR_2"
