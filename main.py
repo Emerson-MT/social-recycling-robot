@@ -203,7 +203,7 @@ def show_test_menu():
     5) Giro automático (stepper)
     6) Pulsadores (stepper)
     7) Código y base de datos
-    8) Conversación con Peri
+    8) Modo Golden
     9) Programa completo (WIZARD OF OZ MODE)
     ''')
 
