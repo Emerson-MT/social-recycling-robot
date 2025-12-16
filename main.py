@@ -203,7 +203,7 @@ def show_test_menu():
     5) Giro automático (stepper)
     6) Pulsadores (stepper)
     7) Código y base de datos
-    8) Modo Golden 🏆
+    8) Conversación con Peri
     9) Programa completo (WIZARD OF OZ MODE)
     ''')
 
@@ -223,71 +223,7 @@ def main():
         test = get_test_input()
         peri.set_test_num(test)
         
-        if test == 8:
-            # ========== MODO GOLDEN ==========
-            print("\n" + "="*60)
-            print("🏆 INICIANDO MODO GOLDEN")
-            print("="*60)
-            print("Mostrando botón dorado en pantalla...\n")
-            
-            # Mostrar botón golden y esperar interacción
-            button_pressed = peri.display.show_golden_button()
-            
-            if button_pressed:
-                print("✨ ¡BOTÓN GOLDEN PRESIONADO!")
-                print("🎵 Reproduciendo 'Golden' de Huntrix...\n")
-                
-                # Verificar si existe la ruta de audio
-                golden_audio_path = Path("Audio") / "golden.mp3"
-                
-                # Buscar en múltiples ubicaciones
-                possible_paths = [
-                    golden_audio_path,
-                    Path("src/robot_project/audio") / "golden.mp3",
-                    Path("audio") / "golden.mp3",
-                    Path.cwd() / "Audio" / "golden.mp3"
-                ]
-                
-                audio_found = None
-                for path in possible_paths:
-                    if path.exists():
-                        audio_found = str(path)
-                        print(f"🔊 Audio encontrado: {audio_found}")
-                        break
-                
-                if audio_found:
-                    try:
-                        # Reproducir audio usando el sistema del robot
-                        peri.play_audio(audio_found)
-                        print("✅ Reproducción completada")
-                    except Exception as e:
-                        print(f"⚠️ Error al reproducir audio: {e}")
-                        print("Intentando con pygame.mixer...")
-                        
-                        # Fallback: usar pygame mixer directamente
-                        try:
-                            import pygame
-                            pygame.mixer.init()
-                            pygame.mixer.music.load(audio_found)
-                            pygame.mixer.music.play()
-                            
-                            # Esperar a que termine la canción
-                            while pygame.mixer.music.get_busy():
-                                pygame.time.Clock().tick(10)
-                            
-                            print("✅ Reproducción completada (pygame)")
-                        except Exception as e2:
-                            print(f"❌ Error con pygame mixer: {e2}")
-                else:
-                    print("⚠️ No se encontró el archivo 'golden.mp3'")
-                    print("Ubicaciones buscadas:")
-                    for path in possible_paths:
-                        print(f"  - {path}")
-            else:
-                print("❌ Modo Golden cancelado\n")
-            # ==========================================
-            
-        elif test == 9:
+        if test == 9:
             # ========== WIZARD OF OZ MODE ==========
             print("\n" + "="*60)
             print("🎭 INICIANDO MODO WIZARD OF OZ")
