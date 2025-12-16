@@ -420,7 +420,7 @@ class RecyclingFSM:
                     is_correct,
                     explanation,
                     points,
-                    display_time=5.0
+                    display_time=15.0
                 )
             else:
                 # Fallback a consola
