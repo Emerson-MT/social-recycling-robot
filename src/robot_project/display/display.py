@@ -671,6 +671,95 @@ class Display:
             "✨"
         )
 
+    def show_golden_button(self) -> bool:
+        """
+        Muestra un botón GOLDEN dorado en pantalla completa.
+        
+        Returns:
+            True si se presionó el botón, False si se presiona ESC para salir
+        """
+        # Configuración del botón dorado
+        button_width = 400
+        button_height = 150
+        
+        # Posición centrada
+        center_x = self.width // 2
+        center_y = self.height // 2
+        
+        golden_button_rect = pygame.Rect(
+            center_x - button_width // 2,
+            center_y - button_height // 2,
+            button_width,
+            button_height
+        )
+        
+        # Color dorado
+        golden_color = (255, 215, 0)  # Oro
+        golden_dark = (218, 165, 32)  # Oro oscuro (para hover)
+        
+        # Loop del botón
+        while True:
+            # Procesar eventos
+            mouse_pos = pygame.mouse.get_pos()
+            
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    self.running = False
+                    return False
+                    
+                elif event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_ESCAPE:
+                        return False
+                    continue
+                
+                # Detectar toque/click en el botón
+                elif event.type == pygame.MOUSEBUTTONDOWN:
+                    touch_pos = event.pos
+                    if golden_button_rect.collidepoint(touch_pos):
+                        return True
+                
+                # Soporte táctil directo
+                elif event.type == pygame.FINGERDOWN:
+                    finger_x = int(event.x * self.width)
+                    finger_y = int(event.y * self.height)
+                    finger_pos = (finger_x, finger_y)
+                    
+                    if golden_button_rect.collidepoint(finger_pos):
+                        return True
+            
+            # Actualizar animación de fondo
+            self.update_animation()
+            
+            # Dibujar fondo
+            self.draw_background_animation()
+            
+            # Detectar hover para efecto
+            button_hover = golden_button_rect.collidepoint(mouse_pos)
+            
+            # Color del botón (más brillante en hover)
+            button_color = golden_dark if button_hover else golden_color
+            
+            # Dibujar botón dorado con efecto brillante
+            pygame.draw.rect(self.screen, button_color, golden_button_rect, border_radius=30)
+            
+            # Borde blanco brillante
+            pygame.draw.rect(self.screen, (255, 255, 255), golden_button_rect, width=5, border_radius=30)
+            
+            # Texto "GOLDEN"
+            golden_text = self.font_question.render("GOLDEN", True, (0, 0, 0))
+            text_rect = golden_text.get_rect(center=golden_button_rect.center)
+            self.screen.blit(golden_text, text_rect)
+            
+            # Texto de instrucción
+            instruction = "Toca el botón para activar el modo GOLDEN"
+            instruction_surface = self.font_body.render(instruction, True, (255, 255, 255))
+            instruction_rect = instruction_surface.get_rect(center=(self.width // 2, center_y + button_height // 2 + 80))
+            self.screen.blit(instruction_surface, instruction_rect)
+            
+            # Actualizar display
+            pygame.display.flip()
+            self.clock.tick(self.fps)
+
     def clear(self):
         """Limpia la pantalla (simula borrado de display)."""
         print("\n" + "🖥️  [DISPLAY] Pantalla limpiada\n")
