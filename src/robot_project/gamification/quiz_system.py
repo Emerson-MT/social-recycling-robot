@@ -239,7 +239,7 @@ class QuizSystem:
         if is_correct:
             return base_points
         else:
-            return base_points // 3  # 33% por intento
+            return base_points // 15  # 1% por intento
 
 
 class AchievementSystem:
