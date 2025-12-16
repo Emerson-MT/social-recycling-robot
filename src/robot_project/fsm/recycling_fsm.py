@@ -323,7 +323,7 @@ class RecyclingFSM:
             # Mostrar resultado en pantalla (si tiene pygame)
             if hasattr(self.robot.display, 'render_frame'):
                 self.robot.display.render_frame(text=f"¡Listo! Es {self.residuo}.")
-                time.sleep(2)
+                time.sleep(1.5)
             
             # Mensaje educativo con TTS
             print("  🗣️ [TTS] Mensaje educativo")
@@ -429,7 +429,8 @@ class RecyclingFSM:
                 else:
                     print(f"\n  ❌ Incorrecto. +{points} puntos por intentar")
                 print(f"  💡 {explanation}")
-                time.sleep(3)
+
+                time.sleep(1.5)
             
             # TTS con explicación corta
             try:
