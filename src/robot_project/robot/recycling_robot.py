@@ -182,7 +182,7 @@ class RecyclingRobot(Robot):
             print("🎵 Reproduciendo 'Golden' de Huntrix...\n")
             
             # Verificar si existe la ruta de audio
-            golden_audio_path = Path("Audio") / "golden.mp3"
+            golden_audio_path = Path(__file__).resolve().parent / "audio" / "golden.mp3
             
             # Buscar en múltiples ubicaciones
             possible_paths = [
@@ -256,3 +256,4 @@ class RecyclingRobot(Robot):
         """Ejecuta el programa principal con el sistema seleccionado (niveles o legacy)"""
         fsm = RecyclingFSM(self)
         fsm.run()
+
