@@ -1,7 +1,7 @@
 import time
 import sys
 import select
-from quiz_system import QuizSystem
+from robot_project.gamification.quiz_system import QuizSystem
 
 class RecyclingFSM:
     """
