@@ -485,7 +485,7 @@ class RecyclingFSM:
         if hasattr(self.robot.display, 'render_frame'):
             if not self._showing_qr:
                 self.robot.display.render_frame(
-                    text="Muchas gracias por acompañarme! Te regalo 20 Peri-Puntos, escanea el QR y obtenlos.",
+                    text="Muchas gracias por acompañarme! Escanea el QR y registrate.",
                     show_qr=True
                 )
                 if self._qr_timer_start == 0:
