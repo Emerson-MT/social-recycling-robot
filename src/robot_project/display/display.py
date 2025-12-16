@@ -4,6 +4,7 @@ from pathlib import Path
 import pygame
 from PIL import Image, ImageSequence
 import textwrap
+import os
 
 ###################################################################################
 ############################## Código Display Nuevo ###############################
@@ -13,9 +14,22 @@ class Display:
     """Pantalla táctil para mostrar información visual con animaciones GIF"""
     
     def __init__(self, screen_size=(1024, 600), fps=60, bg_color=(0, 0, 0)):
+        # Desactivar teclado virtual en pantallas táctiles
+        os.environ['SDL_VIDEO_ALLOW_SCREENSAVER'] = '1'
+        os.environ['SDL_MOUSE_TOUCH_EVENTS'] = '1'
+        os.environ['SDL_TOUCH_MOUSE_EVENTS'] = '0'
+        
         pygame.init()
         pygame.font.init()
-        self.screen = pygame.display.set_mode(screen_size)
+        
+        # Configurar pantalla completa
+        # Usar FULLSCREEN para pantalla completa real
+        # o NOFRAME para ventana sin bordes del tamaño de la pantalla
+        self.screen = pygame.display.set_mode(screen_size, pygame.FULLSCREEN)
+        
+        # Desactivar el cursor del mouse (opcional, útil para pantallas táctiles)
+        pygame.mouse.set_visible(True)  # Cambiar a False si no quieres ver el cursor
+        
         self.width, self.height = self.screen.get_size()
         pygame.display.set_caption("Simulador de Interacción Robot PERI")
         self.clock = pygame.time.Clock()
@@ -291,22 +305,56 @@ class Display:
         # Timer
         start_time = pygame.time.get_ticks()
         
+        # Variable para almacenar la respuesta
+        answer = None
+        
         # Loop de la pregunta
-        while True:
+        while answer is None:
             # Procesar eventos
             mouse_pos = pygame.mouse.get_pos()
+            
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     self.running = False
                     return None
-                elif event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE:
-                    self.running = False
-                    return None
+                    
+                elif event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_ESCAPE:
+                        self.running = False
+                        return None
+                    # Bloquear entrada de teclado para evitar activar teclado virtual
+                    # No procesar otros eventos de teclado
+                    continue
+                
+                # Usar MOUSEBUTTONDOWN para detectar toques táctiles
+                # En pantallas táctiles, los toques se convierten en eventos de mouse
                 elif event.type == pygame.MOUSEBUTTONDOWN:
-                    if true_button_rect.collidepoint(mouse_pos):
-                        return True
-                    elif false_button_rect.collidepoint(mouse_pos):
-                        return False
+                    # Verificar si el toque fue en algún botón
+                    touch_pos = event.pos
+                    if true_button_rect.collidepoint(touch_pos):
+                        answer = True
+                        break
+                    elif false_button_rect.collidepoint(touch_pos):
+                        answer = False
+                        break
+                
+                # También manejar eventos FINGERDOWN para soporte táctil directo
+                elif event.type == pygame.FINGERDOWN:
+                    # Convertir coordenadas normalizadas (0-1) a píxeles
+                    finger_x = int(event.x * self.width)
+                    finger_y = int(event.y * self.height)
+                    finger_pos = (finger_x, finger_y)
+                    
+                    if true_button_rect.collidepoint(finger_pos):
+                        answer = True
+                        break
+                    elif false_button_rect.collidepoint(finger_pos):
+                        answer = False
+                        break
+            
+            # Si ya tenemos respuesta, salir del loop
+            if answer is not None:
+                break
             
             # Verificar timeout
             elapsed = (pygame.time.get_ticks() - start_time) / 1000
@@ -367,6 +415,8 @@ class Display:
             # Actualizar display
             pygame.display.flip()
             self.clock.tick(self.fps)
+        
+        return answer
     
     def show_quiz_result_screen(self, is_correct: bool, explanation: str, 
                                points_earned: int, display_time: float = 4.0):
