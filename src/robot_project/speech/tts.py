@@ -47,7 +47,7 @@ class TextToSpeech:
             try:
                 # --- MODIFICADO: Agregamos '-v', '2.0' para duplicar el volumen ---
                 # Ajusta el 2.0 a 1.5 o 3.0 según necesites.
-                subprocess.run(["sox", "-v", "2.0", wav_path, "-t", "alsa", self.audio_device])
+                subprocess.run(["sox", "-v", "3.0", wav_path, "-t", "alsa", self.audio_device])
                 
                 # O si decidiste usar 'default' y 'play':
                 # subprocess.run(["play", "-v", "2.0", wav_path])

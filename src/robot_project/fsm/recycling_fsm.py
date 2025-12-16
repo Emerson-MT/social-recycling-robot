@@ -200,7 +200,8 @@ class RecyclingFSM:
         
         # Renderizar frame con texto (si tiene pygame)
         if hasattr(self.robot.display, 'render_frame'):
-            self.robot.display.render_frame(text="Mmmmh? Hay alguien ahi?")
+            self.robot.display.render_frame(text="Eh? Hay alguien ahi?")
+            #self.robot.tts.deliver_message("Eh? Hay alguien ahi?")
             
             animation_finished = self.robot.display.update_animation()
             if animation_finished and self.robot.display.current_state_name == "despertando_inicio":
@@ -210,7 +211,6 @@ class RecyclingFSM:
         if self.wizard_waste_detected:
             print("  ✅ Residuo depositado (WIZARD)")
             self.robot.play_audio(self.robot.audio_paths["start_audio_path"])
-            self.robot.tts.deliver_message("Mmmmh? Hay alguien ahi?")
             self.wizard_waste_detected = False  # Reset flag
             self.reset_state_flag('despertando')
             self.state = "CLASIFICAR_2"
@@ -219,7 +219,8 @@ class RecyclingFSM:
         # Verificar timeout
         if self.check_timer():
             print("  ⏱️ Timeout - Volviendo a HIBERNACION")
-            self.robot.tts.deliver_message("Uhmmm? Bueno, volveré a dormir...")
+            self.robot.display.render_frame(text="Bueno, volveré a dormir...")
+            self.robot.tts.deliver_message("Bueno, volveré a dormir...")
             self.reset_state_flag('despertando')
             self.state = "HIBERNACION"
             return
@@ -298,7 +299,7 @@ class RecyclingFSM:
         # Clasificar UNA vez
         if not self._clasificacion_realizada:
             print("  📷 Clasificando con HailoVision...")
-            
+            time.sleep(2)
             try:
                 resultado = self.robot.classify_waste(tiempo_limite=2, confianza_minima=0.3, mostrar=False)
                 
@@ -436,8 +437,10 @@ class RecyclingFSM:
             try:
                 if is_correct:
                     self.robot.tts.deliver_message(f"Correcto! Ganaste {points} puntos.")
+                    self.robot.play_audio(self.robot.audio_paths["win_audio_path"])
                 else:
                     self.robot.tts.deliver_message(f"La respuesta correcta era {'verdadero' if self.current_question['correct'] else 'falso'}.")
+                    self.robot.play_audio(self.robot.audio_paths["lose_audio_path"])
             except Exception as e:
                 print(f"  ⚠️ TTS error: {e}")
             
@@ -464,7 +467,6 @@ class RecyclingFSM:
                 self.robot.display.set_expression("feliz")
             
             print("  🔊 [Audio] Sonido alegre")
-            self.robot.play_audio(self.robot.audio_paths["win_audio_path"])
             
             # TTS
             print("  🗣️ [TTS] Despedida")
@@ -492,7 +494,7 @@ class RecyclingFSM:
                 if self._qr_timer_start == 0:
                     self._qr_timer_start = time.time()
             
-            if self._qr_timer_start > 0 and (time.time() - self._qr_timer_start) > 3:
+            if self._qr_timer_start > 0 and (time.time() - self._qr_timer_start) > 8:
                 if not self._showing_qr:
                     self._showing_qr = True
                     self.robot.display.set_expression("despedida")
