@@ -10,6 +10,17 @@ class TextToSpeech:
         self.audio_device = audio_device
         self.voice = voice
         self.rate = rate
+
+        # --- NUEVO: Forzar volumen del hardware al 100% ---
+        try:
+            # Intenta subir el volumen del sistema (Master/PCM/Speaker)
+            # 'amixer' es el comando de Linux para mezclar audio
+            subprocess.run(["amixer", "set", "Master", "100%"], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+            # En caso de que se llame 'Speaker' o 'PCM' en el ReSpeaker:
+            subprocess.run(["amixer", "-c", "3", "set", "Speaker", "100%"], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL) 
+            # Nota: -c 3 asume que es la tarjeta 3. Si usas 'default', la primera línea basta.
+        except Exception as e:
+            print(f"⚠️ No se pudo ajustar el volumen del sistema: {e}")
     
     def speak_text(self, text, voice=None, rate=None):
         voice = voice or self.voice
@@ -34,7 +45,12 @@ class TextToSpeech:
 
             print(f"🔊 Reproduciendo en: {self.audio_device}")
             try:
-                subprocess.run(["sox", wav_path, "-t", "alsa", self.audio_device])
+                # --- MODIFICADO: Agregamos '-v', '2.0' para duplicar el volumen ---
+                # Ajusta el 2.0 a 1.5 o 3.0 según necesites.
+                subprocess.run(["sox", "-v", "2.0", wav_path, "-t", "alsa", self.audio_device])
+                
+                # O si decidiste usar 'default' y 'play':
+                # subprocess.run(["play", "-v", "2.0", wav_path])
             except Exception as e:
                 print("❌ Error al reproducir audio:", e)
             finally:

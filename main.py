@@ -32,6 +32,7 @@ CV_MODEL_PATH = config["cv"]["model_file"]
 DB_CONFIG = config["database"]
 
 AUDIO_DEVICE = config["audio"]["device"]
+AUDIO_DEVICE = "default"
 
 SERIAL_CONN1 = config["serial"]["conn1"]
 
@@ -90,10 +91,10 @@ def setup_robot() -> RecyclingRobot:
         print("=" * 60)
         from robot_project import SerialConnection, HailoVision
         from robot_project.speech.mock_stt import MockSpeechToText as SpeechToText
-        from robot_project.speech.mock_tts import MockTextToSpeech as TextToSpeech
+        from robot_project.speech.tts import TextToSpeech
         from robot_project.database.mock_database import MockStudentDatabase as StudentDatabase
         from robot_project.llm.mock_llm import MockLargeLanguageModel as LargeLanguageModel
-        from robot_project.display.display import Display as Display
+        from robot_project.display.display import Display
         
     # Inicializar componentes
     stt = SpeechToText(STT_MODEL_PATH)
