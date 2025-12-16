@@ -165,6 +165,72 @@ class RecyclingRobot(Robot):
             else:
                 self.tts.deliver_message("No se entendió. Intenta de nuevo.\n")
 
+    def test_golden_mode(self):
+        """Modo Golden: Muestra botón dorado y reproduce la canción 'Golden' de Huntrix"""
+        from pathlib import Path
+        
+        print("\n" + "="*60)
+        print("🏆 INICIANDO MODO GOLDEN")
+        print("="*60)
+        print("Mostrando botón dorado en pantalla...\n")
+        
+        # Mostrar botón golden y esperar interacción
+        button_pressed = self.display.show_golden_button()
+        
+        if button_pressed:
+            print("✨ ¡BOTÓN GOLDEN PRESIONADO!")
+            print("🎵 Reproduciendo 'Golden' de Huntrix...\n")
+            
+            # Verificar si existe la ruta de audio
+            golden_audio_path = Path("Audio") / "golden.mp3"
+            
+            # Buscar en múltiples ubicaciones
+            possible_paths = [
+                golden_audio_path,
+                Path("src/robot_project/audio") / "golden.mp3",
+                Path("audio") / "golden.mp3",
+                Path.cwd() / "Audio" / "golden.mp3",
+                Path(__file__).parent / "audio" / "golden.mp3"
+            ]
+            
+            audio_found = None
+            for path in possible_paths:
+                if path.exists():
+                    audio_found = str(path)
+                    print(f"🔊 Audio encontrado: {audio_found}")
+                    break
+            
+            if audio_found:
+                try:
+                    # Reproducir audio usando el sistema del robot
+                    self.play_audio(audio_found)
+                    print("✅ Reproducción completada")
+                except Exception as e:
+                    print(f"⚠️ Error al reproducir audio: {e}")
+                    print("Intentando con pygame.mixer...")
+                    
+                    # Fallback: usar pygame mixer directamente
+                    try:
+                        import pygame
+                        pygame.mixer.init()
+                        pygame.mixer.music.load(audio_found)
+                        pygame.mixer.music.play()
+                        
+                        # Esperar a que termine la canción
+                        while pygame.mixer.music.get_busy():
+                            pygame.time.Clock().tick(10)
+                        
+                        print("✅ Reproducción completada (pygame)")
+                    except Exception as e2:
+                        print(f"❌ Error con pygame mixer: {e2}")
+            else:
+                print("⚠️ No se encontró el archivo 'golden.mp3'")
+                print("Ubicaciones buscadas:")
+                for path in possible_paths:
+                    print(f"  - {path}")
+        else:
+            print("❌ Modo Golden cancelado\n")
+
     def run_test(self, test: int):
         match test:
             case 1:
@@ -182,7 +248,7 @@ class RecyclingRobot(Robot):
             case 7:
                 self.test_codigo_y_recompensa()
             case 8:
-                self.test_conversacion()
+                self.test_golden_mode()
             case _:
                 print("Número de test inválido.")
 
