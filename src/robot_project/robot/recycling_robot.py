@@ -209,9 +209,21 @@ class RecyclingRobot(Robot):
                 return
             
             # Buscar archivos MP3 en el directorio de audio
+            # Lista de archivos a excluir (efectos de sonido, no canciones)
+            excluded_files = [
+                "losing_sound-effect",
+                "starting_sound-effect", 
+                "winning_sound-effect"
+            ]
+            
             songs_data = []
             for file in audio_dir.glob("*.mp3"):
                 song_name = file.stem  # Nombre sin extensión
+                
+                # Excluir archivos de efectos de sonido
+                if song_name in excluded_files:
+                    continue
+                
                 songs_data.append({
                     'name': song_name,
                     'path': str(file)
@@ -229,6 +241,7 @@ class RecyclingRobot(Robot):
             print(f"🎵 Canciones encontradas: {len(song_names)}")
             for song in song_names:
                 print(f"  - {song}")
+            print(f"⏭️  Archivos excluidos: {', '.join(excluded_files)}\n")
             
             # Mostrar ruleta y obtener canción seleccionada
             selected_song_name = self.display.show_song_roulette(song_names, duration=3.0)
@@ -298,6 +311,7 @@ class RecyclingRobot(Robot):
         """Ejecuta el programa principal con el sistema seleccionado (niveles o legacy)"""
         fsm = RecyclingFSM(self)
         fsm.run()
+
 
 
 
