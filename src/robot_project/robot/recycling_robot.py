@@ -164,46 +164,89 @@ class RecyclingRobot(Robot):
                     self.tts.deliver_message(respuesta)
             else:
                 self.tts.deliver_message("No se entendió. Intenta de nuevo.\n")
-
-    def test_golden_mode(self):
-        """Modo Golden: Muestra botón dorado y reproduce la canción 'Golden' de Huntrix"""
+                
+    def test_djperigro_mode(self):
+        """Modo DJPERIGRO: Muestra botón DJPERIGRO, ruleta musical y reproduce la canción seleccionada"""
         from pathlib import Path
         
         print("\n" + "="*60)
-        print("🏆 INICIANDO MODO GOLDEN")
+        print("🎧 INICIANDO MODO DJPERIGRO")
         print("="*60)
-        print("Mostrando botón dorado en pantalla...\n")
+        print("Mostrando botón DJPERIGRO en pantalla...\n")
         
-        # Mostrar botón golden y esperar interacción
-        button_pressed = self.display.show_golden_button()
+        # Mostrar botón DJPERIGRO y esperar interacción
+        button_pressed = self.display.show_djperigro_button()
         
         if button_pressed:
-            print("✨ ¡BOTÓN GOLDEN PRESIONADO!")
-            print("🎵 Reproduciendo 'Golden' de Huntrix...\n")
+            print("✨ ¡BOTÓN DJPERIGRO PRESIONADO!")
+            print("🎲 Girando la ruleta musical...\n")
             
-            # Verificar si existe la ruta de audio
-            golden_audio_path = Path(__file__).resolve().parent / "audio" / "golden.mp3"
+            # Directorio base de audio
+            audio_base = Path(__file__).resolve().parent / "audio"
             
-            # Buscar en múltiples ubicaciones
-            possible_paths = [
-                golden_audio_path,
-                Path("src/robot_project/audio") / "golden.mp3",
-                Path("audio") / "golden.mp3",
-                Path.cwd() / "Audio" / "golden.mp3",
-                Path(__file__).parent / "audio" / "golden.mp3"
+            # Buscar directorio de audio en múltiples ubicaciones
+            possible_audio_dirs = [
+                audio_base,
+                Path("src/robot_project/audio"),
+                Path("audio"),
+                Path.cwd() / "Audio",
+                Path(__file__).parent / "audio"
             ]
             
-            audio_found = None
-            for path in possible_paths:
-                if path.exists():
-                    audio_found = str(path)
-                    print(f"🔊 Audio encontrado: {audio_found}")
+            audio_dir = None
+            for path in possible_audio_dirs:
+                if path.exists() and path.is_dir():
+                    audio_dir = path
+                    print(f"📁 Directorio de audio encontrado: {audio_dir}")
                     break
             
-            if audio_found:
+            if not audio_dir:
+                print("⚠️ No se encontró el directorio de audio")
+                print("Ubicaciones buscadas:")
+                for path in possible_audio_dirs:
+                    print(f"  - {path}")
+                print("❌ Modo DJPERIGRO cancelado\n")
+                return
+            
+            # Buscar archivos MP3 en el directorio de audio
+            songs_data = []
+            for file in audio_dir.glob("*.mp3"):
+                song_name = file.stem  # Nombre sin extensión
+                songs_data.append({
+                    'name': song_name,
+                    'path': str(file)
+                })
+            
+            if not songs_data:
+                print("⚠️ No se encontraron canciones MP3 en el directorio de audio")
+                print(f"Directorio: {audio_dir}")
+                print("❌ Modo DJPERIGRO cancelado\n")
+                return
+            
+            # Extraer solo los nombres para la ruleta
+            song_names = [song['name'] for song in songs_data]
+            
+            print(f"🎵 Canciones encontradas: {len(song_names)}")
+            for song in song_names:
+                print(f"  - {song}")
+            
+            # Mostrar ruleta y obtener canción seleccionada
+            selected_song_name = self.display.show_song_roulette(song_names, duration=3.0)
+            
+            # Buscar la ruta de la canción seleccionada
+            selected_song_path = None
+            for song in songs_data:
+                if song['name'] == selected_song_name:
+                    selected_song_path = song['path']
+                    break
+            
+            if selected_song_path:
+                print(f"\n🎊 Canción seleccionada: {selected_song_name}")
+                print(f"🎵 Reproduciendo...\n")
+                
                 try:
                     # Reproducir audio usando el sistema del robot
-                    self.play_audio(audio_found)
+                    self.play_audio(selected_song_path)
                     print("✅ Reproducción completada")
                 except Exception as e:
                     print(f"⚠️ Error al reproducir audio: {e}")
@@ -213,7 +256,7 @@ class RecyclingRobot(Robot):
                     try:
                         import pygame
                         pygame.mixer.init()
-                        pygame.mixer.music.load(audio_found)
+                        pygame.mixer.music.load(selected_song_path)
                         pygame.mixer.music.play()
                         
                         # Esperar a que termine la canción
@@ -224,10 +267,9 @@ class RecyclingRobot(Robot):
                     except Exception as e2:
                         print(f"❌ Error con pygame mixer: {e2}")
             else:
-                print("⚠️ No se encontró el archivo 'golden.mp3'")
-                print("Ubicaciones buscadas:")
-                for path in possible_paths:
-                    print(f"  - {path}")
+                print(f"❌ Error: No se pudo encontrar la ruta de la canción '{selected_song_name}'")
+        else:
+            print("❌ Modo DJPERIGRO cancelado\n")
         else:
             print("❌ Modo Golden cancelado\n")
 
@@ -256,5 +298,6 @@ class RecyclingRobot(Robot):
         """Ejecuta el programa principal con el sistema seleccionado (niveles o legacy)"""
         fsm = RecyclingFSM(self)
         fsm.run()
+
 
 
