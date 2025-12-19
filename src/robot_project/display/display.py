@@ -1,4 +1,5 @@
 import time
+import math
 from typing import Optional, List, Dict
 from pathlib import Path
 import pygame
@@ -671,31 +672,31 @@ class Display:
             "✨"
         )
 
-    def show_golden_button(self) -> bool:
+    def show_djperigro_button(self) -> bool:
         """
-        Muestra un botón GOLDEN dorado en pantalla completa.
+        Muestra un botón DJPERIGRO en pantalla completa.
         
         Returns:
             True si se presionó el botón, False si se presiona ESC para salir
         """
-        # Configuración del botón dorado
-        button_width = 400
+        # Configuración del botón
+        button_width = 450
         button_height = 150
         
         # Posición centrada
         center_x = self.width // 2
         center_y = self.height // 2
         
-        golden_button_rect = pygame.Rect(
+        djperigro_button_rect = pygame.Rect(
             center_x - button_width // 2,
             center_y - button_height // 2,
             button_width,
             button_height
         )
         
-        # Color dorado
-        golden_color = (255, 215, 0)  # Oro
-        golden_dark = (218, 165, 32)  # Oro oscuro (para hover)
+        # Colores estilo DJ (degradado morado/rosa)
+        dj_color = (138, 43, 226)  # Azul violeta
+        dj_hover = (218, 112, 214)  # Orquídea
         
         # Loop del botón
         while True:
@@ -715,7 +716,7 @@ class Display:
                 # Detectar toque/click en el botón
                 elif event.type == pygame.MOUSEBUTTONDOWN:
                     touch_pos = event.pos
-                    if golden_button_rect.collidepoint(touch_pos):
+                    if djperigro_button_rect.collidepoint(touch_pos):
                         return True
                 
                 # Soporte táctil directo
@@ -724,7 +725,7 @@ class Display:
                     finger_y = int(event.y * self.height)
                     finger_pos = (finger_x, finger_y)
                     
-                    if golden_button_rect.collidepoint(finger_pos):
+                    if djperigro_button_rect.collidepoint(finger_pos):
                         return True
             
             # Actualizar animación de fondo
@@ -734,24 +735,24 @@ class Display:
             self.draw_background_animation()
             
             # Detectar hover para efecto
-            button_hover = golden_button_rect.collidepoint(mouse_pos)
+            button_hover = djperigro_button_rect.collidepoint(mouse_pos)
             
             # Color del botón (más brillante en hover)
-            button_color = golden_dark if button_hover else golden_color
+            button_color = dj_hover if button_hover else dj_color
             
-            # Dibujar botón dorado con efecto brillante
-            pygame.draw.rect(self.screen, button_color, golden_button_rect, border_radius=30)
+            # Dibujar botón con efecto brillante
+            pygame.draw.rect(self.screen, button_color, djperigro_button_rect, border_radius=30)
             
             # Borde blanco brillante
-            pygame.draw.rect(self.screen, (255, 255, 255), golden_button_rect, width=5, border_radius=30)
+            pygame.draw.rect(self.screen, (255, 255, 255), djperigro_button_rect, width=5, border_radius=30)
             
-            # Texto "GOLDEN"
-            golden_text = self.font_question.render("GOLDEN", True, (0, 0, 0))
-            text_rect = golden_text.get_rect(center=golden_button_rect.center)
-            self.screen.blit(golden_text, text_rect)
+            # Texto "DJPERIGRO"
+            dj_text = self.font_question.render("DJ PERIGRO", True, (255, 255, 255))
+            text_rect = dj_text.get_rect(center=djperigro_button_rect.center)
+            self.screen.blit(dj_text, text_rect)
             
             # Texto de instrucción
-            instruction = "Toca el botón para activar el modo GOLDEN"
+            instruction = "🎧 Toca el botón para girar la ruleta musical"
             instruction_surface = self.font_body.render(instruction, True, (255, 255, 255))
             instruction_rect = instruction_surface.get_rect(center=(self.width // 2, center_y + button_height // 2 + 80))
             self.screen.blit(instruction_surface, instruction_rect)
@@ -759,6 +760,187 @@ class Display:
             # Actualizar display
             pygame.display.flip()
             self.clock.tick(self.fps)
+
+    def show_song_roulette(self, songs: List[str], duration: float = 3.0) -> str:
+        """
+        Muestra una ruleta de canciones que gira y selecciona una aleatoriamente.
+        
+        Args:
+            songs: Lista de nombres de canciones disponibles
+            duration: Duración del giro en segundos (default 3.0)
+            
+        Returns:
+            Nombre de la canción seleccionada
+        """
+        import random
+        import math
+        
+        if not songs:
+            return None
+        
+        # Seleccionar canción ganadora (pero no revelar hasta el final)
+        winner_index = random.randint(0, len(songs) - 1)
+        winner_song = songs[winner_index]
+        
+        # Configuración de la ruleta
+        center_x = self.width // 2
+        center_y = self.height // 2
+        radius = 250  # Radio de la ruleta
+        
+        # Colores para las secciones
+        colors = [
+            (255, 99, 71),   # Tomate
+            (135, 206, 250), # Azul cielo
+            (144, 238, 144), # Verde claro
+            (255, 215, 0),   # Oro
+            (255, 105, 180), # Rosa fuerte
+            (147, 112, 219), # Morado medio
+            (255, 165, 0),   # Naranja
+            (64, 224, 208),  # Turquesa
+        ]
+        
+        # Calcular ángulo por sección
+        angle_per_song = 360 / len(songs)
+        
+        # Variables de animación
+        start_time = time.time()
+        current_rotation = 0
+        rotation_speed = 0  # Velocidad inicial
+        max_speed = 720  # Velocidad máxima (grados por segundo)
+        
+        # Loop de animación
+        while True:
+            # Procesar eventos (solo para cerrar)
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    self.running = False
+                    return winner_song
+                elif event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE:
+                    return winner_song
+            
+            # Calcular tiempo transcurrido
+            elapsed = time.time() - start_time
+            progress = min(elapsed / duration, 1.0)
+            
+            # Si terminó la animación, salir
+            if progress >= 1.0:
+                break
+            
+            # Animación de desaceleración (easing out)
+            # Acelera al principio y desacelera al final
+            if progress < 0.2:
+                # Aceleración inicial
+                rotation_speed = max_speed * (progress / 0.2)
+            else:
+                # Desaceleración
+                remaining = 1.0 - progress
+                rotation_speed = max_speed * remaining * 1.2
+            
+            # Actualizar rotación
+            current_rotation += rotation_speed * (1/60)  # Asumiendo 60 FPS
+            current_rotation = current_rotation % 360
+            
+            # Actualizar animación de fondo
+            self.update_animation()
+            
+            # Dibujar fondo
+            self.draw_background_animation()
+            
+            # Dibujar título
+            title = "🎲 RULETA MUSICAL 🎲"
+            title_surface = self.font_question.render(title, True, (255, 255, 255))
+            title_rect = title_surface.get_rect(center=(center_x, 80))
+            self.screen.blit(title_surface, title_rect)
+            
+            # Dibujar la ruleta (círculo con secciones)
+            for i, song in enumerate(songs):
+                # Calcular ángulo inicial y final de esta sección
+                start_angle = math.radians(i * angle_per_song - current_rotation)
+                end_angle = math.radians((i + 1) * angle_per_song - current_rotation)
+                
+                # Color de la sección
+                color = colors[i % len(colors)]
+                
+                # Dibujar sector de la ruleta
+                points = [(center_x, center_y)]
+                for angle in [start_angle + j * (end_angle - start_angle) / 20 for j in range(21)]:
+                    x = center_x + radius * math.cos(angle)
+                    y = center_y + radius * math.sin(angle)
+                    points.append((x, y))
+                
+                pygame.draw.polygon(self.screen, color, points)
+                pygame.draw.polygon(self.screen, (255, 255, 255), points, 3)  # Borde blanco
+                
+                # Dibujar nombre de la canción (rotado)
+                mid_angle = (start_angle + end_angle) / 2
+                text_radius = radius * 0.7
+                text_x = center_x + text_radius * math.cos(mid_angle)
+                text_y = center_y + text_radius * math.sin(mid_angle)
+                
+                # Renderizar texto
+                song_surface = self.font_body.render(song[:15], True, (0, 0, 0))
+                # Rotar texto
+                rotated_text = pygame.transform.rotate(song_surface, -math.degrees(mid_angle) + 90)
+                text_rect = rotated_text.get_rect(center=(text_x, text_y))
+                self.screen.blit(rotated_text, text_rect)
+            
+            # Dibujar círculo central
+            pygame.draw.circle(self.screen, (50, 50, 50), (center_x, center_y), 40)
+            pygame.draw.circle(self.screen, (255, 255, 255), (center_x, center_y), 40, 3)
+            
+            # Dibujar indicador (flecha en la parte superior)
+            indicator_points = [
+                (center_x, center_y - radius - 30),
+                (center_x - 20, center_y - radius - 10),
+                (center_x + 20, center_y - radius - 10)
+            ]
+            pygame.draw.polygon(self.screen, (255, 0, 0), indicator_points)
+            pygame.draw.polygon(self.screen, (255, 255, 255), indicator_points, 3)
+            
+            # Actualizar display
+            pygame.display.flip()
+            self.clock.tick(60)
+        
+        # Animación final: mostrar ganador
+        self._show_winner_announcement(winner_song)
+        
+        return winner_song
+    
+    def _show_winner_announcement(self, song_name: str, duration: float = 2.0):
+        """Muestra la canción ganadora con una animación"""
+        start_time = time.time()
+        
+        while (time.time() - start_time) < duration:
+            # Procesar eventos
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    self.running = False
+                    return
+            
+            # Actualizar animación
+            self.update_animation()
+            
+            # Dibujar fondo
+            self.draw_background_animation()
+            
+            # Efecto de parpadeo
+            alpha = abs(math.sin((time.time() - start_time) * 3))
+            
+            # Título
+            title = "🎊 ¡CANCIÓN SELECCIONADA! 🎊"
+            title_surface = self.font_question.render(title, True, (255, 215, 0))
+            title_rect = title_surface.get_rect(center=(self.width // 2, self.height // 2 - 80))
+            self.screen.blit(title_surface, title_rect)
+            
+            # Nombre de la canción ganadora
+            winner_color = (int(255 * alpha), 255, int(255 * alpha))
+            winner_surface = self.font_question.render(song_name, True, winner_color)
+            winner_rect = winner_surface.get_rect(center=(self.width // 2, self.height // 2))
+            self.screen.blit(winner_surface, winner_rect)
+            
+            # Actualizar display
+            pygame.display.flip()
+            self.clock.tick(60)
 
     def clear(self):
         """Limpia la pantalla (simula borrado de display)."""
