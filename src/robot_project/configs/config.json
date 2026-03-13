@@ -8,7 +8,7 @@
     "model_file": "vosk-model-small-es-0.42"
   },
   "tts": {
-    "speech_voice": "es-PE-CamilaNeural"
+    "speech_voice": "en-US-AvaNeural"
   },
   "cv": {
     "model_file": "peri_hailo--640x640_quant_hailort_multidevice_1"

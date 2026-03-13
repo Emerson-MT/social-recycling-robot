@@ -32,36 +32,27 @@ class Robot:
         self.stop_event = threading.Event()
     
     def play_audio(self, mp3_path):
-        # En modo mock, solo simular la reproducción
         if is_mock_mode():
             print(f"🔊 [MOCK] Reproduciendo audio: {os.path.basename(mp3_path)}")
-            time.sleep(0.5)  # Simular duración de reproducción
+            time.sleep(0.5)
             return
 
-        wav_path = mp3_path.replace(".mp3", ".wav")
-
-        # Convertir MP3 a WAV temporalmente
-        subprocess.run(["ffmpeg", "-y", "-i", mp3_path, wav_path], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-
-        # Obtener el dispositivo de salida de audio
-        device = self.audio_device
-        if not device:
-            print("❌ No se encontró el dispositivo de audio USB.")
-            return
-
-        print(f"🔊 Reproduciendo en: {device}")
+        # En lugar de sox + alsa, usamos ffplay que es más robusto con BT
+        # -nodisp: sin ventana, -autoexit: cierra al terminar, -loglevel: silencio
+        print(f"🔊 Reproduciendo en parlante Bluetooth...")
         try:
-            subprocess.run(["sox", wav_path, "-t", "alsa", device])
+            # Si usas PulseAudio (estándar en Raspberry Pi OS moderno):
+            subprocess.run(["ffplay", "-nodisp", "-autoexit", "-loglevel", "quiet", mp3_path])
+            
+            # SI prefieres seguir con sox, asegúrate que audio_device sea 'bluealsa' o 'default'
+            # subprocess.run(["play", "-v", "1.0", mp3_path]) 
         except Exception as e:
             print("❌ Error al reproducir audio:", e)
-        finally:
-            if os.path.exists(wav_path):
-                os.remove(wav_path)
 
-    def print_commands(self):
-        print("\n[Comandos disponibles]:")
-        for k, v in self.commands.items():
-            print(f"  {k}: {v}")
+        def print_commands(self):
+            print("\n[Comandos disponibles]:")
+            for k, v in self.commands.items():
+                print(f"  {k}: {v}")
 
 
     def console_listener(self):

@@ -1,0 +1,26 @@
+{
+    "es": {
+        "wakeup_ask": "¿Eh? ¿Hay alguien ahí?",
+        "back_to_sleep": "Bueno, a dormir otra vez...",
+        "classifying": "Clasificando residuo...",
+        "greeting": "¡Hola! ¿Cómo va todo? Acércate y ayúdame a reciclar.",
+        "result_prefix": "¡Listo! Es ",
+        "quiz_intro": "Ahora una pregunta rápida. ¿Verdadero o falso?",
+        "correct": "¡Correcto! Ganaste {} puntos.",
+        "wrong": "La respuesta correcta era {}.",
+        "thanks": "¡Muchas gracias por acompañarme! Escanea el QR y regístrate.",
+        "bye": "¡Espero verte pronto! ¡Adiós!"
+    },
+    "en": {
+        "wakeup_ask": "Huh? Is there anyone there?",
+        "back_to_sleep": "Well, back to sleep it is.",
+        "classifying": "Classifying waste...",
+        "greeting": "Hey! How is it going? Come closer and help me recycle.",
+        "result_prefix": "Done! It is ",
+        "quiz_intro": "Now a quick question. True or false?",
+        "correct": "Correct! You earned {} points.",
+        "wrong": "The correct answer was {}.",
+        "thanks": "Thank you so much for joining me! Scan the QR and register.",
+        "bye": "Hope to see you soon! Bye!"
+    }
+}

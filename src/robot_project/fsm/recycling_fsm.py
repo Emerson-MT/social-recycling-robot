@@ -1,11 +1,15 @@
 import time
 import sys
 import select
+import json
 from robot_project.gamification.quiz_system import QuizSystem
+from pathlib import Path
+
+MESSAGES_PATH = Path(__file__).resolve().parent.parent / "configs" / "messages.json"
 
 class RecyclingFSM:
     """
-    Máquina de Estados Finitos para el sistema de reciclaje.
+    Máquina de Estados Finitos para el sistema de reciclaje (MiniPeri).
     
     WIZARD OF OZ MODE:
     - Presiona 'U' para simular detección de usuario
@@ -13,9 +17,14 @@ class RecyclingFSM:
     - Los sensores VL53L0X NO se usan
     """
 
-    def __init__(self, robot):
+    def __init__(self, robot, language="en"):
         self.robot = robot
+        self.language = language
         self.state = "HIBERNACION"
+        
+        # Cargar mensajes desde JSON
+        self.messages = self._load_messages()
+        
         self.class_id = None
         self.residuo = None
         self.confianza = None
@@ -35,13 +44,29 @@ class RecyclingFSM:
         self.quiz_system = QuizSystem()
         self.user_interactions = 0  # Contador para nivel de dificultad
 
+    def _load_messages(self):
+        """Carga el archivo de traducciones"""
+        try:
+            with open('messages.json', 'r', encoding='utf-8') as f:
+                return json.load(f)
+        except Exception as e:
+            print(f"❌ Error cargando messages.json: {e}")
+            return {}
+
+    def _(self, key, *args):
+        """Helper para obtener texto traducido"""
+        text = self.messages.get(self.language, {}).get(key, f"[{key}]")
+        if args:
+            return text.format(*args)
+        return text
+
     def run(self):
         """
         Ejecuta la FSM con modo Wizard of Oz
         """
         try:
             print("\n" + "="*60)
-            print("🎭 MODO WIZARD OF OZ ACTIVADO")
+            print(f"🎭 MODO WIZARD OF OZ ACTIVADO | IDIOMA: {self.language.upper()}")
             print("="*60)
             print("Controles:")
             print("  [U] = Simular detección de usuario")
@@ -147,7 +172,7 @@ class RecyclingFSM:
         """
         # Inicializar
         if not self.is_state_initialized('hibernacion'):
-            print("\n💤 [HIBERNACION] Esperando input...")
+            print(f"\n💤 [HIBERNACION] Esperando input ({self.language})...")
             print("   Presiona [U] para simular usuario")
             print("   Presiona [R] para simular residuo rápido")
             self.robot.ser.send("ESTADO:0\n")
@@ -200,8 +225,9 @@ class RecyclingFSM:
         
         # Renderizar frame con texto (si tiene pygame)
         if hasattr(self.robot.display, 'render_frame'):
-            self.robot.display.render_frame(text="Eh? Hay alguien ahi?")
-            #self.robot.tts.deliver_message("Eh? Hay alguien ahi?")
+            msg_wakeup = self._("wakeup_ask")
+            self.robot.display.render_frame(text=msg_wakeup)
+            # self.robot.tts.deliver_message(msg_wakeup) # Si quieres que hable al despertar
             
             animation_finished = self.robot.display.update_animation()
             if animation_finished and self.robot.display.current_state_name == "despertando_inicio":
@@ -219,8 +245,10 @@ class RecyclingFSM:
         # Verificar timeout
         if self.check_timer():
             print("  ⏱️ Timeout - Volviendo a HIBERNACION")
-            self.robot.display.render_frame(text="Bueno, volveré a dormir...")
-            self.robot.tts.deliver_message("Bueno, volveré a dormir...")
+            msg_sleep = self._("back_to_sleep")
+            if hasattr(self.robot.display, 'render_frame'):
+                self.robot.display.render_frame(text=msg_sleep)
+            self.robot.tts.deliver_message(msg_sleep)
             self.reset_state_flag('despertando')
             self.state = "HIBERNACION"
             return
@@ -240,7 +268,7 @@ class RecyclingFSM:
         
         # Renderizar frame (si tiene pygame)
         if hasattr(self.robot.display, 'render_frame'):
-            self.robot.display.render_frame(text="Clasificando residuo...")
+            self.robot.display.render_frame(text=self._("classifying"))
 
         # Clasificar UNA vez
         if not self._clasificacion_realizada:
@@ -293,8 +321,9 @@ class RecyclingFSM:
         
         # Renderizar frame (si tiene pygame)
         if hasattr(self.robot.display, 'render_frame'):
-            self.robot.display.render_frame(text="Heeyy, cómo estás? Ven, acércate y ayúdame a reciclar!")
-            self.robot.tts.deliver_message("Heeyy, cómo estás? Ven, acércate y ayúdame a reciclar!")
+            msg_greet = self._("greeting")
+            self.robot.display.render_frame(text=msg_greet)
+            self.robot.tts.deliver_message(msg_greet)
 
         # Clasificar UNA vez
         if not self._clasificacion_realizada:
@@ -322,14 +351,15 @@ class RecyclingFSM:
             self.robot.ser.send(f"RESIDUO:{self.class_id}\n")
             
             # Mostrar resultado en pantalla (si tiene pygame)
+            msg_result = self._("result_prefix") + self.residuo
             if hasattr(self.robot.display, 'render_frame'):
-                self.robot.display.render_frame(text=f"¡Listo! Es {self.residuo}.")
+                self.robot.display.render_frame(text=msg_result)
                 time.sleep(1.5)
             
             # Mensaje educativo con TTS
             print("  🗣️ [TTS] Mensaje educativo")
             try:
-                self.robot.tts.deliver_message(f"¡Listo! Es {self.residuo}.")
+                self.robot.tts.deliver_message(msg_result)
             except Exception as e:
                 print(f"  ⚠️ TTS error: {e}")
             
@@ -369,7 +399,7 @@ class RecyclingFSM:
             
             # TTS: Anunciar que viene una pregunta
             try:
-                self.robot.tts.deliver_message("Ahora una pregunta rápida. Verdadero o falso?")
+                self.robot.tts.deliver_message(self._("quiz_intro"))
             except Exception as e:
                 print(f"  ⚠️ TTS error: {e}")
             
@@ -433,13 +463,17 @@ class RecyclingFSM:
 
                 time.sleep(1.5)
             
-            # TTS con explicación corta
+            # TTS con explicación corta y localización
             try:
                 if is_correct:
-                    self.robot.tts.deliver_message(f"Correcto! Ganaste {points} puntos.")
+                    self.robot.tts.deliver_message(self._("correct", points))
                     self.robot.play_audio(self.robot.audio_paths["win_audio_path"])
                 else:
-                    self.robot.tts.deliver_message(f"La respuesta correcta era {'verdadero' if self.current_question['correct'] else 'falso'}.")
+                    ans_text = "Verdadero" if self.current_question['correct'] else "Falso"
+                    if self.language == "en":
+                        ans_text = "True" if self.current_question['correct'] else "False"
+                    
+                    self.robot.tts.deliver_message(self._("wrong", ans_text))
                     self.robot.play_audio(self.robot.audio_paths["lose_audio_path"])
             except Exception as e:
                 print(f"  ⚠️ TTS error: {e}")
@@ -471,7 +505,7 @@ class RecyclingFSM:
             # TTS
             print("  🗣️ [TTS] Despedida")
             try:
-                self.robot.tts.deliver_message("Muchas gracias por acompañarme! Escanea el QR y registrate.")
+                self.robot.tts.deliver_message(self._("thanks"))
             except Exception as e:
                 print(f"  ⚠️ TTS error: {e}")
             
@@ -488,7 +522,7 @@ class RecyclingFSM:
         if hasattr(self.robot.display, 'render_frame'):
             if not self._showing_qr:
                 self.robot.display.render_frame(
-                    text="Muchas gracias por acompañarme! Escanea el QR y registrate.",
+                    text=self._("thanks"),
                     show_qr=True
                 )
                 if self._qr_timer_start == 0:
@@ -499,13 +533,13 @@ class RecyclingFSM:
                     self._showing_qr = True
                     self.robot.display.set_expression("despedida")
                     try:
-                        self.robot.tts.deliver_message("Espero verte pronto. Bai!")
+                        self.robot.tts.deliver_message(self._("bye"))
                     except:
                         pass
                     self._despedida_timer_start = time.time()
             
             if self._showing_qr:
-                self.robot.display.render_frame(text="Bai!")
+                self.robot.display.render_frame(text=self._("bye"))
                 
                 if (time.time() - self._despedida_timer_start) > 2:
                     print("  ✅ Despedida completada\n")
@@ -518,7 +552,7 @@ class RecyclingFSM:
                 self.robot.display.set_expression("despedida")
             
             try:
-                self.robot.tts.deliver_message("Espero verte pronto")
+                self.robot.tts.deliver_message(self._("bye"))
             except:
                 pass
 
