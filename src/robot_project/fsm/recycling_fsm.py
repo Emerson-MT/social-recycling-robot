@@ -47,7 +47,7 @@ class RecyclingFSM:
     def _load_messages(self):
         """Carga el archivo de traducciones"""
         try:
-            with open('messages.json', 'r', encoding='utf-8') as f:
+            with open(MESSAGES_PATH, 'r', encoding='utf-8') as f:
                 return json.load(f)
         except Exception as e:
             print(f"❌ Error cargando messages.json: {e}")
