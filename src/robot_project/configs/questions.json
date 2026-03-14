@@ -1,0 +1,66 @@
+{
+    "es": {
+        "basico": [
+            {"id": "q1", "question": "Las botellas de plástico deben enjuagarse antes de reciclarlas", "correct": true, "explanation": "VERDADERO. Los residuos de líquidos pueden contaminar otros materiales reciclables."},
+            {"id": "q2", "question": "El papel con manchas de grasa se puede reciclar normalmente", "correct": false, "explanation": "FALSO. La grasa contamina el proceso de reciclaje. El papel sucio debe ir a residuos generales."},
+            {"id": "q3", "question": "Las cajas de pizza limpias son 100% reciclables", "correct": true, "explanation": "VERDADERO. Si la caja está limpia, es cartón reciclable. Solo las partes con grasa van a residuos generales."},
+            {"id": "q4", "question": "Todas las botellas de vidrio pueden ir juntas al reciclaje", "correct": false, "explanation": "FALSO. El vidrio de ventanas o espejos tiene diferente composición y debe separarse de las botellas."},
+            {"id": "q5", "question": "Las latas de aluminio pueden reciclarse infinitas veces sin perder calidad", "correct": true, "explanation": "VERDADERO. El aluminio se recicla infinitamente sin degradarse, ahorrando 95% de energía."},
+            {"id": "q6", "question": "Los vasos de café desechables son de papel y son totalmente reciclables", "correct": false, "explanation": "FALSO. Tienen una capa de plástico o cera que impide su reciclaje. Solo la tapa es reciclable."},
+            {"id": "q7", "question": "El cartón mojado pierde su capacidad de ser reciclado", "correct": true, "explanation": "VERDADERO. El agua debilita las fibras del cartón, reduciendo drásticamente su calidad."},
+            {"id": "q8", "question": "Los envases Tetra Pak son 100% papel reciclable", "correct": false, "explanation": "FALSO. Están hechos de capas de papel, plástico y aluminio. Requieren un proceso especial."}
+        ],
+        "intermedio": [
+            {"id": "q9", "question": "El plástico negro no se puede reciclar debido a los sensores ópticos", "correct": true, "explanation": "VERDADERO. Los sensores infrarrojos en las plantas no detectan el plástico negro, por lo que no se separa."},
+            {"id": "q10", "question": "Las bolsas de plástico biodegradables se descomponen en 3 meses", "correct": false, "explanation": "FALSO. Necesitan condiciones industriales específicas; en el ambiente pueden tardar años."},
+            {"id": "q11", "question": "Reciclar una tonelada de papel salva aproximadamente 17 árboles", "correct": true, "explanation": "VERDADERO. Además ahorra miles de litros de agua y reduce emisiones de gases."},
+            {"id": "q12", "question": "Los recibos térmicos son papel normal y pueden reciclarse", "correct": false, "explanation": "FALSO. Contienen BPA, un químico que contamina el reciclaje de papel."},
+            {"id": "q13", "question": "El papel de aluminio con restos de comida se puede reciclar si se lava", "correct": true, "explanation": "VERDADERO. Si lo lavas y haces una bola grande, facilitarás su detección y reciclaje."},
+            {"id": "q14", "question": "Las pajitas de papel son siempre más ecológicas que las de plástico", "correct": false, "explanation": "FALSO. Su producción consume mucha energía. Las pajitas reutilizables son la mejor opción."},
+            {"id": "q15", "question": "Los CD y DVD son reciclables en el contenedor de plástico", "correct": false, "explanation": "FALSO. Son de policarbonato con metal. Requieren reciclaje especializado en puntos limpios."},
+            {"id": "q16", "question": "Las servilletas y papel higiénico usados pueden compostarse", "correct": false, "explanation": "FALSO. Pueden contener patógenos peligrosos para el compost doméstico."}
+        ],
+        "avanzado": [
+            {"id": "q17", "question": "El plástico reciclado tiene la misma calidad que el plástico virgen", "correct": false, "explanation": "FALSO. Cada ciclo de reciclaje degrada las cadenas poliméricas, reduciendo sus propiedades."},
+            {"id": "q18", "question": "Los microplásticos pueden eliminarse completamente del agua con filtros domésticos", "correct": false, "explanation": "FALSO. Los microplásticos requieren filtración especializada que los filtros comunes no tienen."},
+            {"id": "q19", "question": "Reciclar envases de aerosol es peligroso por riesgo de explosión", "correct": false, "explanation": "FALSO. Si están completamente vacíos, son seguros y se reciclan como metales."},
+            {"id": "q20", "question": "El reciclaje químico puede convertir plástico mezclado en materiales de calidad original", "correct": true, "explanation": "VERDADERO. Descompone polímeros a nivel molecular para crear plástico nuevo."},
+            {"id": "q21", "question": "Los envases de cartón con ventana de plástico no son reciclables", "correct": false, "explanation": "FALSO. Las plantas modernas pueden separar el plástico si este ocupa una parte pequeña del envase."},
+            {"id": "q22", "question": "Las mascarillas quirúrgicas desechables son biodegradables", "correct": false, "explanation": "FALSO. Son de polipropileno (plástico) y tardan hasta 450 años en descomponerse."},
+            {"id": "q23", "question": "Los aparatos electrónicos contienen oro reciclable", "correct": true, "explanation": "VERDADERO. Los circuitos contienen pequeñas cantidades de oro, plata y cobre recuperables."},
+            {"id": "q24", "question": "El 'downcycling' es cuando un material reciclado tiene menor calidad que el original", "correct": true, "explanation": "VERDADERO. Es lo que ocurre cuando las botellas PET se convierten en fibras textiles."}
+        ]
+    },
+    "en": {
+        "basico": [
+            {"id": "q1", "question": "Plastic bottles should be rinsed before recycling them", "correct": true, "explanation": "TRUE. Liquid residues can contaminate other recyclable materials and attract pests."},
+            {"id": "q2", "question": "Paper with grease stains can be recycled normally", "correct": false, "explanation": "FALSE. Grease contaminates the paper recycling process. Dirty paper goes to general waste."},
+            {"id": "q3", "question": "Clean pizza boxes are 100% recyclable", "correct": true, "explanation": "TRUE. If the box is clean (no grease), it's recyclable cardboard. Greasy parts go to general waste."},
+            {"id": "q4", "question": "All glass bottles can be recycled together", "correct": false, "explanation": "FALSE. Glass from windows or mirrors has a different chemical composition and must be separated."},
+            {"id": "q5", "question": "Aluminum cans can be recycled infinitely without losing quality", "correct": true, "explanation": "TRUE. Aluminum is one of the few materials that can be recycled infinitely, saving 95% energy."},
+            {"id": "q6", "question": "Disposable coffee cups are made of paper and are fully recyclable", "correct": false, "explanation": "FALSE. They have a plastic or wax lining that prevents recycling. Only the plastic lid is recyclable."},
+            {"id": "q7", "question": "Wet cardboard loses its ability to be recycled", "correct": true, "explanation": "TRUE. Water weakens the cardboard fibers, making it lose quality and harder to recycle."},
+            {"id": "q8", "question": "Tetra Pak containers are 100% recyclable paper", "correct": false, "explanation": "FALSE. They are made of 6 layers: paper, plastic, and aluminum. They require special separation."}
+        ],
+        "intermedio": [
+            {"id": "q9", "question": "Black plastic cannot be recycled due to optical sensors", "correct": true, "explanation": "TRUE. Infrared sensors at recycling plants cannot detect black plastic, so it ends up in general waste."},
+            {"id": "q10", "question": "Biodegradable plastic bags decompose in 3 months", "correct": false, "explanation": "FALSE. They need specific industrial conditions and can take years in natural environments."},
+            {"id": "q11", "question": "Recycling one ton of paper saves approximately 17 trees", "correct": true, "explanation": "TRUE. It also saves 26,000 liters of water and reduces greenhouse gas emissions."},
+            {"id": "q12", "question": "Thermal receipts are normal paper and can be recycled", "correct": false, "explanation": "FALSE. They contain BPA (Bisphenol A), a chemical that contaminates paper recycling."},
+            {"id": "q13", "question": "Aluminum foil with food scraps can be recycled if washed", "correct": true, "explanation": "TRUE. Aluminum is highly recyclable. If you wash it and ball it up, you'll help its detection."},
+            {"id": "q14", "question": "Paper straws are always more eco-friendly than plastic ones", "correct": false, "explanation": "FALSE. Their production uses more energy and water. Reusable straws are the best option."},
+            {"id": "q15", "question": "CDs and DVDs are recyclable in the plastic bin", "correct": false, "explanation": "FALSE. They are made of polycarbonate with metallic layers. They require specialized recycling."},
+            {"id": "q16", "question": "Used napkins and toilet paper can be composted", "correct": false, "explanation": "FALSE. Although biodegradable, they can contain pathogens. They go to general waste."}
+        ],
+        "avanzado": [
+            {"id": "q17", "question": "Recycled plastic has the same quality as virgin plastic", "correct": false, "explanation": "FALSE. Each recycling cycle degrades the polymer chains, reducing its properties."},
+            {"id": "q18", "question": "Microplastics can be completely removed from water with home filters", "correct": false, "explanation": "FALSE. Microplastics (<5mm) require specialized filtration beyond home filters."},
+            {"id": "q19", "question": "Recycling aerosol cans is dangerous due to explosion risk", "correct": false, "explanation": "FALSE. If they are completely empty (no rattling), they are safe for the metal bin."},
+            {"id": "q20", "question": "Chemical recycling can turn mixed plastic into original quality materials", "correct": true, "explanation": "TRUE. It breaks down polymers at a molecular level to create new plastic."},
+            {"id": "q21", "question": "Cardboard packaging with a plastic window is not recyclable", "correct": false, "explanation": "FALSE. Modern plants can separate plastic from paper if the window is small enough."},
+            {"id": "q22", "question": "Disposable surgical masks are biodegradable", "correct": false, "explanation": "FALSE. They are made of polypropylene (plastic) and can take up to 450 years to decompose."},
+            {"id": "q23", "question": "Electronic devices contain recyclable gold", "correct": true, "explanation": "TRUE. A ton of cell phones contains more gold than a ton of ore, plus silver and copper."},
+            {"id": "q24", "question": "'Downcycling' is when a recycled material has lower quality than the original", "correct": true, "explanation": "TRUE. Example: PET bottles becoming textile fibers. It's common in plastic recycling."}
+        ]
+    }
+}

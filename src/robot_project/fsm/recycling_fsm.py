@@ -41,7 +41,7 @@ class RecyclingFSM:
         self.wizard_waste_detected = False
         
         # Sistema de Quiz
-        self.quiz_system = QuizSystem()
+        self.quiz_system = QuizSystem(self.language)
         self.user_interactions = 0  # Contador para nivel de dificultad
 
     def _load_messages(self):
@@ -53,9 +53,17 @@ class RecyclingFSM:
             print(f"❌ Error cargando messages.json: {e}")
             return {}
 
-    def _(self, key, *args):
-        """Helper para obtener texto traducido"""
-        text = self.messages.get(self.language, {}).get(key, f"[{key}]")
+    def _(self, key, subkey=None, *args):
+        """Helper mejorado para obtener texto o clases"""
+        lang_dict = self.messages.get(self.language, {})
+        
+        # Si pides una clase (ej. key="classes", subkey="0")
+        if subkey is not None:
+            text = lang_dict.get(key, {}).get(str(subkey), f"[{key}:{subkey}]")
+        else:
+            # Uso normal para mensajes simples
+            text = lang_dict.get(key, f"[{key}]")
+            
         if args:
             return text.format(*args)
         return text
@@ -279,7 +287,8 @@ class RecyclingFSM:
                 
                 if resultado:
                     self.class_id, self.residuo, self.confianza = resultado
-                    print(f"  ✅ {self.residuo} (id={self.class_id}, conf={self.confianza:.2f})")
+                    waste_name = self._("classes", self.class_id)
+                    print(f"  ✅ {waste_name} (id={self.class_id}, conf={self.confianza:.2f})")
                 else:
                     print("  ⚠️ Clasificación falló, usando GENERAL")
                     self.class_id = 4
@@ -334,7 +343,8 @@ class RecyclingFSM:
                 
                 if resultado:
                     self.class_id, self.residuo, self.confianza = resultado
-                    print(f"  ✅ {self.residuo} (id={self.class_id}, conf={self.confianza:.2f})")
+                    waste_name = self._("classes", self.class_id)
+                    print(f"  ✅ {waste_name} (id={self.class_id}, conf={self.confianza:.2f})")
                 else:
                     print("  ⚠️ Clasificación falló, usando GENERAL")
                     self.class_id = 4
@@ -346,12 +356,14 @@ class RecyclingFSM:
                 self.class_id = 3
                 self.residuo = "Plástico"
             
+            waste_name = self._("classes", self.class_id)
+            
             # Enviar al ESP32
             print(f"  📤 TX a ESP32: RESIDUO:{self.class_id}")
             self.robot.ser.send(f"RESIDUO:{self.class_id}\n")
             
             # Mostrar resultado en pantalla (si tiene pygame)
-            msg_result = self._("result_prefix") + self.residuo
+            msg_result = self._("result_prefix") + waste_name
             if hasattr(self.robot.display, 'render_frame'):
                 self.robot.display.render_frame(text=msg_result)
                 time.sleep(1.5)

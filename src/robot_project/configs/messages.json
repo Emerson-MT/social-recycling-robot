@@ -5,6 +5,12 @@
         "classifying": "Clasificando residuo...",
         "greeting": "¡Hola! ¿Cómo va todo? Acércate y ayúdame a reciclar.",
         "result_prefix": "¡Listo! Es ",
+        "classes": {
+            "0": "cartón",
+            "1": "papel",
+            "2": "plástico",
+            "3": "residuo general"
+        },
         "quiz_intro": "Ahora una pregunta rápida. ¿Verdadero o falso?",
         "correct": "¡Correcto! Ganaste {} puntos.",
         "wrong": "La respuesta correcta era {}.",
@@ -17,6 +23,12 @@
         "classifying": "Classifying waste...",
         "greeting": "Hey! How is it going? Come closer and help me recycle.",
         "result_prefix": "Done! It is ",
+        "classes": {
+            "0": "cardboard",
+            "1": "paper",
+            "2": "plastic",
+            "3": "general waste"
+        },
         "quiz_intro": "Now a quick question. True or false?",
         "correct": "Correct! You earned {} points.",
         "wrong": "The correct answer was {}.",
