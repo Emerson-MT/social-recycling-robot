@@ -7,9 +7,9 @@ class QuizSystem:
     """Sistema de gamificación con preguntas de VERDADERO/FALSO sobre reciclaje"""
 
     def __init__(self, language):
-        self.questions_bank = self._load_questions()
-        self.used_questions = set()
         self.language = language
+        self.used_questions = set()
+        self.questions_bank = self._load_questions()
 
     def _load_questions(self) -> Dict[str, List[Dict]]:
         """
