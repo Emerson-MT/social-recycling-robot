@@ -396,7 +396,7 @@ class Display:
             pygame.draw.rect(self.screen, true_draw_color, true_button_rect, border_radius=20)
             pygame.draw.rect(self.screen, (255, 255, 255), true_button_rect, width=3, border_radius=20)
             
-            true_text = self.font_options.render("✓ VERDADERO", True, (255, 255, 255))
+            true_text = self.font_options.render("✓ CORRECT", True, (255, 255, 255))
             true_text_rect = true_text.get_rect(center=true_button_rect.center)
             self.screen.blit(true_text, true_text_rect)
             
@@ -408,7 +408,7 @@ class Display:
             pygame.draw.rect(self.screen, false_draw_color, false_button_rect, border_radius=20)
             pygame.draw.rect(self.screen, (255, 255, 255), false_button_rect, width=3, border_radius=20)
             
-            false_text = self.font_options.render("✗ FALSO", True, (255, 255, 255))
+            false_text = self.font_options.render("✗ FALSE", True, (255, 255, 255))
             false_text_rect = false_text.get_rect(center=false_button_rect.center)
             self.screen.blit(false_text, false_text_rect)
             
@@ -434,12 +434,12 @@ class Display:
             if hasattr(self, 'set_expression'):
                 self.set_expression("feliz")
             result_color = (34, 139, 34)  # Verde
-            result_text = f"🎉 ¡CORRECTO! +{points_earned} puntos"
+            result_text = f"🎉 ¡CORRECT! +{points_earned} points"
         else:
             if hasattr(self, 'set_expression'):
                 self.set_expression("neutro")
             result_color = (255, 165, 0)  # Naranja
-            result_text = f"💡 Casi... +{points_earned} puntos"
+            result_text = f"💡 Almost... +{points_earned} points"
         
         start_time = pygame.time.get_ticks()
         
