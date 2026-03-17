@@ -1,0 +1,33 @@
+{
+    "ConfigVersion": 11,
+    "Checksum": "3389b75608fa2895007f5e735b6cc85e56091decfa716fd9303e0840b99222cf",
+    "DEVICE": [
+        {
+            "DeviceType": "HAILO8L",
+            "RuntimeAgent": "HAILORT",
+            "SupportedDeviceTypes": "HAILORT/HAILO8L, HAILORT/HAILO8",
+            "EagerBatchSize": 1
+        }
+    ],
+    "PRE_PROCESS": [
+        {
+            "InputN": 1,
+            "InputH": 640,
+            "InputW": 640,
+            "InputC": 3,
+            "InputQuantEn": true
+        }
+    ],
+    "MODEL_PARAMETERS": [
+        {
+            "ModelPath": "HRI_2--640x640_quant_hailort_multidevice_1.hef"
+        }
+    ],
+    "POST_PROCESS": [
+        {
+            "OutputPostprocessType": "DetectionYoloHailo",
+            "OutputNumClasses": 4,
+            "LabelsPath": "labels_HRI_2.json"
+        }
+    ]
+}
